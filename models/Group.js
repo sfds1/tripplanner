@@ -11,7 +11,7 @@ const GroupSchema = new Schema({
     // Invitation link to room, may not be neccesary
     invitation: {
       type: String,
-      default: link, // random link generator if we are using links
+      default: "link", // random link generator if we are using links
       unique: true,
     },
     posts: [{

@@ -21,9 +21,9 @@ const ActivitySchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'User',
       },
-    group: {
+    event: {
       type: Schema.Types.ObjectId,
-      ref: 'Group',
+      ref: 'Event',
     },
     comments: [{
       type: Schema.Types.ObjectId,

@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const EventSchema = new Schema({
+const CommentSchema = new Schema({
     details: {
       type: String,
       required: true,
@@ -15,4 +15,4 @@ const EventSchema = new Schema({
     },
   });
 
-module.exports = model('Event', EventSchema);
+module.exports = model('Comment', CommentSchema);

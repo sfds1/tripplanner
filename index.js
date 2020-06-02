@@ -13,7 +13,6 @@ const PORT = process.env.PORT || 3001;
 
 
 io.on('connection', socket => {
-
   socket.on('message', (data) => {
     socket.emit('serverToClientMessage', data);
   });
