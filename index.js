@@ -36,6 +36,6 @@ if (process.env.NODE_ENV === 'production') {
 app.use(routes);
 require('./services/passport');
 // Connect database
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reduxTodo', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tripplanner', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
 
 server.listen(PORT);
