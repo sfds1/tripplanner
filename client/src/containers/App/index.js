@@ -10,6 +10,7 @@ import SignUp from '../SignUp';
 import SignOut from '../SignOut';
 import SignIn from '../SignIn';
 import Chat from '../chatComponent';
+import Main from '../../components/Main';
 
 
 import { connect } from 'react-redux';
@@ -37,7 +38,8 @@ class App extends Component {
           <Route exact path='/chat' component={Chat}/>
           <Route exact path='/signin' component={SignIn}/>
           <Route exact path='/signout' component={SignOut}/>
-          <Route exact path='/' component={SignUp}/>
+          <Route exact path='/signup' component={SignUp}/>
+          <Route exact path="/" component={Main} />
         </Grid.Column>
       </Grid>
     );
