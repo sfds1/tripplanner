@@ -7,7 +7,7 @@ module.exports = {
       return res.status(400).json({ error: 'You must provide text' });
     }
     try {
-      const newGroup = await new Group({ name, users: [{ admin:true, user: req.user._id }] }).save();
+      const newGroup = await new Group({ name, users: [{ admin: true, user: req.user._id }] }).save();
       req.user.groups.push({ admin: true, newGroup });
       return res.status(200).json(newGroup);
     } catch (e) {
@@ -21,12 +21,23 @@ module.exports = {
       const groupToAddTo = await Group.findByIdAndUpdate(groupId,
         { $push: { users: { friendId } } },
         { new: true });
-      res.json(groupToAddTo);
+      return res.json(groupToAddTo);
     } catch (e) {
       return res.status(403).json({ e });
     }
   },
-  deleteFromGroup,
+  deleteFromGroup: async (req, res) => {
+    const { groupId } = req.params;
+    const { friendId } = req.body;
+    try {
+      const groupToDeleteFrom = await Group.findByIdAndUpdate(groupId,
+        { $pull: { users: { friendId } } },
+        { new: true });
+      return res.json(groupToDeleteFrom);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
   editGroup,
 
   addTrip,
