@@ -52,6 +52,7 @@ class SignIn extends Component {
   render() {
     const { invalid, submitting, submitFailed, handleSubmit } = this.props;
     return (
+      <div className="card">
       <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
         <Segment stacked>
           <Field
@@ -84,6 +85,7 @@ class SignIn extends Component {
           />
         </Segment>
       </Form>
+      </div>
     );
   }
 }

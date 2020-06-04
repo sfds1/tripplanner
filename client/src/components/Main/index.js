@@ -9,10 +9,8 @@ class Main extends Component {
       <div className="card">
         <Link to="/user">
 
-          <div className="mainPage animated fadeIn delay-0s slower">
+          <div className="mainPage">
             <img className="logo" src="../../../images/logo-1.png" alt="logo" />
-            <h1 className="main">Travel</h1>
-            <h1 className="main">Guide</h1>
           </div>
 
         </Link>
