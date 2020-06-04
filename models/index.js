@@ -1,7 +1,13 @@
-const Todo = require('./Todo');
+const Trip = require('./Trip');
 const User = require('./User');
+const Category = require('./Category');
+const Activity = require('./Activity');
+const Comment = require('./Comment');
 
 module.exports = {
-  Todo,
+  Trip,
   User,
+  Category,
+  Activity,
+  Comment,
 };

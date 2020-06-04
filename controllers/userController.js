@@ -2,12 +2,18 @@ const { User, Trip } = require('../models/index');
 
 module.exports = {
   addTrip: async (req, res) => {
-    const { name } = req.body;
+    const { name, startDate, endDate, location } = req.body;
     if (!name) {
       return res.status(400).json({ error: 'You must provide text' });
     }
     try {
-      const newTrip = await new Trip({ name, users: [{ admin: true, user: req.user._id }] }).save();
+      const newTrip = await new Trip({
+        name,
+        startDate,
+        endDate,
+        location,
+        users: [{ admin: true, user: req.user._id }],
+      }).save();
       req.user.trips.push({ admin: true, newTrip });
       return res.status(200).json(newTrip);
     } catch (e) {
@@ -40,12 +46,14 @@ module.exports = {
   },
   editTrip: async (req, res) => {
     const { tripId } = req.params;
-    const { name } = req.body;
+    const { name, startDate, endDate, location } = req.body;
     if (!name) {
       return res.status(400).json({ error: 'You must provide text' });
     }
     try {
-      const tripToEdit = await Trip.findByIdAndUpdate(tripId, { name }, { new: true });
+      const tripToEdit = await Trip.findByIdAndUpdate(tripId, {
+        name, startDate, endDate, location,
+      }, { new: true });
       return res.json(tripToEdit);
     } catch (e) {
       return res.status(403).json({ e });
