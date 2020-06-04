@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';
 
-import Counter from '../Counter';
 import AllTodosList from '../AllTodosList';
 import UserTodoList from '../UserTodoList';
 
 import SignUp from '../SignUp';
 import SignOut from '../SignOut';
 import SignIn from '../SignIn';
-import Chat from '../chatComponent';
 import Main from '../../components/Main';
+import User from '../../components/User';
 
 
 import { connect } from 'react-redux';
@@ -31,15 +30,15 @@ class App extends Component {
     return (
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 700 }}>
-          <Navbar isLoggedIn={this.props.authenticated}/>
-          <Route exact path='/counter' component={Counter}/>
+          {/* <Navbar isLoggedIn={this.props.authenticated}/> */}
           <Route exact path='/usertodos' component={UserTodoList}/>
           <Route exact path='/alltodos' component={AllTodosList}/>
-          <Route exact path='/chat' component={Chat}/>
           <Route exact path='/signin' component={SignIn}/>
           <Route exact path='/signout' component={SignOut}/>
           <Route exact path='/signup' component={SignUp}/>
           <Route exact path="/" component={Main} />
+          <Route exact path="/user" component={User} />
+
         </Grid.Column>
       </Grid>
     );

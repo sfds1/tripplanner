@@ -7,7 +7,7 @@ class Main extends Component {
     return (
 
       <div className="card">
-        <Link to="/signup">
+        <Link to="/user">
 
           <div className="mainPage animated fadeIn delay-0s slower">
             <img className="logo" src="../../../images/logo-1.png" alt="logo" />
