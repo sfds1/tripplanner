@@ -38,7 +38,20 @@ module.exports = {
       return res.status(403).json({ e });
     }
   },
-  editGroup,
+  
+  editGroup: async (req, res) => {
+    const { groupId } = req.params;
+    const { name } = req.body;
+    if (!name) {
+      return res.status(400).json({ error: 'You must provide text' });
+    }
+    try {
+      const groupToEdit = await Group.findByIdAndUpdate(groupId, { name }, { new: true });
+      return res.json(groupToEdit);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
 
   addTrip,
   addCategory,
