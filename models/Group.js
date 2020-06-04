@@ -19,10 +19,6 @@ const GroupSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
-  groupCreator: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-  },
   // not sure if below is the right syntax for group creator and users in the group
   users: [{
     admin: false,

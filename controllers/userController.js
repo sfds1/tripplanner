@@ -1,6 +1,41 @@
-const { User, Todo } = require('../models/index');
+const { User, Group } = require('../models/index');
 
 module.exports = {
+  addGroup: async (req, res) => {
+    const { name } = req.body;
+    if (!name) {
+      return res.status(400).json({ error: 'You must provide text' });
+    }
+    try {
+      const newGroup = await new Group({ name, users: [{ admin:true, user: req.user._id }] }).save();
+      req.user.groups.push({ admin: true, newGroup });
+      return res.status(200).json(newGroup);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
+  addToGroup: async (req, res) => {
+    const { groupId } = req.params;
+    const { friendId } = req.body;
+    try {
+      const groupToAddTo = await Group.findByIdAndUpdate(groupId,
+        { $push: { users: { friendId } } },
+        { new: true });
+      res.json(groupToAddTo);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
+  deleteFromGroup,
+  editGroup,
+
+  addTrip,
+  addCategory,
+  addActivity,
+  addComment,
+
+
+
   addTodo: async (req, res) => {
     const { text } = req.body;
     if (!text) {
