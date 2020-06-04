@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const todoRoutes = require('./todoRoutes');
+const tripRoutes = require('./tripRoutes');
 const authRoutes = require('./authRoutes');
-const userTodoRoutes = require('./userTodoRoutes');
+const userTripRoutes = require('./userTripRoutes');
 
-router.use('/todos', todoRoutes);
+router.use('/trips', tripRoutes);
 router.use('/auth', authRoutes);
-router.use('/user', userTodoRoutes);
+router.use('/user', userTripRoutes);
 
 module.exports = router;
