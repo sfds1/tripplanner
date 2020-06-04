@@ -1,59 +1,57 @@
-const { User, Group } = require('../models/index');
+const { User, Trip } = require('../models/index');
 
 module.exports = {
-  addGroup: async (req, res) => {
+  addTrip: async (req, res) => {
     const { name } = req.body;
     if (!name) {
       return res.status(400).json({ error: 'You must provide text' });
     }
     try {
-      const newGroup = await new Group({ name, users: [{ admin: true, user: req.user._id }] }).save();
-      req.user.groups.push({ admin: true, newGroup });
-      return res.status(200).json(newGroup);
+      const newTrip = await new Trip({ name, users: [{ admin: true, user: req.user._id }] }).save();
+      req.user.trips.push({ admin: true, newTrip });
+      return res.status(200).json(newTrip);
     } catch (e) {
       return res.status(403).json({ e });
     }
   },
-  addToGroup: async (req, res) => {
-    const { groupId } = req.params;
+  addToTrip: async (req, res) => {
+    const { tripId } = req.params;
     const { friendId } = req.body;
     try {
-      const groupToAddTo = await Group.findByIdAndUpdate(groupId,
+      const tripToAddTo = await Trip.findByIdAndUpdate(tripId,
         { $push: { users: { friendId } } },
         { new: true });
-      return res.json(groupToAddTo);
+      return res.json(tripToAddTo);
     } catch (e) {
       return res.status(403).json({ e });
     }
   },
-  deleteFromGroup: async (req, res) => {
-    const { groupId } = req.params;
+  deleteFromTrip: async (req, res) => {
+    const { tripId } = req.params;
     const { friendId } = req.body;
     try {
-      const groupToDeleteFrom = await Group.findByIdAndUpdate(groupId,
+      const tripToDeleteFrom = await Trip.findByIdAndUpdate(tripId,
         { $pull: { users: { friendId } } },
         { new: true });
-      return res.json(groupToDeleteFrom);
+      return res.json(tripToDeleteFrom);
     } catch (e) {
       return res.status(403).json({ e });
     }
   },
-  
-  editGroup: async (req, res) => {
-    const { groupId } = req.params;
+  editTrip: async (req, res) => {
+    const { tripId } = req.params;
     const { name } = req.body;
     if (!name) {
       return res.status(400).json({ error: 'You must provide text' });
     }
     try {
-      const groupToEdit = await Group.findByIdAndUpdate(groupId, { name }, { new: true });
-      return res.json(groupToEdit);
+      const tripToEdit = await Trip.findByIdAndUpdate(tripId, { name }, { new: true });
+      return res.json(tripToEdit);
     } catch (e) {
       return res.status(403).json({ e });
     }
   },
 
-  addTrip,
   addCategory,
   addActivity,
   addComment,

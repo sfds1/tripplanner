@@ -14,14 +14,13 @@ const TripSchema = new Schema({
   location: {
     type: String,
   },
-  tripCreator: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-  },
-  group: {
-    type: Schema.Types.ObjectId,
-    ref: 'Group',
-  },
+  users: [{
+    admin: false,
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+  }],
 });
 
 module.exports = model('Trip', TripSchema);
