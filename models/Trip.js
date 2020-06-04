@@ -14,6 +14,10 @@ const TripSchema = new Schema({
   location: {
     type: String,
   },
+  categories: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+  }],
   users: [{
     admin: false,
     user: {
