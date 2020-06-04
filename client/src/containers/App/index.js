@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { Grid } from 'semantic-ui-react';
 
 import AllTodosList from '../AllTodosList';
 import UserTodoList from '../UserTodoList';
@@ -10,26 +9,23 @@ import SignOut from '../SignOut';
 import SignIn from '../SignIn';
 import Main from '../../components/Main';
 import User from '../../components/User';
-
+import Dashboard from '../../components/Dashboard';
+import Profile from '../../components/Profile';
+import FindFriend from '../../components/FindFriend';
+import Trips from '../../components/Trips';
+import NewTrip from '../../components/NewTrip';
 
 import { connect } from 'react-redux';
 
-// import io from 'socket.io-client';
-
-
-
-import Navbar from './../../components/Navbar';
+// import Navbar from './../../components/Navbar';
 
 
 class App extends Component {
-  //
-  // state = {
-  //   socket: io()
-  // }
+
   render () {
     return (
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-        <Grid.Column style={{ maxWidth: 700 }}>
+      <div className="container">
+
           {/* <Navbar isLoggedIn={this.props.authenticated}/> */}
           <Route exact path='/usertodos' component={UserTodoList}/>
           <Route exact path='/alltodos' component={AllTodosList}/>
@@ -38,9 +34,13 @@ class App extends Component {
           <Route exact path='/signup' component={SignUp}/>
           <Route exact path="/" component={Main} />
           <Route exact path="/user" component={User} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/findfriend" component={FindFriend} />
+          <Route exact path="/trips" component={Trips} />
+          <Route exact path="/newtrip" component={NewTrip} />
 
-        </Grid.Column>
-      </Grid>
+      </div>
     );
   }
 }
