@@ -21,13 +21,6 @@ const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
   }],
-  groups: [{
-    admin: false,
-    group: {
-      type: Schema.Types.ObjectId,
-      ref: 'Group',
-    },
-  }],
   trips: [{
     admin: false,
     trip: {
