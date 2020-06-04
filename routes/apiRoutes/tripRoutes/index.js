@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const { getTodos } = require('../../../controllers/todoController');
+const { getTrips } = require('../../../controllers/tripController');
 
 router.route('/')
-  .get(getTodos);
+  .get(getTrips);
 
 module.exports = router;
