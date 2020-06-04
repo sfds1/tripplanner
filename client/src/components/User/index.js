@@ -6,13 +6,14 @@ class User extends Component {
   render() {
     return (
 
-      <div className="card" style={{display: 'inline-block'}}>
+      <div className="card" style={{ display: 'inline-block' }}>
+        
         <Link to="/signin" className="userBtn">
           Sign In
         </Link>
-        
+
         <Link to="/signup" className="userBtn">
-            Sign Up
+          Sign Up
         </Link>
 
       </div>
