@@ -28,8 +28,8 @@ class App extends Component {
   // }
   render () {
     return (
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-        <Grid.Column style={{ maxWidth: 700 }}>
+      <div className="container">
+
           {/* <Navbar isLoggedIn={this.props.authenticated}/> */}
           <Route exact path='/usertodos' component={UserTodoList}/>
           <Route exact path='/alltodos' component={AllTodosList}/>
@@ -39,8 +39,8 @@ class App extends Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/user" component={User} />
 
-        </Grid.Column>
-      </Grid>
+
+      </div>
     );
   }
 }
