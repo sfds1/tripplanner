@@ -73,6 +73,19 @@ module.exports = {
       return res.status(403).json({ e });
     }
   },
+  editCategory: async (req, res) => {
+    const { categoryId } = req.params;
+    const { title } = req.body;
+    if (!title) {
+      return res.status(400).json({ error: 'You must provide text' });
+    }
+    try {
+      const categoryToEdit = await Category.findByIdAndUpdate(categoryId, { title });
+      return res.status(200).json(categoryToEdit);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
   // addActivity,
   // addComment,
 
