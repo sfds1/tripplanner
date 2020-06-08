@@ -131,6 +131,16 @@ module.exports = {
       return res.status(403).json({ e });
     }
   },
+  activityVote: async (req, res) => {
+    const { activityId } = req.params;
+    const { yesVote, noVote } = req.body;
+    try {
+      const votedActivity = await Activity.findByIdAndUpdate(activityId, { yesVote, noVote });
+      return res.status(200).json(votedActivity);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
   // addActivity,
   // addComment,
 
