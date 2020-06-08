@@ -7,6 +7,7 @@ const ActivitySchema = new Schema({
   },
   date: {
     type: Date,
+    default: Date.now(),
   },
   details: {
     type: String,
