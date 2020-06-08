@@ -61,12 +61,12 @@ module.exports = {
   },
   addCategory: async (req, res) => {
     const { tripId } = req.params;
-    const { title, trip } = req.body;
+    const { title } = req.body;
     if (!title) {
       return res.status(400).json({ error: 'You must provide text' });
     }
     try {
-      const newCategory = await new Category({ title, categoryCreator: req.user._id, trip }).save();
+      const newCategory = await new Category({ title, categoryCreator: req.user._id, trip: tripId }).save();
       await Trip.findByIdAndUpdate(tripId, { $push: { categories: newCategory._id } });
       return res.status(200).json(newCategory);
     } catch (e) {
@@ -91,6 +91,42 @@ module.exports = {
     try {
       const categoryToDelete = await Category.findByIdAndDelete(categoryId);
       return res.status(200).json(categoryToDelete);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
+  addActivity: async (req, res) => {
+    const { categoryId } = req.params;
+    const { title, details, date } = req.body;
+    if (!title) {
+      return res.status(400).json({ error: 'You must provide text' });
+    }
+    try {
+      const newActivity = await new Activity({ title, activityCreator: req.user._id, date, details }).save();
+      await Category.findByIdAndUpdate(categoryId, { $push: { categories: newActivity._id } });
+      return res.status(200).json(newActivity);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
+  editActivity: async (req, res) => {
+    const { activityId } = req.params;
+    const { title, details, date } = req.body;
+    if (!title) {
+      return res.status(400).json({ error: 'You must provide text' });
+    }
+    try {
+      const activityToEdit = await Activity.findByIdAndUpdate(activityId, { title, details, date });
+      return res.status(200).json(activityToEdit);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
+  deleteActivity: async (req, res) => {
+    const { activityId } = req.params;
+    try {
+      const activityToDelete = await Activity.findByIdAndDelete(activityId);
+      return res.status(200).json(activityToDelete);
     } catch (e) {
       return res.status(403).json({ e });
     }

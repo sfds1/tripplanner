@@ -1,3 +1,6 @@
+// Don't think we're using this anymore
+// It has been combined with the trip schema
+
 const { Schema, model } = require('mongoose');
 
 const GroupSchema = new Schema({
@@ -47,10 +50,10 @@ const GroupSchema = new Schema({
       type: Date,
       default: Date.now(),
     },
-    users: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-      }],
+    // users: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User',
+    //   }],
   });
 
 module.exports = model('Group', GroupSchema);
