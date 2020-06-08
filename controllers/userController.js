@@ -86,6 +86,15 @@ module.exports = {
       return res.status(403).json({ e });
     }
   },
+  deleteCategory: async (req, res) => {
+    const { categoryId } = req.params;
+    try {
+      const categoryToDelete = await Category.findByIdAndDelete(categoryId);
+      return res.status(200).json(categoryToDelete);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
   // addActivity,
   // addComment,
 
