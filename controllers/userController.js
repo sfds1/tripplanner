@@ -1,5 +1,9 @@
 const { User, Trip, Category, Activity, Comment } = require('../models/index');
 
+// Currently anyone can edit,
+// Add if statments to check userId = activityCreator to only allow creator to edit
+// for each add controller, save what's being added to the user
+// Ex.) user.findByIdAndUpdate or req.user.categories.push
 module.exports = {
   addTrip: async (req, res) => {
     const { title, startDate, endDate, location } = req.body;
@@ -26,7 +30,8 @@ module.exports = {
     try {
       const tripToAddTo = await Trip.findByIdAndUpdate(tripId,
         { $push: { users: { friendId } } },
-        { new: true });
+        { new: true }).save();
+      await User.findByIdAndUpdate(friendId, { $push: { trips: tripId } });
       return res.json(tripToAddTo);
     } catch (e) {
       return res.status(403).json({ e });
@@ -103,7 +108,7 @@ module.exports = {
     }
     try {
       const newActivity = await new Activity({ title, activityCreator: req.user._id, date, details }).save();
-      await Category.findByIdAndUpdate(categoryId, { $push: { categories: newActivity._id } });
+      await Category.findByIdAndUpdate(categoryId, { $push: { activities: newActivity._id } });
       return res.status(200).json(newActivity);
     } catch (e) {
       return res.status(403).json({ e });
@@ -131,6 +136,8 @@ module.exports = {
       return res.status(403).json({ e });
     }
   },
+  // Can possibly be combined with editActivity controller
+  // Where front end makes call only changing votes
   activityVote: async (req, res) => {
     const { activityId } = req.params;
     const { yesVote, noVote } = req.body;
@@ -141,7 +148,40 @@ module.exports = {
       return res.status(403).json({ e });
     }
   },
-  // addActivity,
-  // addComment,
-
+  addComment: async (req, res) => {
+    const { activityId } = req.params;
+    const { details } = req.body;
+    if (!details) {
+      return res.status(400).json({ error: 'You must provide text' });
+    }
+    try {
+      const newComment = await new Comment({ activityCreator: req.user._id, details }).save();
+      await Activity.findByIdAndUpdate(activityId, { $push: { comments: newComment._id } });
+      return res.status(200).json(newComment);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
+  editComment: async (req, res) => {
+    const { commentId } = req.params;
+    const { details } = req.body;
+    if (!details) {
+      return res.status(400).json({ error: 'You must provide text' });
+    }
+    try {
+      const commentToEdit = await Comment.findByIdAndUpdate(commentId, { details });
+      return res.status(200).json(commentToEdit);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
+  deleteComment: async (req, res) => {
+    const { commentId } = req.params;
+    try {
+      const commentToDelete = await Comment.findByIdAndDelete(commentId);
+      return res.status(200).json(commentToDelete);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
 };
