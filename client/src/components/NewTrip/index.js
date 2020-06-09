@@ -5,7 +5,7 @@ class NewTrip extends Component {
   render() {
     return (
 
-      <div className="card">
+      <div>
 
         New Trip Page
 

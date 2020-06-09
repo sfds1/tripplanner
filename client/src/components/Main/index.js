@@ -6,7 +6,7 @@ class Main extends Component {
   render() {
     return (
 
-      <div className="card">
+      <div>
         <Link to="/user">
 
           <div className="mainPage">

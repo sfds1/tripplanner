@@ -1,6 +1,6 @@
 /* Background and universal font */
 html, body {
-  background-color: rgb(34, 34, 34);
+  background-color: rgb(230, 230, 230);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -10,178 +10,33 @@ html, body {
   justify-content: center;
 }
 
-/* Universal card scaling */
-.card {
-  width: 450px;
-  height: 880px;
-  background-color: rgb(255, 255, 255);
-  text-align: center;
-  border-radius: 30px;
-  margin: auto;
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-
-/* Main page logo font */
-h1 {
-  background-image: linear-gradient(135deg, #feab3a 0%,#f35626 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  line-height: 70px;
-  font-size: 60px;
-}
-/* Restaurant name */
-h2 {
-  margin: 0px;
-  margin-top: 30px;
-  line-height: 45px;
-  font-size: 40px;
-  font-weight: bolder;
-  color: rgb(34, 34, 34);
-}
-/* Title font */
-h3 {
-  background-image: linear-gradient(135deg, #feab3a 0%,#f35626 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: -20px;
-  padding-bottom: 5px;
-  font-size: 60px;
-  line-height: 60px;
-}
-.title {
-  margin-bottom: 50px;
-  margin-top: 20px;
-}
-.matchTitle {
-  margin-bottom: 0px;
-  margin-top: 30px;
-}
-
-/* Session code and city */
-h4 {
-  background-image: linear-gradient(135deg, #feab3a 0%,#f35626 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-/* Swipe page positioning and button styling */
-.titleInfo {
-  height: 160px;
-  text-align: center;
-  width: 90%;
-  margin: auto;
-}
-.choices {
-  height: 160px;
-  margin-top: 100px;
-}
-.matchChoices {
-  height: 160px;
-  margin-top: 30px;
-}
-.yesBtn {
-  height: 120px;
-  width: 120px;
-  margin-left: 12%;
-  margin-top: 40px;
-}
-.noBtn {
-  height: 120px;
-  width: 120px;
-  margin-right: 12%;
-  margin-top: 40px;
-}
-
-/* Alert page positioning and font style */
-.alertInfo {
-  height: 160px;
-  text-align: center;
-  width: 80%;
-  margin: auto;
-  margin-top: 100px;
-}
-.alertText {
-  line-height: 45px;
-  font-size: 35px;
-}
-
 /* User page positioning and button style */
 .userBtn{
   margin-top: 100px;
-  margin-left: 10px;
-  margin-right: 10px;
-  background-color: rgb(42, 104, 47);
-  height: 100px;
-  width: 100px;
-  border-radius: 15px;
+  margin-left: 25px;
+  margin-right: 25px;
+  background-image: linear-gradient(180deg, #60df66 0%,#3b8618 100%);
+  height: 200px;
+  width: 200px;
+  border-radius: 25px;
 }
-.decideBtn {
-  height: 70px;
-  width: 70%;
-  border-radius: 10px;
-  background-image: linear-gradient(135deg, #feab3a 0%,#f35626 100%);
-  color: white;
-  font-size: 40px;
-  border: none;
-  margin: auto;
-  margin-top: 50px;
+.userBtn:hover {
+  transform: scale(1.05)
+}
+.userBtnTitle {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
 }
 
-/* Back button styling */
-.backBtn {
-  height: 50px;
-  width: 45%;
-  border-radius: 10px;
-  background-image: linear-gradient(135deg, #feab3a 0%,#f35626 100%);
-  color: white;
-  font-size: 30px;
-  border: none;
-  margin: auto;
-  margin-bottom: 30px;
-}
 
 /* Main page info positioning */
 .mainPage{
   margin-top: 230px;
 }
 .logo {
-  width: 220px;
+  width: 500px;
   margin-bottom: 10px;
-}
-.main {
-  background-image: linear-gradient(135deg, #feab3a 0%,#f35626 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: auto;
-  line-height: 70px;
-  font-size: 70px;
-}
-
-/* Rating stars */
-.stars {
-    background-image: linear-gradient(135deg, #feab3a 0%,#f35626 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 0px;
-    font-size: 40px;
-    font-weight: bold;
-    padding: 0px;
 }
 
 /* Input box customization */
@@ -189,11 +44,12 @@ h4 {
   height: 50px;
   width: 70%;
   font-size: 30px;
-  border-radius: 10px;
+  border-radius: 40px;
   padding: 10px;
   margin: 10px;
   margin-top: 20px;
   text-align: center;
+  color: #3b8618;
 }
 
 /* Removing outline affect on buttons */
@@ -213,26 +69,4 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-/* Heartbeat animation changes */
-@keyframes heartBeat {
-  0% {
-    transform: scale(1);
-  }
-  20% {
-    transform: scale(1.1);
-  }
-  70% {
-    transform: scale(1);
-  }
-}
-.heartBeat {
-  animation-name: heartBeat;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
 }
