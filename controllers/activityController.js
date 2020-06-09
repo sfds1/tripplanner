@@ -1,6 +1,18 @@
-const { User, Category, Activity } = require('../models/index');
+const { Category, Activity } = require('../models/index');
 
 module.exports = {
+  getActivities: async (req, res) => {
+    const { categoryId } = req.params;
+    try {
+      const activities = await Activity.find({ category: categoryId });
+      if (!activities) {
+        return res.status(200).json({ error: 'No activities found' });
+      }
+      return res.json(activities);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
   addActivity: async (req, res) => {
     const { categoryId } = req.params;
     const { title, details, date } = req.body;

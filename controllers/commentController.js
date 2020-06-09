@@ -1,10 +1,22 @@
-const { User, Activity, Comment } = require('../models/index');
+const { Activity, Comment } = require('../models/index');
 
 // Currently anyone can edit,
 // Add if statments to check userId = activityCreator to only allow creator to edit
 // for each add controller, save what's being added to the user
 // Ex.) user.findByIdAndUpdate or req.user.categories.push
 module.exports = {
+  getComments: async (req, res) => {
+    const { activityId } = req.params;
+    try {
+      const categories = await Comment.find({ trip: activityId });
+      if (!categories) {
+        return res.status(200).json({ error: 'No categories found' });
+      }
+      return res.json(categories);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
   addComment: async (req, res) => {
     const { activityId } = req.params;
     const { details } = req.body;

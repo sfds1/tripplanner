@@ -1,6 +1,18 @@
-const { User, Trip, Category } = require('../models/index');
+const { Trip, Category } = require('../models/index');
 
 module.exports = {
+  getCategories: async (req, res) => {
+    const { tripId } = req.params;
+    try {
+      const categories = await Category.find({ trip: tripId });
+      if (!categories) {
+        return res.status(200).json({ error: 'No categories found' });
+      }
+      return res.json(categories);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
   addCategory: async (req, res) => {
     const { tripId } = req.params;
     const { title } = req.body;
