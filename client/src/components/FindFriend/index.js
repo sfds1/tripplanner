@@ -5,7 +5,7 @@ class FindFriend extends Component {
   render() {
     return (
 
-      <div className="card">
+      <div>
 
         Find Friend Page
 
