@@ -1,4 +1,4 @@
-const { Category, Activity } = require('../models/index');
+const { Category, Activity } = require('../models');
 
 module.exports = {
   getActivities: async (req, res) => {

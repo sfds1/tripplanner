@@ -1,4 +1,4 @@
-const { Activity, Comment } = require('../models/index');
+const { Activity, Comment } = require('../models');
 
 // Currently anyone can edit,
 // Add if statments to check userId = activityCreator to only allow creator to edit
