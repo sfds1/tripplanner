@@ -1,10 +1,15 @@
 const router = require('express').Router();
-// const tripRoutes = require('./tripRoutes');
 const authRoutes = require('./authRoutes');
-const userTripRoutes = require('./userTripRoutes');
+const tripRoutes = require('./tripRoutes');
+const categoryRoutes = require('./categoryRoutes');
+const activityRoutes = require('./activityRoutes');
+const commentRoutes = require('./commentRoutes');
 
-// router.use('/trips', tripRoutes);
+
 router.use('/auth', authRoutes);
-router.use('/user', userTripRoutes);
+router.use('/trip', tripRoutes);
+router.use('/category', categoryRoutes);
+router.use('/activity', activityRoutes);
+router.use('/comment', commentRoutes);
 
 module.exports = router;
