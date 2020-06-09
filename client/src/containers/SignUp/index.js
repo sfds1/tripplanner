@@ -94,7 +94,7 @@ class SignUp extends Component {
 
 const asyncValidate = async formValues => {
   try {
-    const { data } = await axios.get(`/api/user/emails?email=${formValues.email}`);
+    const { data } = await axios.get(`/api/auth/emails?email=${formValues.email}`);
     if (data) {
       throw new Error();
     }
