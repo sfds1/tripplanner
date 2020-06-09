@@ -1,7 +1,7 @@
-const router = require('express').Router();
-const { getTrips } = require('../../../controllers/tripController');
+// const router = require('express').Router();
+// const { getTrips } = require('../../../controllers/tripController');
 
-router.route('/')
-  .get(getTrips);
+// router.route('/')
+//   .get(getTrips);
 
-module.exports = router;
+// module.exports = router;
