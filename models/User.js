@@ -15,7 +15,7 @@ const UserSchema = new Schema({
   },
   name: {
     type: String,
-    required: [true, 'You must provide a name'],
+    // required: [true, 'You must provide a name'],
   },
   friends: [{
     type: Schema.Types.ObjectId,
