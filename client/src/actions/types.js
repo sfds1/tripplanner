@@ -1,6 +1,9 @@
+export const GET_USER_INFO = 'GET_USER_INFO'
+export const GET_USER_INFO_ERROR = 'GET_USER_INFO_ERROR';
+
+
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
-
 
 
 // Todos Section
