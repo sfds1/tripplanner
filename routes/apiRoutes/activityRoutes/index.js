@@ -13,7 +13,7 @@ const { requireAuth } = require('../../../middlewares/authMiddlewares');
 
 // /api/activity/:categoryID
 router.route('/:categoryId')
-  .get(getActivities)
+  .get(requireAuth, getActivities)
   .post(requireAuth, addActivity);
 
 // /api/activity/:activityID

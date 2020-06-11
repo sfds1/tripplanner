@@ -5,9 +5,8 @@ const {
 
 const { requireAuth } = require('../../../middlewares/authMiddlewares');
 
-
 // /api/user
 router.route('/')
-  .get(getUserByEmail);
+  .get(requireAuth, getUserByEmail);
 
 module.exports = router;

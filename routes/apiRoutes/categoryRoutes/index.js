@@ -11,7 +11,7 @@ const { requireAuth } = require('../../../middlewares/authMiddlewares');
 
 // /api/category/:tripId
 router.route('/:tripId')
-  .get(getCategories)
+  .get(requireAuth, getCategories)
   .post(requireAuth, addCategory);
 
 // /api/category/:categoryID
