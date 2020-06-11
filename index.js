@@ -1,3 +1,5 @@
+//  Make sure to npm i dotenv
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -5,23 +7,23 @@ const cors = require('cors');
 
 const app = express();
 const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+// const io = require('socket.io')(server);
 
 const routes = require('./routes');
 
 const PORT = process.env.PORT || 3001;
 
 
-io.on('connection', socket => {
-  socket.on('message', (data) => {
-    socket.emit('serverToClientMessage', data);
-  });
+// io.on('connection', socket => {
+//   socket.on('message', (data) => {
+//     socket.emit('serverToClientMessage', data);
+//   });
 
-  socket.on('disconnect', () => {
-    console.log("See ya");
-    return;
-  });
-});
+//   socket.on('disconnect', () => {
+//     console.log("See ya");
+//     return;
+//   });
+// });
 
 // Setup middlewares
 app.use(express.urlencoded({ extended: true }));
