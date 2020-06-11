@@ -1,7 +1,8 @@
 // Don't think we're using this anymore
 // It has been combined with the trip schema
+const mongoose = require('mongoose');
 
-const { Schema, model } = require('mongoose');
+const { Schema, model } = mongoose;
 
 const GroupSchema = new Schema({
   name: {
