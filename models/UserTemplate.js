@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const { Schema, model } = mongoose;
 
-const UserSchemaTemplate = new Schema({
+const UserSchema = new Schema({
   email: {
     type: String,
     unique: true,
@@ -26,14 +26,14 @@ const UserSchemaTemplate = new Schema({
   }],
 });
 
-UserSchemaTemplate.methods.toJSON = function() {
+UserSchema.methods.toJSON = function() {
   var obj = this.toObject();
   delete obj.password;
   return obj;
 };
 
 
-UserSchemaTemplate.methods.comparePassword = async function (candidatePassword) {
+UserSchema.methods.comparePassword = async function (candidatePassword) {
   const user = this;
   try {
     const isMatch = await bcrypt.compare(candidatePassword, user.password);
@@ -43,7 +43,7 @@ UserSchemaTemplate.methods.comparePassword = async function (candidatePassword) 
   }
 };
 
-UserSchemaTemplate.pre('save', async function (next) {
+UserSchema.pre('save', async function (next) {
   // gets access to the user model that is currently being saved
   const user = this;
   if (user.isModified('password')) {
@@ -62,4 +62,4 @@ UserSchemaTemplate.pre('save', async function (next) {
   next();
 });
 
-module.exports = model('UserTemplate', UserSchemaTemplate);
+module.exports = model('User', UserSchema);
