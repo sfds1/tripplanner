@@ -10,7 +10,7 @@ const { requireAuth } = require('../../../middlewares/authMiddlewares');
 
 // /api/comments/:commentID
 router.route('/:commentID')
-  .get(getComments)
+  .get(requireAuth, getComments)
   .post(requireAuth, addComment)
   .put(requireAuth, editComment)
   .delete(requireAuth, deleteComment);
