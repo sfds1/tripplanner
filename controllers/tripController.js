@@ -1,4 +1,4 @@
-const { User, Trip } = require('../models/index');
+const { User, Trip } = require('../models');
 
 module.exports = {
   getTrips: async (req, res) => {
