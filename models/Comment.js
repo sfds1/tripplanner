@@ -13,7 +13,7 @@ const CommentSchema = new Schema({
   },
   activity: {
     type: Schema.Types.ObjectId,
-    ref: 'activity',
+    ref: 'Activity',
   },
 });
 
