@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 
+import requireAuth from './../../hoc/requireAuth'
 import { getUserInfo } from './../../actions/user'
 
 class Profile extends Component {
   componentDidMount() {
-
+    this.props.getUserInfo();
+    console.log('userdata:', this.props.user)
   }
 
   render() {
@@ -22,7 +25,10 @@ class Profile extends Component {
 };
 
 function mapStateToProps(state) {
-  return { user: state.user.user }
+  return { user: state.user.userData }
 }
 
-export default Profile;
+export default compose(
+  requireAuth,
+  connect(mapStateToProps, { getUserInfo })
+)(Profile);
