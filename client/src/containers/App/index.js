@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
-import AllTodosList from '../AllTodosList';
-import UserTodoList from '../UserTodoList';
-
 import SignUp from '../SignUp';
 import SignOut from '../SignOut';
 import SignIn from '../SignIn';
@@ -27,8 +24,6 @@ class App extends Component {
       <div className="container">
 
           {/* <Navbar isLoggedIn={this.props.authenticated}/> */}
-          <Route exact path='/usertodos' component={UserTodoList}/>
-          <Route exact path='/alltodos' component={AllTodosList}/>
           <Route exact path='/signin' component={SignIn}/>
           <Route exact path='/signout' component={SignOut}/>
           <Route exact path='/signup' component={SignUp}/>
