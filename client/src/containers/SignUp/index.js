@@ -23,9 +23,6 @@ class SignUp extends Component {
       <Form.Input
         {...input}
         error={ meta.touched && meta.error }
-        fluid
-        icon='user'
-        iconPosition='left'
         autoComplete='off'
         placeholder='Email Address'
       />
@@ -38,12 +35,9 @@ class SignUp extends Component {
       <Form.Input
         {...input}
         error={  meta.touched && meta.error }
-        fluid
         type='password'
-        icon='lock'
         placeholder='password'
         autoComplete='off'
-        iconPosition='left'
       />
     );
   }
@@ -52,12 +46,11 @@ class SignUp extends Component {
     console.log("Inside of signup render", this.props);
     const { handleSubmit, invalid, submitting, submitFailed } = this.props;
     return (
-      <div>
-      <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
+      <div className="formBox">
+      <Form onSubmit={handleSubmit(this.onSubmit)}>
         <Segment stacked>
           <Field
             name='email'
-            iscool='mannyiscool'
             component={ this.renderEmail }
             validate={
               [
@@ -78,9 +71,6 @@ class SignUp extends Component {
           />
           <Button
             content='Sign up'
-            color='teal'
-            fluid
-            size='large'
             type='submit'
             disabled={ invalid || submitting || submitFailed }
           />

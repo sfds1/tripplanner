@@ -9,7 +9,8 @@ import { getFriendByEmail } from './../../actions/user'
 class FindFriend extends Component {
 
   state = {
-    friendSearch: ""
+    friendSearch: "",
+    friendResults: "Names Here"
   };
 
 
@@ -34,7 +35,6 @@ class FindFriend extends Component {
         <form onSubmit={(e) => this.handleFriendSearch(e)}>
           <div>
             <input
-              id="friendSearch"
               className="formBox"
               onChange={this.handleFriendSearch}
               value={this.state.friendSearch}
@@ -49,6 +49,12 @@ class FindFriend extends Component {
           onClick={this.findFriend}>
           Search
         </button>
+
+        <br></br>
+
+        <span className="displayFriends">
+          Friends: {this.state.friendResults}
+        </span>
 
       </div>
 
