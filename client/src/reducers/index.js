@@ -8,10 +8,12 @@ import todosReducer from './todosReducer';
 import authReducer from './authReducer';
 import socketReducer from './socketReducer';
 import { ADD_TODO } from '../actions/types';
+import tripsReducer from './tripsReducer';
 
 
 export default combineReducers({
   user: userReducer,
+  trips: tripsReducer,
   socket: socketReducer,
   auth: authReducer,
   todos: todosReducer,
