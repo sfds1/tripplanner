@@ -19,7 +19,6 @@ export const getUserInfo = () => async dispatch  => {
 export const getFriendByEmail = (email) => async dispatch => {
     try {
         const  { data }  = await axios.get(`/api/user/email?email=${email}`, { headers: { 'authorization': localStorage.getItem('token')} })
-        console.log(data)
         dispatch({ type: GET_FRIEND_BY_EMAIL, payload: data })
     } catch (e) {
         dispatch({ type: GET_FRIEND_BY_EMAIL_ERROR, payload: e })
