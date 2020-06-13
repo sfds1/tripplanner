@@ -9,7 +9,7 @@ import {
 
 export const getUserInfo = () => async dispatch  => {
     try {
-        const data = axios.get(`/api/user`, { headers: { 'authorization': localStorage.getItem('token')} })
+        const { data } = await axios.get(`/api/user`, { headers: { 'authorization': localStorage.getItem('token')} })
         dispatch({ type: GET_USER_INFO, payload: data })
     } catch (e) {
         dispatch({ type: GET_USER_INFO_ERROR, payload: e })
@@ -18,7 +18,7 @@ export const getUserInfo = () => async dispatch  => {
 
 export const getFriendByEmail = (email) => async dispatch => {
     try {
-        const { data } = axios.get(`/api/user/email/?${email}`, { headers: { 'authorization': localStorage.getItem('token')} })
+        const  { data }  = await axios.get(`/api/user/email?email=${email}`, { headers: { 'authorization': localStorage.getItem('token')} })
         dispatch({ type: GET_FRIEND_BY_EMAIL, payload: data })
     } catch (e) {
         dispatch({ type: GET_FRIEND_BY_EMAIL_ERROR, payload: e })

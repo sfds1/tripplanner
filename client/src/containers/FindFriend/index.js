@@ -22,13 +22,11 @@ class FindFriend extends Component {
   // Needs a search for this email parameter
   findFriend = (friendEmail) => {
     return this.props.getFriendByEmail('friendEmail');
+
   }
 
   render() {
-
-    this.findFriend('1@1.com')
-    console.log(this.props)
-
+    console.log(this.props.friend)
     return (
       <div>
 

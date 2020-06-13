@@ -5,10 +5,12 @@ import userReducer from './userReducer';
 // Boilerplate imports
 import authReducer from './authReducer';
 import { ADD_TODO } from '../actions/types';
+import tripsReducer from './tripsReducer';
 
 
 export default combineReducers({
   user: userReducer,
+  trips: tripsReducer,
   auth: authReducer,
   form: formReducer.plugin({
     'addTodo': (state, action) => {
