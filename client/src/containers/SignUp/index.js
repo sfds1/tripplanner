@@ -49,6 +49,7 @@ class SignUp extends Component {
       <div className="formBox">
       <Form onSubmit={handleSubmit(this.onSubmit)}>
         <Segment stacked>
+
           <Field
             name='email'
             component={ this.renderEmail }

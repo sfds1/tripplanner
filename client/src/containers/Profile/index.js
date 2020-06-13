@@ -9,14 +9,16 @@ class Profile extends Component {
   componentDidMount() {
     this.props.getUserInfo();
   }
-  
+
   render() {
     console.log('userdata:', this.props.user)
     return (
 
       <div>
 
-        Profile Page
+        <span>
+          Email: {this.props.user.email}
+        </span>
 
       </div>
 
