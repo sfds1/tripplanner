@@ -20,7 +20,7 @@ export default function (state = INITIAL_STATE, action) {
         case GET_USER_INFO_ERROR:
             return { ...state, getUserInfoError: action.payload };
         case GET_FRIEND_BY_EMAIL:
-            return { ...state, friendData: action.paload };
+            return { ...state, friendData: action.payload };
         case GET_FRIEND_BY_EMAIL_ERROR:
             return { ...state, getFriendByEmailError: action.payload };
         default:

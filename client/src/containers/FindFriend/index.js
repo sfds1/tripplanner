@@ -8,26 +8,15 @@ import { getFriendByEmail } from './../../actions/user'
 
 class FindFriend extends Component {
 
-  state = {
-    friendSearch: ""
-  };
-
-
-  handleFriendSearch = (e) => {
-    const { value } = e.target;
-    this.setState({ friendSearch: value });
-  };
-
-  // Needs a search for this email parameter
-  findFriend = (friendEmail) => {
-    return this.props.getFriendByEmail('friendEmail');
+  // Currently just to show that the function works
+  // This componentDidMount should be changed to an onSubmit once we have a search available
+  // The '1@1.com is a placeholder for the searched friend's email
+  componentDidMount = () => {
+    return this.props.getFriendByEmail('1@1.com');
   }
 
   render() {
-
-    this.findFriend('1@1.com')
-    console.log(this.props)
-
+    console.log(this.props.friend)
     return (
       <div>
 
