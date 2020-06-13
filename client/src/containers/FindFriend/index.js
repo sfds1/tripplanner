@@ -10,6 +10,7 @@ class FindFriend extends Component {
 
   // Currently just to show that the function works
   // This componentDidMount should be changed to an onSubmit once we have a search available
+  // The '1@1.com is a placeholder for the searched friend's email
   componentDidMount = () => {
     return this.props.getFriendByEmail('1@1.com');
   }

@@ -7,7 +7,7 @@ import {
 
 export const getUserTrips = () => async dispatch => {
     try {
-        const { data } = axios.get('/api/trips', { headers: { 'authorization': localStorage.getItem('token')} })
+        const { data } = await axios.get('/api/trips', { headers: { 'authorization': localStorage.getItem('token')} })
         dispatch({ type: GET_USER_TRIPS, payload: data })
     } catch (e) {
         dispatch({ type: GET_USER_TRIPS_ERROR, payload: e })
