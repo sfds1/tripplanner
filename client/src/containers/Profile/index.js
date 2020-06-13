@@ -8,10 +8,11 @@ import { getUserInfo } from './../../actions/user'
 class Profile extends Component {
   componentDidMount() {
     this.props.getUserInfo();
-    console.log('userdata:', this.props.user)
+    // this.props.user is undefined, but it the controller works on the backend
   }
-
+  
   render() {
+    console.log('userdata:', this.props.user)
     return (
 
       <div>
