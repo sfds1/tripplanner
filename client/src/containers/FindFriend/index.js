@@ -20,7 +20,24 @@ class FindFriend extends Component {
     return (
       <div>
 
-        Find Friend Page
+        <form onSubmit={(e) => this.handleFriendSearch(e)}>
+          <div>
+            <input
+              id="friendSearch"
+              className="formBox"
+              onChange={this.handleFriendSearch}
+              value={this.state.friendSearch}
+              placeholder="Search for a Friend"
+              type="text"
+            />
+          </div>
+        </form>
+
+        <button
+          className="searchBtn"
+          onClick={this.findFriend}>
+          Search
+        </button>
 
       </div>
 
