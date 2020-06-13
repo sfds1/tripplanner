@@ -11,7 +11,7 @@ import Main from '../../components/Main';
 import User from '../../components/User';
 import Dashboard from '../../components/Dashboard';
 import Profile from '../Profile';
-import FindFriend from '../../components/FindFriend';
+import FindFriend from '../FindFriend';
 import Trips from '../../components/Trips';
 import NewTrip from '../../components/NewTrip';
 
