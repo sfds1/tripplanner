@@ -15,18 +15,42 @@ export const getFlights = (flights) => {
 }
 //Axios call to GET data
 export const fetchFlights = (endAirport, startAirport, startDate, endDate) => { 
-    return async (dispatch) => { 
-        try { 
-            const flights = await axios({ 
-                url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/${startAirport}/${endAirport}/${startDate}/${endDate}`,
-                method: 'GET',
-                headers: {"X-RapidAPI-Key": "5b24116ce5mshede7e490cdd03cap1fa922jsn7cb852ed1a78"}
-            })
-            dispatch(getFlights(flights.data))
-        } catch (error) { 
-            console.log(error)
-        }
-    }
+    console.log(endAirport,startAirport,startDate, endDate)
+    axios.get( 
+        `${'https://cors-anywhere.herokuapp.com/'}https://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/${startAirport}/${endAirport}/${startDate}/${endDate}`,
+
+       {
+           headers: {
+               "X-RapidAPI-Key": "5b24116ce5mshede7e490cdd03cap1fa922jsn7cb852ed1a78"
+         } 
+   }).then(results=>{
+       console.log("flights.data", results.data);
+      
+   })
+
+    // return (dispatch) => { 
+    //     try { 
+    //         const flights =  axios.get( 
+    //              `https://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/
+    //             ${startAirport}/
+    //             ${endAirport}/
+    //             ${startDate}/
+    //             ${endDate}`,
+
+    //             {
+    //                 headers: {
+    //                     "X-RapidAPI-Key": "5b24116ce5mshede7e490cdd03cap1fa922jsn7cb852ed1a78"
+    //               } 
+    //         }).then(results=>{
+    //             console.log("flights.data", results.data);
+    //             dispatch(getFlights(results.data))
+    //         })
+       
+         
+    //     } catch (error) { 
+    //         console.log(error)
+    //     }
+    // }
 }
 
 // Redux Reducer
