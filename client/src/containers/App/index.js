@@ -9,7 +9,7 @@ import User from '../../components/User';
 import Dashboard from '../../components/Dashboard';
 import Profile from '../Profile';
 import FindFriend from '../FindFriend';
-import Trips from '../../components/Trips';
+import Trips from '../Trips';
 import NewTrip from '../NewTrip';
 import CurrentTrip from '../CurrentTrip';
 

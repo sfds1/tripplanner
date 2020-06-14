@@ -6,12 +6,12 @@ import requireAuth from './../../hoc/requireAuth'
 import { getUserTrips } from './../../actions/trips'
 
 class Trips extends Component {
-  componentDidMount = () => {
-    this.props.getUserTrips();
-    console.log(this.props.trips)
+  componentDidMount = async () => {
+    await this.props.getUserTrips();
   }
-
+  
   render() {
+    console.log(this.props.trips)
     return (
 
       <div>
