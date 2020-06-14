@@ -71,7 +71,7 @@ class SignIn extends Component {
           <Button
             content='Sign In'
             type='submit'
-            disabled={ submitting }
+            disabled={ invalid || submitting || submitFailed }
           />
         </Segment>
       </Form>
