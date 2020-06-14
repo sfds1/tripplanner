@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 
 import {
@@ -6,6 +7,9 @@ import {
 } from '../types';
 
 export const getUserTrips = () => async dispatch => {
+
+
+
     try {
         // No current trips
         const { data } = await axios.get('/api/trip', { headers: { 'authorization': localStorage.getItem('token')} })
