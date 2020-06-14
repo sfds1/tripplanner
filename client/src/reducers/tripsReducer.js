@@ -1,20 +1,22 @@
-// This is to get user data for the trips page
 import {
-  GET_USER_TRIPS, 
-  GET_USER_TRIPS_ERROR,
-} from '../actions/types';
+    GET_USER_TRIPS,
+    GET_USER_TRIPS_ERROR,
+} from '../actions/types'
 
 const INITIAL_STATE = {
-  title: ''
-}
-
-export default function (state = INITIAL_STATE, action) {
-  switch (action.type) {
+    userTrips: '',
+    getUserTripsError: '',
+  };
+  
+  export default function (state = INITIAL_STATE, action) {
+    switch (action.type) {
       case GET_USER_TRIPS:
-          return { ...state, userData: action.payload };
+        return {...state, userTrips: action.payload, authError: '' };
       case GET_USER_TRIPS_ERROR:
-          return { ...state, getUserInfoError: action.payload };
+        return {...state, getUserTripsError: action.payload };
       default:
-          return state;
+        return state;
+    }
   }
-}
+  
+  
