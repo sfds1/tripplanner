@@ -1,43 +1,38 @@
+import React from 'react';
 import axios from 'axios';
+import BEARER_TOKEN from './config.js';
 
-const YELP_API_KEY = '4oqtYN6ntFys9IoVhDhYyWKrCj2UOzDvbrTm29c7UqQ_MCjgtI4zHb3P6m6sg_jupRk-wTim5vRojSpDkukulu9tOv3haZ9YXlCKkZGrPCKGRH3y6AJhBkATlROlXnYx';
 
-const api = axios.create({ 
-    baseURL: 'https://api.yelp.com/v3',
-    headers: { 
-        Authorization: `Bearer ${YELP_API_KEY}`,
-    },
 
-});
+export default class tourismList extends React.Component { 
 
-const getPlaces = (coordinates, search) => { 
-    const latitude = coordinates[0].lat;
-    const longitude = coordinates[0].lon;
-    const location = { latitude, longitude };
+    state = { 
+        tours : []
+    }
 
-    return api 
-        .get('/businesses/search', { 
-            params: { 
-                limit: 30, 
-                sortBy: 'rating',
-                term: search,
-                ...location,
+    componentDidMount() { 
+        axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/categories/`, { 
+            headers: { 
+                authorization:  `${BEARER_TOKEN}`
             },
-        })
-        .then(res => 
-            res.data.businesses.map(business => { 
-                return { 
-                    name: business.name,
-                    coords: business.coordinates,
-                    rating: business.rating,
-                    location: business.location,
-                    price: business.price,
-                };
-            })
-         )
-         .catch(error => console.error(error));
-};
+            params: {
+                 categories: 'tourism',
+             } 
 
-export default { 
-    getPlaces,
-};
+
+
+            
+            
+        }).then(res => { 
+            console.log(res.data);
+        });
+    }
+
+    render() { 
+
+        return ( 
+            <div></div>
+        )
+    }
+}
+
