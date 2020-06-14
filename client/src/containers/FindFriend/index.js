@@ -8,11 +8,21 @@ import { getFriendByEmail } from './../../actions/user'
 
 class FindFriend extends Component {
 
-  // Currently just to show that the function works
-  // This componentDidMount should be changed to an onSubmit once we have a search available
-  // The '1@1.com is a placeholder for the searched friend's email
-  componentDidMount = () => {
-    return this.props.getFriendByEmail('1@1.com');
+  state = {
+    friendSearch: "",
+    friendResults: "Names Here"
+  };
+
+
+  handleFriendSearch = (e) => {
+    const { value } = e.target;
+    this.setState({ friendSearch: value });
+  };
+
+  // Needs a search for this email parameter
+  findFriend = (friendEmail) => {
+    return this.props.getFriendByEmail('friendEmail');
+
   }
 
   render() {
@@ -23,7 +33,6 @@ class FindFriend extends Component {
         <form onSubmit={(e) => this.handleFriendSearch(e)}>
           <div>
             <input
-              id="friendSearch"
               className="formBox"
               onChange={this.handleFriendSearch}
               value={this.state.friendSearch}
@@ -38,6 +47,12 @@ class FindFriend extends Component {
           onClick={this.findFriend}>
           Search
         </button>
+
+        <br></br>
+
+        <span className="displayFriends">
+          Friends: {this.state.friendResults}
+        </span>
 
       </div>
 

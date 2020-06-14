@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 
-class NewTrip extends Component {
+class Trips extends Component {
 
   render() {
     return (
 
       <div>
 
-        New Trip Page
+        Trips
 
       </div>
-
     )
   }
 };
 
-export default NewTrip;
+export default Trips;

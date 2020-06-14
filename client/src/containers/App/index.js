@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
-import AllTodosList from '../AllTodosList';
-import UserTodoList from '../UserTodoList';
-
 import SignUp from '../SignUp';
 import SignOut from '../SignOut';
 import SignIn from '../SignIn';
@@ -12,8 +9,10 @@ import User from '../../components/User';
 import Dashboard from '../../components/Dashboard';
 import Profile from '../Profile';
 import FindFriend from '../FindFriend';
-import Trips from '../Trips';
-import NewTrip from '../../components/NewTrip';
+import Trips from '../../components/Trips';
+import NewTrip from '../NewTrip';
+import CurrentTrip from '../CurrentTrip';
+
 
 import { connect } from 'react-redux';
 
@@ -27,8 +26,6 @@ class App extends Component {
       <div className="container">
 
           {/* <Navbar isLoggedIn={this.props.authenticated}/> */}
-          <Route exact path='/usertodos' component={UserTodoList}/>
-          <Route exact path='/alltodos' component={AllTodosList}/>
           <Route exact path='/signin' component={SignIn}/>
           <Route exact path='/signout' component={SignOut}/>
           <Route exact path='/signup' component={SignUp}/>
@@ -39,6 +36,7 @@ class App extends Component {
           <Route exact path="/findfriend" component={FindFriend} />
           <Route exact path="/trips" component={Trips} />
           <Route exact path="/newtrip" component={NewTrip} />
+          <Route exact path="/currenttrip" component={CurrentTrip} />
 
       </div>
     );
