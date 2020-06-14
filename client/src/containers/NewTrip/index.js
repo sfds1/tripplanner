@@ -18,7 +18,7 @@ class NewTrip extends Component {
 
   onSubmit = async (formValues, dispatch) => {
     try {
-      const { data } = await axios.post('/api/trip', formValues,  { headers: { 'authorization': localStorage.getItem('token')}});
+      const { data } = await axios.post('/api/trip', formValues, { headers: { 'authorization': localStorage.getItem('token') } });
       console.log(data);
       // dispatch({ type: GET_USER_TRIPS, payload: data });
       this.props.history.push('/currenttrip');
@@ -33,6 +33,7 @@ class NewTrip extends Component {
         <label>
           {field.label}
         </label>
+        <br></br>
         <input
           {...field.input}
           className="formBox"
@@ -49,6 +50,7 @@ class NewTrip extends Component {
         <label>
           {field.label}
         </label>
+        <br></br>
         <select
           {...field.input}
           className="formBox"
@@ -56,6 +58,9 @@ class NewTrip extends Component {
           type="text"
         >
           <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+
         </select>
       </div>
     )
@@ -70,6 +75,7 @@ class NewTrip extends Component {
     return (
       <div>
 
+        {/* Title */}
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <div>
             <Field
@@ -79,6 +85,39 @@ class NewTrip extends Component {
               component={this.renderInput}
             />
           </div>
+
+          {/* Start Date */}
+          <div>
+            <Field
+              placeholder=""
+              name='startDate'
+              label="Start Date"
+              component={this.renderInput}
+            />
+          </div>
+
+          {/* End Date */}
+          <div>
+            <Field
+              placeholder=""
+              name='endDate'
+              label="End Date"
+              component={this.renderInput}
+            />
+          </div>
+
+
+          {/* Friends */}
+          <div>
+            <Field
+              placeholder="Friends"
+              name='users'
+              label="Friends"
+              component={this.renderDropdown}
+            />
+          </div>
+
+
 
           <button
             className="searchBtn"
@@ -90,7 +129,7 @@ class NewTrip extends Component {
         <br></br>
 
         <span className="displayFriends">
-          Friends: 
+          Friends:
         </span>
 
       </div>
@@ -100,11 +139,11 @@ class NewTrip extends Component {
 };
 
 function mapStateToProps(state) {
-  return { friend: state.user.friendData }
+  return { trip: state.user.tripData }
 }
 
 export default compose(
   requireAuth,
-  reduxForm({ form: 'createTrip' }),
+  reduxForm({ form: 'trip' }),
   connect(mapStateToProps, { getUserTrips })
 )(NewTrip);
