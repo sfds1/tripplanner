@@ -9,7 +9,18 @@ class Trips extends Component {
   componentDidMount = async () => {
     await this.props.getUserTrips();
   }
-  
+
+  renderTrips = () => {
+    if (this.props.trips.length === 0) {
+      return <div> No Trips Yet </div>
+    } else {
+      return this.props.trips.map(({ _id, title}) => {
+        return (
+          <div key={_id}>{title}</div>
+        )
+      })
+    }
+ }  
   render() {
     console.log(this.props.trips)
     return (
@@ -17,6 +28,7 @@ class Trips extends Component {
       <div>
 
         Trips Page
+        { this.renderTrips() }
 
       </div>
 
