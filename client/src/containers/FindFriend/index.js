@@ -8,6 +8,7 @@ import Back from '../../components/Back';
 
 import requireAuth from './../../hoc/requireAuth'
 import { getFriendByEmail } from './../../actions/user'
+import axios from "axios";
 
 
 class FindFriend extends Component {
@@ -26,6 +27,13 @@ class FindFriend extends Component {
         type="text"
       />
     )
+  }
+
+  handleAdd = async () => {
+    // const { _id } = this.props.friend
+    await axios.post('/api/user', this.props.friend, { headers: { 'authorization': localStorage.getItem('token') } })
+    alert('Friend Added')
+    console.log(this.props.user)
   }
   
   render() {
@@ -52,9 +60,11 @@ class FindFriend extends Component {
 
         <br></br>
 
-        <span className="displayFriends">
+        <span onClick={this.handleAdd} className="displayFriends">
           Friends: {this.props.friend.email}
+          <br/>
         </span>
+          (click to add)
         
       </div>
 
