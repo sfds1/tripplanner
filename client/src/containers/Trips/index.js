@@ -16,7 +16,7 @@ class Trips extends Component {
     } else {
       return this.props.trips.map(({ _id, title}) => {
         return (
-          <div key={_id}>{title}</div>
+          <button key={_id}>{title}</button>
         )
       })
     }

@@ -7,18 +7,34 @@ import { getUserTrips } from './../../actions/trips'
 
 class CurrentTrip extends Component {
 
-  componentDidMount() {
-    this.props.getUserTrips();
+  componentDidMount = async () => {
+    await this.props.getUserTrips();
+  }
+
+  renderTrips = () => {
+    if (this.props.trips.length === 0) {
+      return <div> No Trips Yet </div>
+    } else {
+      return this.props.trips.map(({ _id, title, startDate, endDate }) => {
+        return (
+          <div key={_id}>
+            <span> Trip Title:{title} </span>
+            <br></br>
+            <span> Start: {startDate} </span>
+            <br></br>
+            <span> End: {endDate} </span>
+          </div>
+        )
+      })
+    }
   }
 
   render() {
-
+    console.log(this.props.trips)
     return (
       <div>
 
-        <span>Trip Title:</span>
-        <span>Time of Trip:</span>
-        <span>Location:</span>
+        <span>{this.renderTrips()}</span>
 
       </div>
 
@@ -27,7 +43,7 @@ class CurrentTrip extends Component {
 };
 
 function mapStateToProps(state) {
-  return { trip: state.user.tripData }
+  return { trips: state.trips.userTrips }
 }
 
 export default compose(
