@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Refresh from '../../components/Refresh';
+import Back from '../../components/Back';
+
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -33,6 +36,9 @@ class CurrentTrip extends Component {
     console.log(this.props.trips)
     return (
       <div>
+
+        <Back />
+        <Refresh />
 
         <span>{this.renderTrips()}</span>
 
