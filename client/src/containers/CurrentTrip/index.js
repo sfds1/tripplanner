@@ -21,11 +21,11 @@ class CurrentTrip extends Component {
       return this.props.trips.map(({ _id, title, startDate, endDate }) => {
         return (
           <div key={_id}>
-            <span> Trip Title:{title} </span>
+            <span className="tripMainTab"> {title} </span>
             <br></br>
-            <span> Start: {startDate} </span>
+            <span className="tripInfoTab"> Start: {startDate} </span>
             <br></br>
-            <span> End: {endDate} </span>
+            <span className="tripInfoTab"> End: {endDate} </span>
           </div>
         )
       })
@@ -40,7 +40,11 @@ class CurrentTrip extends Component {
         <Back />
         <Refresh />
 
-        <span>{this.renderTrips()}</span>
+        <div className="tripHeader">Main Trip Tab</div>
+
+        <div className="card">
+          <div>{this.renderTrips()}</div>
+        </div>
 
       </div>
 

@@ -83,63 +83,68 @@ class NewTrip extends Component {
         <Back />
         <Refresh />
 
-        {/* Title */}
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-          <div>
-            <Field
-              placeholder="Name Trip"
-              name='title'
-              label="Name of the trip"
-              component={this.renderInput}
-            />
-          </div>
+        <div className="tripHeader">New Trip</div>
 
-          {/* Start Date */}
-          <div>
-            <Field
-              placeholder=""
-              name='startDate'
-              label="Start Date"
-              component={this.renderInput}
-            />
-          </div>
+        <div className="card">
 
-          {/* End Date */}
-          <div>
-            <Field
-              placeholder=""
-              name='endDate'
-              label="End Date"
-              component={this.renderInput}
-            />
-          </div>
+          {/* Title */}
+          <form onSubmit={handleSubmit(this.onSubmit)}>
+            <div>
+              <Field
+                placeholder="Name Trip"
+                name='title'
+                label="Name of the trip"
+                component={this.renderInput}
+              />
+            </div>
 
+            {/* Start Date */}
+            <div>
+              <Field
+                placeholder=""
+                name='startDate'
+                label="Start Date"
+                component={this.renderInput}
+              />
+            </div>
 
-          {/* Friends */}
-          <div>
-            <Field
-              placeholder="Friends"
-              name='users'
-              label="Friends"
-              component={this.renderDropdown}
-            />
-          </div>
+            {/* End Date */}
+            <div>
+              <Field
+                placeholder=""
+                name='endDate'
+                label="End Date"
+                component={this.renderInput}
+              />
+            </div>
 
 
+            {/* Friends */}
+            <div>
+              <Field
+                placeholder="Friends"
+                name='users'
+                label="Friends"
+                component={this.renderDropdown}
+              />
+            </div>
 
-          <button
-            className="searchBtn"
-            type="submit">
-            Create
+
+
+            <button
+              className="searchBtn"
+              type="submit">
+              Create
         </button>
-        </form>
+          </form>
 
-        <br></br>
+          <br></br>
 
-        <span className="displayFriends">
-          Friends:
+          <span className="displayFriends">
+            Friends:
         </span>
 
+        </div>
       </div>
 
     )
