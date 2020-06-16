@@ -16,17 +16,21 @@ class FindFriend extends Component {
     friendResults: "Names Here"
   };
 
+  // handleSubmit = (val) => {
+  //   this.findFriend(val);
+  //   console.log(this.props)
+  // }
 
   handleFriendSearch = (e) => {
     const { value } = e.target;
     this.setState({ friendSearch: value });
-    this.findFriend(value);
-    console.log(this.props.friend)
+    this.props.getFriendByEmail(value)
   };
 
-  findFriend = (friendEmail) => {
-    return this.props.getFriendByEmail(friendEmail);
+  renderFriend = () => {
+    return this.props.friend !== null ? <div> {this.props.friend.email} </div> : <div>No friend with that email</div>
   }
+
 
   render() {
     return (
@@ -35,7 +39,7 @@ class FindFriend extends Component {
         <Back />
         <Refresh />
 
-        <form onSubmit={(e) => this.handleFriendSearch(e)}>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <div>
             <input
               className="formBox"
@@ -58,7 +62,8 @@ class FindFriend extends Component {
         <span className="displayFriends">
           Friends: {this.state.friendResults}
         </span>
-
+        
+        {this.renderFriend}
       </div>
 
     )

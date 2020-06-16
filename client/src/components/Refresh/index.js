@@ -8,7 +8,7 @@ class Refresh extends Component {
 
       <div>
 
-        <Link className="refreshBtn" onClick={() => window.location.reload(false)}>⭮</Link>
+        <Link className="refreshBtn" to={window.location.pathname} onClick={() => window.location.reload(false)}>⭮</Link>
 
       </div>
 
