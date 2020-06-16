@@ -21,7 +21,7 @@ class Trips extends Component {
       return this.props.trips.map(({ _id, title }) => {
         return (
           <Link to="/currenttrip">
-            <button key={_id}>{title}</button>
+            <div className="tripBtn" key={_id}>{title}</div>
           </Link>
         )
       })
@@ -36,9 +36,13 @@ class Trips extends Component {
         <Back />
         <Refresh />
 
-        Trips Page
-        { this.renderTrips()}
+        <div className="tripHeader">Trips</div>
 
+        <div className="card">
+          <div className="tripList">
+            {this.renderTrips()}
+          </div>
+        </div>
       </div>
 
     )

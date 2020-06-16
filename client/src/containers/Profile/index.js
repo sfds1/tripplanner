@@ -24,11 +24,14 @@ class Profile extends Component {
         <Back />
         <Refresh />
 
+        <div className="tripHeader">Profile</div>
 
-        <span>
-          Email: {this.props.user.email}
-        </span>
+        <div className="card">
+          <span>
+            Email: {this.props.user.email}
+          </span>
 
+        </div>
       </div>
 
     )
