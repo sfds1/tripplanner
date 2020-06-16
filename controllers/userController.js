@@ -11,6 +11,13 @@ module.exports = {
   },
   getUserData: (req, res) => res.json(req.user),
 
+  addFriend: (req, res) => {
+    const friend = req.body;
+    req.user.friends.push(friend);
+    req.user.save();
+    return res.status(200).json(req.user);
+  },
+
   updateUser: async (req, res) => {
     //   Grab userId from params
     const { userId } = req.params;
