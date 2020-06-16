@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import Refresh from '../../components/Refresh';
-import Back from '../../components/Back';
-
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { reduxForm, Field } from 'redux-form';
+
+import Refresh from '../../components/Refresh';
+import Back from '../../components/Back';
 
 import requireAuth from './../../hoc/requireAuth'
 import { getFriendByEmail } from './../../actions/user'
@@ -11,59 +12,50 @@ import { getFriendByEmail } from './../../actions/user'
 
 class FindFriend extends Component {
 
-  state = {
-    friendSearch: "",
-    friendResults: "Names Here"
-  };
-
-  // handleSubmit = (val) => {
-  //   this.findFriend(val);
-  //   console.log(this.props)
-  // }
-
-  handleFriendSearch = (e) => {
-    const { value } = e.target;
-    this.setState({ friendSearch: value });
-    this.props.getFriendByEmail(value)
-  };
-
-  renderFriend = () => {
-    return this.props.friend !== null ? <div> {this.props.friend.email} </div> : <div>No friend with that email</div>
+  onSubmit = async ({ text }) => {
+    await this.props.getFriendByEmail(text)
+    console.log(this.props.friend)
   }
 
-
+  renderInput = ({ input, meta }) => {
+    return (
+      <input
+        {...input}
+        className="formBox"
+        placeholder="Search for a Friend"
+        type="text"
+      />
+    )
+  }
+  
   render() {
+    const { handleSubmit } = this.props;
     return (
       <div>
-
         <Back />
         <Refresh />
-
-        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <form onSubmit={handleSubmit(this.onSubmit)}>
           <div>
-            <input
-              className="formBox"
-              onChange={this.handleFriendSearch}
-              value={this.state.friendSearch}
-              placeholder="Search for a Friend"
-              type="text"
+            <Field
+              name='text'
+              component={this.renderInput}
             />
           </div>
+          <button
+            className="searchBtn"
+            type='submit'
+            onClick={this.findFriend}>
+            Search
+          </button>
         </form>
 
-        <button
-          className="searchBtn"
-          onClick={this.findFriend}>
-          Search
-        </button>
 
         <br></br>
 
         <span className="displayFriends">
-          Friends: {this.state.friendResults}
+          Friends: {this.props.friend.email}
         </span>
         
-        {this.renderFriend}
       </div>
 
     )
@@ -76,5 +68,6 @@ function mapStateToProps(state) {
 
 export default compose(
   requireAuth,
+  reduxForm({ form: 'findFriend' }),
   connect(mapStateToProps, { getFriendByEmail })
 )(FindFriend);
