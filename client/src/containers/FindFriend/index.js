@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Refresh from '../../components/Refresh';
+import Back from '../../components/Back';
+
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -29,6 +32,9 @@ class FindFriend extends Component {
     console.log(this.props.friend)
     return (
       <div>
+
+        <Back />
+        <Refresh />
 
         <form onSubmit={(e) => this.handleFriendSearch(e)}>
           <div>

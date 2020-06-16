@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
+import Refresh from '../../components/Refresh';
+import Back from '../../components/Back';
+
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -10,11 +14,16 @@ class Profile extends Component {
     this.props.getUserInfo();
   }
 
+
   render() {
     console.log('userdata:', this.props.user)
     return (
 
       <div>
+
+        <Back />
+        <Refresh />
+
 
         <span>
           Email: {this.props.user.email}

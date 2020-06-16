@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { Form, Segment, Button } from 'semantic-ui-react';
 import { email, required } from 'redux-form-validators';
 import axios from 'axios';
 import { AUTH_USER } from '../../actions/types';
+
+import Refresh from '../../components/Refresh';
 
 class SignIn extends Component {
 
@@ -46,6 +49,11 @@ class SignIn extends Component {
   render() {
     const { invalid, submitting, submitFailed, handleSubmit } = this.props;
     return (
+
+      <div>
+        <Link to="/user" className="backBtn"> ↼ </Link>
+        <Refresh />
+
       <div className="formBox">
       <Form onSubmit={handleSubmit(this.onSubmit)}>
         <Segment stacked>
@@ -75,6 +83,7 @@ class SignIn extends Component {
           />
         </Segment>
       </Form>
+      </div>
       </div>
     );
   }
