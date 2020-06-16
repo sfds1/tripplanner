@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
+import Refresh from '../../components/Refresh';
+import Back from '../../components/Back';
+
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -14,21 +18,26 @@ class Trips extends Component {
     if (this.props.trips.length === 0) {
       return <div> No Trips Yet </div>
     } else {
-      return this.props.trips.map(({ _id, title}) => {
+      return this.props.trips.map(({ _id, title }) => {
         return (
-          <button key={_id}>{title}</button>
+          <Link to="/currenttrip">
+            <button key={_id}>{title}</button>
+          </Link>
         )
       })
     }
- }  
+  }
   render() {
     console.log(this.props.trips)
     return (
 
       <div>
 
+        <Back />
+        <Refresh />
+
         Trips Page
-        { this.renderTrips() }
+        { this.renderTrips()}
 
       </div>
 

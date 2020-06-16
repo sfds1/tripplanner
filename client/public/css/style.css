@@ -11,7 +11,7 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* User page positioning and button style */
+/* Big Nav buttons */
 .userBtn{
   margin-top: 100px;
   margin-left: 25px;
@@ -64,6 +64,35 @@ html, body {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.backBtn {
+  font-size: 70px;
+  position: fixed;
+  left: 200px;
+  top: 0;
+  margin-top: 100px;
+  margin-left: 25px;
+  margin-right: 25px;
+  background-image: linear-gradient(180deg, #60df66 0%,#3b8618 100%);
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  text-align: center;
+}
+.refreshBtn {
+  font-size: 70px;
+  position: fixed;
+  right: 200px;
+  top: 0;
+  margin-top: 100px;
+  margin-left: 25px;
+  margin-right: 25px;
+  background-image: linear-gradient(180deg, #60df66 0%,#3b8618 100%);
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  text-align: center;
 }
 
 /* displaying searched friends results */

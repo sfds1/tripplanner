@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from 'redux-form';
+import Refresh from '../../components/Refresh';
+import Back from '../../components/Back';
 import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import requireAuth from '../../hoc/requireAuth'
-
 import { getUserTrips } from './../../actions/trips'
 
 import fetchFlights from '../../flightAPI/flightAPI'
@@ -15,8 +16,8 @@ class NewTrip extends Component {
 
   componentDidMount() {
     this.props.getUserTrips();
-    
-    fetchFlights("SanJose", "Chicago", "2020-06-15", "2020-06-16" )
+
+    fetchFlights("SanJose", "Chicago", "2020-06-15", "2020-06-16")
 
   }
 
@@ -78,6 +79,9 @@ class NewTrip extends Component {
 
     return (
       <div>
+
+        <Back />
+        <Refresh />
 
         {/* Title */}
         <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -143,7 +147,7 @@ class NewTrip extends Component {
 };
 
 function mapStateToProps(state) {
-  return { trip: state.user.tripData }
+  return { trips: state.trips.userTrips }
 }
 
 export default compose(
