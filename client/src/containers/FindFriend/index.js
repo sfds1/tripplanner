@@ -17,16 +17,15 @@ class FindFriend extends Component {
   handleFriendSearch = (e) => {
     const { value } = e.target;
     this.setState({ friendSearch: value });
+    this.findFriend(value);
+    console.log(this.props.friend)
   };
 
-  // Needs a search for this email parameter
   findFriend = (friendEmail) => {
-    return this.props.getFriendByEmail('friendEmail');
-
+    return this.props.getFriendByEmail(friendEmail);
   }
 
   render() {
-    console.log(this.props.friend)
     return (
       <div>
 
