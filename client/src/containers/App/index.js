@@ -36,7 +36,7 @@ class App extends Component {
           <Route exact path="/findfriend" component={FindFriend} />
           <Route exact path="/trips" component={Trips} />
           <Route exact path="/newtrip" component={NewTrip} />
-          <Route exact path="/currenttrip" component={CurrentTrip} />
+          <Route exact path="/currenttrip/:id" component={CurrentTrip} />
 
       </div>
     );
