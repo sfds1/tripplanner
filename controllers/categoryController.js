@@ -21,7 +21,7 @@ module.exports = {
     }
     try {
       const newCategory = await new Category({ title, categoryCreator: req.user._id, trip: tripId }).save();
-      await Trip.findByIdAndUpdate(tripId, { $push: { categories: newCategory._id } });
+      await (await Trip.findByIdAndUpdate(tripId, { $push: { categories: newCategory } }, { new: true })).save();
       return res.status(200).json(newCategory);
     } catch (e) {
       return res.status(403).json({ e });
