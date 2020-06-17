@@ -3,6 +3,7 @@ import Refresh from '../../components/Refresh';
 import Back from '../../components/Back';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
+import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -44,11 +45,12 @@ class CurrentTrip extends Component {
   }
 
   onSubmit = async (formValues, dispatch) => {
+    const { _id } = this.props.currentTrip;
     try {
-      // const { data } = await axios.post('/api/trip', formValues, { headers: { 'authorization': localStorage.getItem('token') } });
-      // console.log(data);
+      const { data } = await axios.post(`/api/category/${_id}`, formValues, { headers: { 'authorization': localStorage.getItem('token') } });
+      console.log(data);
       // dispatch({ type: GET_USER_TRIPS, payload: data });
-      this.props.history.push('/currenttrip');
+      // this.props.history.push('/currenttrip');
     } catch (e) {
       // dispatch({ type: GET_USER_TRIPS_ERROR, payload: e });
     }
@@ -86,7 +88,6 @@ class CurrentTrip extends Component {
         <div className="card">
           <div>{this.renderTrip()}</div>
           {this.renderCategories()}
-        </div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
             <div>
               <Field
@@ -102,6 +103,7 @@ class CurrentTrip extends Component {
               Create
         </button>
           </form>
+        </div>
       </div>
 
     )
