@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import BEARER_TOKEN from '../../yelpAPI/config'
+
+
 class Trips extends Component {
+
   state = { 
     tours : []
+    
 }
 
 componentDidMount() { 
@@ -25,18 +29,6 @@ componentDidMount() {
   console.log ('error')
   })
 
-    // axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search`, { 
-    //     headers: { 
-    //         authorization:  `${BEARER_TOKEN}`
-    //     },
-    //     params: {
-    //          categories: 'tourism',
-    //      } 
-        
-        
-    // }).then(res => { 
-    //     console.log(res.data);
-    // });
 }
 
   render() {
