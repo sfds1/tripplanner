@@ -4,6 +4,8 @@ import axios from 'axios';
 import {
     GET_USER_TRIPS,
     GET_USER_TRIPS_ERROR,
+    GET_TRIP_BY_ID,
+    GET_TRIP_BY_ID_ERROR,
     GET_CATEGORY,
     GET_CATEGORY_ERROR,
     GET_ACTIVITY,
@@ -18,6 +20,15 @@ export const getUserTrips = () => async dispatch => {
         dispatch({ type: GET_USER_TRIPS, payload: data })
     } catch (e) {
         dispatch({ type: GET_USER_TRIPS_ERROR, payload: e })
+    }
+};
+
+export const getTripById = tripId => async dispatch => {
+    try {
+        const { data } = await axios.get(`/api/trip/${tripId}`, { headers: { 'authorization': localStorage.getItem('token')} })
+        dispatch({ type: GET_TRIP_BY_ID, payload: data })
+    } catch (e) {
+        dispatch({ type: GET_TRIP_BY_ID_ERROR, payload: e})
     }
 };
 
