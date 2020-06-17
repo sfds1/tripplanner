@@ -11,7 +11,7 @@ const { requireAuth } = require('../../../middlewares/authMiddlewares');
 // /api/user
 router.route('/')
   .get(requireAuth, getUserData)
-  .post(requireAuth, addFriend);
+  .post(requireAuth, addFriend)
   .put(requireAuth, updateUser);
 
 router.route('/email')

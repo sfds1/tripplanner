@@ -13,7 +13,7 @@ class Trips extends Component {
 componentDidMount() { 
   console.log(BEARER_TOKEN);
 
-  axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${"San Jose"}`, {
+  axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${"Chicago"}`, {
     headers: {
       Authorization: `${BEARER_TOKEN}`
   },

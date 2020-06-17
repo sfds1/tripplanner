@@ -18,10 +18,15 @@ class CurrentTrip extends Component {
     if (this.props.trips.length === 0) {
       return <div> No Trips Yet </div>
     } else {
-      return this.props.trips.map(({ _id, title, startDate, endDate }) => {
+     sessionStorage.setItem("trips",JSON.stringify(this.props.trips)) 
+      return this.props.trips.map(({ _id, title, city, startDate, endDate }) => {
+       
+        console.log(title, "title")
         return (
           <div key={_id}>
             <span className="tripMainTab"> {title} </span>
+            <br></br>
+            <span className="tripMainTab"> {city} </span>
             <br></br>
             <span className="tripInfoTab"> Start: {startDate} </span>
             <br></br>

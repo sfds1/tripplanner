@@ -23,6 +23,7 @@ class NewTrip extends Component {
 
   onSubmit = async (formValues, dispatch) => {
     try {
+      console.log(formValues, "formValues")
       const { data } = await axios.post('/api/trip', formValues, { headers: { 'authorization': localStorage.getItem('token') } });
       console.log(data);
       // dispatch({ type: GET_USER_TRIPS, payload: data });
@@ -30,6 +31,23 @@ class NewTrip extends Component {
     } catch (e) {
       // dispatch({ type: GET_USER_TRIPS_ERROR, payload: e });
     }
+  }
+
+  renderInput = (field) => {
+    return (
+      <div>
+        <label>
+          {field.label}
+        </label>
+        <br></br>
+        <input
+          {...field.input}
+          className="formBox"
+          placeholder={field.placeholder}
+          type="text"
+        />
+      </div>
+    )
   }
 
   renderInput = (field) => {
@@ -94,6 +112,17 @@ class NewTrip extends Component {
                 placeholder="Name Trip"
                 name='title'
                 label="Name of the trip"
+                component={this.renderInput}
+              />
+            </div>
+
+            {/* Location */}
+            <form onSubmit={handleSubmit(this.onSubmit)}/>
+            <div>
+              <Field
+                placeholder="Location"
+                name='city'
+                label="Where do you want to go?"
                 component={this.renderInput}
               />
             </div>

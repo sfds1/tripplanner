@@ -13,13 +13,14 @@ module.exports = {
     }
   },
   addTrip: async (req, res) => {
-    const { title, startDate, endDate, location } = req.body;
+    const { title,city, startDate, endDate, location } = req.body;
     if (!title) {
       return res.status(400).json({ error: 'You must provide text' });
     }
     try {
       const newTrip = await new Trip({
         title,
+        city,
         startDate,
         endDate,
         location,
@@ -59,13 +60,13 @@ module.exports = {
   },
   editTrip: async (req, res) => {
     const { tripId } = req.params;
-    const { title, startDate, endDate, location } = req.body;
+    const { title, city, startDate, endDate, location } = req.body;
     if (!title) {
       return res.status(400).json({ error: 'You must provide text' });
     }
     try {
       const tripToEdit = await Trip.findByIdAndUpdate(tripId, {
-        title, startDate, endDate, location,
+        title, city, startDate, endDate, location,
       }, { new: true });
       return res.json(tripToEdit);
     } catch (e) {
