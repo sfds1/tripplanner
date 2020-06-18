@@ -11,6 +11,11 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.mainTitle {
+  font-size: 100px;
+  text-align: center;
+  color: #f5ba18;
+}
 .card {
   background-color: rgb(235, 235, 235);
   text-align: center;
@@ -19,6 +24,7 @@ html, body {
   width: 900px;
   height: 100%;
   margin: auto;
+  margin-bottom: 50px;
 }
 
 /* Big Nav buttons */
@@ -26,7 +32,7 @@ html, body {
   margin-top: 100px;
   margin-left: 25px;
   margin-right: 25px;
-  background-image: linear-gradient(180deg, #60df66 0%,#3b8618 100%);
+  background: rgb(68, 172, 64);
   height: 200px;
   width: 200px;
   border-radius: 25px;
@@ -51,7 +57,9 @@ html, body {
 }
 .logo {
   width: 500px;
+  margin: auto;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 /* Input box customization */
@@ -66,24 +74,25 @@ html, body {
 }
 .formBox input {
   height: 60px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size: 30px;
   margin-top: 30px;
   font-family: 'Montserrat', sans-serif;
-  background-color: rgb(68, 172, 64);
-  border: none;
-  color: white;
+  background-color: rgb(50, 50, 50, 0);
+  color: rgb(50, 50, 50);
   text-align: center;
+  border: 8px solid;
+  border-color: rgb(68, 172, 64);
 }
 ::placeholder {
-  color: rgb(26, 26, 26);
+  color: rgb(150, 150, 150);
 }
 
 /* Sign in/out button styling */
-.signBtn {
-  border-radius: 10px;
-  height: 60px;
-  width: 380px;
+.signBtn, .searchBtn {
+  border-radius: 15px;
+  height: 70px;
+  width: 400px;
   text-align: center;
   margin: auto;
   margin-top: 30px;
@@ -91,21 +100,11 @@ html, body {
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
   background-color: rgb(255, 187, 0);
+  color: rgb(50, 50, 50);
   border: none;
 }
-
-.searchBtn {
-  border-radius: 10px;
-  height: 60px;
-  width: 380px;
-  text-align: center;
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  font-size: 30px;
-  font-family: 'Montserrat', sans-serif;
-  background-color: rgb(255, 187, 0);
-  border: none;
+.searchBtn:hover, .signBtn:hover {
+  transform: scale(1.05)
 }
 
 .backBtn {
@@ -116,11 +115,13 @@ html, body {
   margin-top: 100px;
   margin-left: 25px;
   margin-right: 25px;
-  background-image: linear-gradient(180deg, #60df66 0%,#3b8618 100%);
+  color: white;
+  background-color: rgb(68, 172, 64);
   height: 100px;
   width: 100px;
-  border-radius: 25px;
+  border-radius: 20px;
   text-align: center;
+  padding: 10px;
 }
 .refreshBtn {
   font-size: 70px;
@@ -130,11 +131,12 @@ html, body {
   margin-top: 100px;
   margin-left: 25px;
   margin-right: 25px;
-  background-image: linear-gradient(180deg, #60df66 0%,#3b8618 100%);
+  background-color: rgb(68, 172, 64);
   height: 100px;
   width: 100px;
-  border-radius: 25px;
+  border-radius: 20px;
   text-align: center;
+  padding: 10px;
 }
 .backBtn:hover, .refreshBtn:hover {
   transform: scale(1.05)
@@ -143,25 +145,29 @@ html, body {
 .tripBtn {
   display: block;
   margin-top: 50px;
-  background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(30, 156, 51));  height: 60px;
-  width: 900px;
+  border-radius: 15px;
+  background-color: rgb(255, 187, 0);
+  height: 60px;
+  width: 800px;
   text-align: center;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 10px;
   font-size: 60px;
 }
 .categoryBtn {
   display: block;
   margin-top: 50px;
-  background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(235, 100, 95));  height: 30px;
-  width: 900px;
+  border-radius: 15px;
+  background-color: rgb(114, 114, 114);
+  height: 30px;
+  width: 600px;
   text-align: center;
   color: white;
   padding: 10px;
   font-size: 30px;
 }
 .tripBtn:hover, .categoryBtn:hover {
-  transform: scale(1.1)
+  transform: scale(1.05)
 }
 .tripList {
   width: 900px;
@@ -184,9 +190,12 @@ html, body {
 }
 .tripMainTab {
   display: block;
+  margin: auto;
   margin-top: 100px;
-  background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(30, 156, 51));  height: 60px;
-  width: 900px;
+  border-radius: 15px;
+  background-color: rgb(68, 172, 64);
+  height: 60px;
+  width: 800px;
   text-align: center;
   color: white;
   padding: 10px;
@@ -196,7 +205,9 @@ html, body {
   display: block;
   margin-top: 10px;
   margin-left: 80px;
-  background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(228, 140, 81));  height: 35px;
+  border-radius: 15px;
+  background-color: rgb(236, 183, 35);
+  height: 35px;
   width: 700px;
   text-align: center;
   color: white;
@@ -204,10 +215,11 @@ html, body {
   font-size: 35px;
 }
 
-/* displaying searched friends results */
+/* Displaying searched friends results */
 .displayFriends {
   font-size: 30px;
   margin: auto;
+  margin-top: 40px;
   display: block;
 }
 
@@ -219,8 +231,7 @@ button:focus, input:focus, textarea:focus, select:focus{
 a, a:link, a:visited, a:hover, a:active 
 {
   text-decoration: none;
-  color: rgb(0, 0, 0);
-  padding-top: 10px;
+  color: rgb(50, 50, 50);
   display: inline-block;
 }
 /* Chrome, Safari, Edge, Opera */
@@ -238,5 +249,5 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   font-family: 'Montserrat', sans-serif;
-  -webkit-box-shadow: 0 0 0px 1000px rgb(68, 172, 64) inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px rgb(235, 235, 235) inset !important;
 }

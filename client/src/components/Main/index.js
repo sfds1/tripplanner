@@ -12,12 +12,14 @@ class Main extends Component {
   render() {
     return (
 
-      <div>
+      <div className="mainTitle">
         <Link to="/user">
 
           <div className="mainPage">
             <img className="logo" src="../../../images/logo-1.png" alt="logo" />
           </div>
+
+          <div className="mainTitle">We Trippin'</div>
 
         </Link>
       </div>

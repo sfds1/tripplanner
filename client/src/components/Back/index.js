@@ -8,9 +8,8 @@ class Back extends Component {
 
       <div>
 
-        <Link to="/dashboard" className="backBtn">
-          {/* <img className="backBtn" src="../../../images/logo-1.png" alt="logo" /> */}
-      ↼
+        <Link to="/dashboard">
+          <img className="backBtn" src="../../../images/back.png" alt="" />
       </Link>
 
       </div>
