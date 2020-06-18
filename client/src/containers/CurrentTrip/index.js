@@ -24,7 +24,7 @@ class CurrentTrip extends Component {
       <div>
         <span className="tripMainTab"> {title} </span>
         <br></br>
-        <span className="tripMainTab"> {city} </span>
+        <span className="tripInfoTab"> {city} </span>
         <br></br>
         <span className="tripInfoTab"> Start: {startDate} </span>
         <br></br>

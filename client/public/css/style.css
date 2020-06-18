@@ -41,14 +41,30 @@ html, body {
   margin: auto;
   margin-bottom: 50px;
 }
+/* Trip page tabs */
+.tripHeader {
+  margin-top: 120px;
+  margin-bottom: 30px;
+  background-color: rgb(235, 235, 235);
+  height: 60px;
+  width: 880px;
+  text-align: center;
+  color: rgb(50, 50, 50);
+  padding: 10px;
+  font-size: 60px;
+  border-radius: 25px;
+  font-weight: bolder;
+}
 
 /* Top navbar styling fixed on each page */
 .navbar {
   width: 900px;
   height: 90px;
+  margin: auto;
   position: fixed;
-  top: 0;
-  background-color: #1cac93;
+  left: 50%;
+  transform: translate(-50%, 0);
+    background-color: #1cac93;
   border-radius: 0px 0px 20px 20px;
   text-align: center;
 }
@@ -91,8 +107,8 @@ html, body {
 /* Big Nav buttons */
 .userBtn{
   margin-top: 100px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
   background: #1cac93;
   height: 200px;
   width: 200px;
@@ -171,8 +187,8 @@ html, body {
   transform: scale(1.05)
 }
 
+/* Main trips page buttons that take you to a trip */
 .tripBtn {
-  display: block;
   margin-top: 50px;
   border-radius: 15px;
   background-color: #ea8948;
@@ -184,7 +200,6 @@ html, body {
   font-size: 60px;
 }
 .categoryBtn {
-  display: inline-block;
   margin-top: 50px;
   border-radius: 15px;
   background-color: rgb(114, 114, 114);
@@ -198,25 +213,8 @@ html, body {
 .tripBtn:hover, .categoryBtn:hover {
   transform: scale(1.05)
 }
-.tripList {
-  width: 900px;
-}
 
-/* Trip page tabs */
-.tripHeader {
-  display: block;
-  margin-top: 120px;
-  margin-bottom: 30px;
-  background-color: rgb(235, 235, 235);
-  height: 60px;
-  width: 900px;
-  text-align: center;
-  color: rgb(50, 50, 50);
-  padding: 10px;
-  font-size: 60px;
-  border-radius: 25px;
-  font-weight: bolder;
-}
+/* Current trip title and city */
 .tripMainTab {
   display: block;
   margin: auto;
