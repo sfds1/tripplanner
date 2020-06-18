@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
+import UserDash from "../../components/UserDash";
 
 import { Field, reduxForm } from 'redux-form';
 import axios from 'axios';
@@ -79,6 +80,7 @@ class CurrentCategory extends Component {
       <div>
 
         <Navbar />
+        <UserDash />
 
         <div className="tripHeader">Current Category</div>
 

@@ -8,6 +8,7 @@ import Main from '../../components/Main';
 import User from '../../components/User';
 import Dashboard from '../../components/Dashboard';
 import Profile from '../Profile';
+import Hotspots from '../Hotspots';
 import FindFriend from '../FindFriend';
 import Trips from '../Trips';
 import NewTrip from '../NewTrip';
@@ -34,6 +35,7 @@ class App extends Component {
           <Route exact path="/user" component={User} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/hotspots" component={Hotspots} />
           <Route exact path="/findfriend" component={FindFriend} />
           <Route exact path="/trips" component={Trips} />
           <Route exact path="/newtrip" component={NewTrip} />

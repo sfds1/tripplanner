@@ -42,14 +42,6 @@ class UserDash extends Component {
 
         <div style={{ display: 'inline-block' }}>
 
-          <Link to="/flights" className="userDashBtn">
-            <img className="userDashIcons" src="../../../images/plane.png" alt="" />
-          </Link>
-
-        </div>
-
-        <div style={{ display: 'inline-block' }}>
-
           <Link to="/hotspots" className="userDashBtn">
             <img className="userDashIcons" src="../../../images/star.png" alt="" />
           </Link>

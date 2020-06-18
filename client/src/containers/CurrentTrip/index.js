@@ -24,9 +24,7 @@ class CurrentTrip extends Component {
     return (
       <div>
         <div className="tripMainTab"> {title} </div>
-        <div className="tripInfoTab"> {city} </div>
-        <div className="tripInfoTab"> Start: {startDate} </div>
-        <div className="tripInfoTab"> End: {endDate} </div>
+        <div className="tripInfoTab"> {city}: {startDate} - {endDate}</div>
       </div>
     )
   }
