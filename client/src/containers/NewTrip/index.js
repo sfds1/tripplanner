@@ -26,7 +26,7 @@ class NewTrip extends Component {
       const { data } = await axios.post('/api/trip', formValues, { headers: { 'authorization': localStorage.getItem('token') } });
       console.log(data);
       // dispatch({ type: GET_USER_TRIPS, payload: data });
-      this.props.history.push('/currenttrip');
+      this.props.history.push(`/currenttrip/${data._id}`);
     } catch (e) {
       // dispatch({ type: GET_USER_TRIPS_ERROR, payload: e });
     }
@@ -87,6 +87,7 @@ class NewTrip extends Component {
 
         <div className="card">
 
+<div className="formBox">
           {/* Title */}
           <form onSubmit={handleSubmit(this.onSubmit)}>
             <div>
@@ -119,7 +120,7 @@ class NewTrip extends Component {
             </div>
 
 
-            {/* Friends */}
+            {/* Friends
             <div>
               <Field
                 placeholder="Friends"
@@ -127,7 +128,7 @@ class NewTrip extends Component {
                 label="Friends"
                 component={this.renderDropdown}
               />
-            </div>
+            </div> */}
 
             <button
               className="searchBtn"
@@ -136,6 +137,7 @@ class NewTrip extends Component {
             </button>
 
           </form>
+          </div>
 
         </div>
       </div>

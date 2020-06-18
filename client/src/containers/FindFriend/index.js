@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
+import { Form, Button } from 'semantic-ui-react';
+
 
 import Refresh from '../../components/Refresh';
 import Back from '../../components/Back';
@@ -35,37 +37,44 @@ class FindFriend extends Component {
     alert('Friend Added')
     console.log(this.props.user)
   }
-  
+
   render() {
     const { handleSubmit } = this.props;
     return (
       <div>
         <Back />
         <Refresh />
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-          <div>
-            <Field
-              name='text'
-              component={this.renderInput}
-            />
+
+        <div className="tripHeader">Find Friends</div>
+
+        <div className="card">
+
+          <div className="formBox">
+            <form autocomplete="off" onSubmit={handleSubmit(this.onSubmit)}>
+              <div>
+                <Field
+                  name='text'
+                  autoComplete='off'
+                  component={this.renderInput}
+                />
+              </div>
+              <Button
+                className="searchBtn"
+                type='submit'
+                onClick={this.findFriend}>
+                Search
+          </Button>
+            </form>
           </div>
-          <button
-            className="searchBtn"
-            type='submit'
-            onClick={this.findFriend}>
-            Search
-          </button>
-        </form>
 
 
-        <br></br>
-
-        <span onClick={this.handleAdd} className="displayFriends">
-          Friends: {this.props.friend.email}
-          <br/>
-        </span>
+          <div onClick={this.handleAdd} className="displayFriends">
+            Friends: {this.props.friend.email}
           (click to add)
-        
+        </div>
+
+
+        </div>
       </div>
 
     )
