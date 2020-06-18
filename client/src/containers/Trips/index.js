@@ -49,7 +49,7 @@ class Trips extends Component {
     } else {
       return this.props.trips.map(({ _id, title }) => {
         return (
-          <Link to="/currenttrip">
+          <Link to={{ pathname: `/currentTrip/${_id}` }} >
             <div className="tripBtn" key={_id}>{title}</div>
           </Link>
         )

@@ -6,6 +6,7 @@ const {
   deleteFromTrip,
   editTrip,
   deleteTrip,
+  getTripById,
 
 } = require('../../../controllers/tripController');
 
@@ -19,6 +20,7 @@ router.route('/')
 
 // /api/trip/:tripID
 router.route('/:tripId')
+  .get(requireAuth, getTripById)
   .put(requireAuth, addToTrip)
   .put(requireAuth, deleteFromTrip)
   .put(requireAuth, editTrip)

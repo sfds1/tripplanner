@@ -7,7 +7,16 @@ module.exports = {
       if (!trips) {
         return res.status(200).json({ error: 'No trips found' });
       }
-      return res.json(trips);
+      return res.status(200).json(trips);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
+  getTripById: async (req, res) => {
+    const { tripId } = req.params;
+    try {
+      const trip = await Trip.findById(tripId);
+      return res.status(200).json(trip);
     } catch (e) {
       return res.status(403).json({ e });
     }
