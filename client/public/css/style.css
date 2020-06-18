@@ -15,11 +15,11 @@ html, body {
   background-color: rgb(235, 235, 235);
   text-align: center;
   border-radius: 25px;
-  padding-top: 1px;
-  width: 900px;
-  height: 100%;
+  padding-top: 10px;
+  width: 800px;
   margin: auto;
-  margin-bottom: 50px;
+  padding-bottom: 40px;
+  margin-bottom: 170px;
 }
 /* Trip page tabs */
 .tripHeader {
@@ -27,7 +27,7 @@ html, body {
   margin-bottom: 30px;
   background-color: rgb(235, 235, 235);
   height: 60px;
-  width: 880px;
+  width: 780px;
   text-align: center;
   color: rgb(50, 50, 50);
   padding: 10px;
@@ -188,12 +188,17 @@ html, body {
 ::placeholder {
   color: rgb(150, 150, 150);
 }
+form {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
 
 /* Sign in/out and search button styling */
 .signBtn, .searchBtn {
   border-radius: 15px;
   height: 70px;
-  width: 400px;
+  width: 396px;
   text-align: center;
   margin: auto;
   margin-top: 30px;
@@ -224,26 +229,26 @@ html, body {
 
 /* Trips page buttons*/
 .tripBtn {
-  margin-top: 50px;
+  margin-top: 30px;
   border-radius: 15px;
   background-color: #ea8948;
-  height: 60px;
-  width: 800px;
+  height: 100%;
+  width: 700px;
   text-align: center;
   color: rgb(255, 255, 255);
   padding: 10px;
-  font-size: 60px;
+  font-size: 40px;
 }
 .categoryBtn {
-  margin-top: 50px;
+  margin-top: 20px;
   border-radius: 15px;
   background-color: rgb(114, 114, 114);
-  height: 30px;
-  width: 600px;
+  height: 100%;
+  width: 500px;
   text-align: center;
   color: white;
   padding: 10px;
-  font-size: 30px;
+  font-size: 25px;
 }
 .tripBtn:hover, .categoryBtn:hover {
   transform: scale(1.05)
@@ -252,30 +257,28 @@ html, body {
 
 /* Current Trip title and city */
 .tripMainTab {
-  display: block;
   margin: auto;
   margin-top: 50px;
   border-radius: 15px;
-  background-color: #1cac93;
-  height: 60px;
-  width: 800px;
-  text-align: center;
-  color: white;
-  padding: 10px;
-  font-size: 60px;
-}
-.tripInfoTab {
-  display: block;
-  margin-top: 10px;
-  margin-left: 80px;
-  border-radius: 15px;
-  background-color: #ea8948;
-  height: 35px;
+  background-color: rgb(50, 50, 50);
+  height: 100%;
   width: 700px;
   text-align: center;
   color: white;
   padding: 10px;
-  font-size: 35px;
+  font-size: 40px;
+}
+.tripInfoTab {
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 15px;
+  background-color: #ea8948;
+  height: 100%;
+  width: 600px;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  font-size: 30px;
 }
 
 
