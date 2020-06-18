@@ -8,7 +8,14 @@ import {
 const INITIAL_STATE = {
     userTrips: '',
     getUserTripsError: '',
-    currentTrip: '',
+    currentTrip: {
+      categories: [],
+      endDate: "",
+      startDate: "",
+      title: "",
+      users: [],
+      _id: '',
+    },
     getTripByIdError: '',
   };
   

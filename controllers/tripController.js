@@ -3,7 +3,7 @@ const { User, Trip } = require('../models');
 module.exports = {
   getTrips: async (req, res) => {
     try {
-      const trips = await Trip.find({ users: { $elemMatch: { user: req.user._id } } });
+      const trips = await Trip.find({ users: { $elemMatch: { user: req.user._id } } })
       if (!trips) {
         return res.status(200).json({ error: 'No trips found' });
       }
@@ -15,7 +15,7 @@ module.exports = {
   getTripById: async (req, res) => {
     const { tripId } = req.params;
     try {
-      const trip = await Trip.findById(tripId);
+      const trip = await Trip.findById(tripId).populate('categories');
       return res.status(200).json(trip);
     } catch (e) {
       return res.status(403).json({ e });
