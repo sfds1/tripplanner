@@ -37,12 +37,12 @@ class CurrentTrip extends Component {
     await axios.delete(`/api/category/byId/${id}`, { headers: { 'authorization': localStorage.getItem('token') } })
     window.location.reload(false)
   }
-  
+
   renderCategories = () => {
     if (!this.props.currentTrip || this.props.currentTrip.categories.length === 0) {
       return <div> No Categories Yet </div>
     } else {
-      return this.props.currentTrip.categories.map(({_id, title}) => {
+      return this.props.currentTrip.categories.map(({ _id, title }) => {
         return (
           <div key={_id}>
             <Link to={{ pathname: `/currentCategory/${_id}` }}>
@@ -75,13 +75,8 @@ class CurrentTrip extends Component {
   renderInput = (field) => {
     return (
       <div>
-        <label>
-          {field.label}
-        </label>
-        <br></br>
         <input
           {...field.input}
-          className="formBox"
           placeholder={field.placeholder}
           type="text"
         />
@@ -95,29 +90,37 @@ class CurrentTrip extends Component {
     return (
       <div>
 
-<Navbar />
+        <Navbar />
 
         <div className="tripHeader">Current Trip</div>
 
         <div className="card">
           <div>{this.renderTrip()}</div>
           {this.renderCategories()}
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-            <div>
-              <Field
-                placeholder="Category Name"
-                name='title'
-                label="Name of the Category"
-                component={this.renderInput}
-              />
-            </div>
-            <button
-              className="searchBtn"
-              type="submit"
-              onClick={() => window.location.reload(false)}>
-              Create
-        </button>
-          </form>
+
+          <div className="formBox">
+
+            <form onSubmit={handleSubmit(this.onSubmit)}>
+
+              <div>
+                <Field
+                  placeholder="Category Name"
+                  name='title'
+                  label="Name of the Category"
+                  component={this.renderInput}
+                />
+              </div>
+
+              <button
+                className="searchBtn"
+                type="submit"
+                onClick={() => window.location.reload(false)}>
+                Create
+              </button>
+
+            </form>
+
+          </div>
         </div>
       </div>
 

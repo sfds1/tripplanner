@@ -15,7 +15,19 @@ html, body {
 .mainTitle {
   font-size: 100px;
   text-align: center;
-  color: #f5ba18;
+  margin: auto;
+  margin-top: 20px;
+  color: #ffffff;
+}
+/* Main page info positioning */
+.mainPage{
+  margin: auto;
+  margin-top: 200px;
+}
+.logo {
+  width: 400px;
+  text-align: center;
+  margin: auto;
 }
 
 /* Card that wraps all info on each page */
@@ -81,7 +93,7 @@ html, body {
   margin-top: 100px;
   margin-left: 25px;
   margin-right: 25px;
-  background: rgb(68, 172, 64);
+  background: #1cac93;
   height: 200px;
   width: 200px;
   border-radius: 25px;
@@ -99,17 +111,6 @@ html, body {
 .userIcons {
   width: 150px;
   margin-top: 15px;
-}
-
-/* Main page info positioning */
-.mainPage{
-  margin-top: 230px;
-}
-.logo {
-  width: 500px;
-  margin: auto;
-  margin-bottom: 10px;
-  text-align: center;
 }
 
 /* Input box customization */
@@ -132,7 +133,7 @@ html, body {
   color: rgb(50, 50, 50);
   text-align: center;
   border: 8px solid;
-  border-color: rgb(68, 172, 64);
+  border-color: #1cac93;
 }
 ::placeholder {
   color: rgb(150, 150, 150);
@@ -149,7 +150,7 @@ html, body {
   margin-bottom: 30px;
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
-  background-color: rgb(255, 187, 0);
+  background-color: #ea8948;
   color: rgb(50, 50, 50);
   border: none;
 }
@@ -161,7 +162,7 @@ html, body {
   display: block;
   margin-top: 50px;
   border-radius: 15px;
-  background-color: rgb(255, 187, 0);
+  background-color: #ea8948;
   height: 60px;
   width: 800px;
   text-align: center;
@@ -191,7 +192,7 @@ html, body {
 /* Trip page tabs */
 .tripHeader {
   display: block;
-  margin-top: 100px;
+  margin-top: 120px;
   margin-bottom: 30px;
   background-color: rgb(235, 235, 235);
   height: 60px;
@@ -206,9 +207,9 @@ html, body {
 .tripMainTab {
   display: block;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   border-radius: 15px;
-  background-color: rgb(68, 172, 64);
+  background-color: #1cac93;
   height: 60px;
   width: 800px;
   text-align: center;
@@ -221,7 +222,7 @@ html, body {
   margin-top: 10px;
   margin-left: 80px;
   border-radius: 15px;
-  background-color: rgb(236, 183, 35);
+  background-color: #ea8948;
   height: 35px;
   width: 700px;
   text-align: center;
@@ -248,6 +249,7 @@ a, a:link, a:visited, a:hover, a:active
   text-decoration: none;
   color: rgb(50, 50, 50);
   display: inline-block;
+  text-align: center;
 }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

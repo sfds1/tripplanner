@@ -21,7 +21,6 @@ class CurrentCategory extends Component {
     return (
       <div>
         <span className="tripMainTab"> {title} </span>
-        <br></br>
       </div>
     )
   }
@@ -55,13 +54,8 @@ class CurrentCategory extends Component {
   renderInput = (field) => {
     return (
       <div>
-        <label>
-          {field.label}
-        </label>
-        <br></br>
         <input
           {...field.input}
-          className="formBox"
           placeholder={field.placeholder}
           type="text"
         />
@@ -87,37 +81,42 @@ class CurrentCategory extends Component {
         <div className="card">
           <div>{this.renderCategory()}</div>
           {this.renderActivities()}
-          <form onSubmit={handleSubmit(this.onSubmit)}>
-            <div>
-              <Field
-                placeholder="Activity Name"
-                name='title'
-                label="Name of the Activity"
-                component={this.renderInput}
-              />
-              <Field
-                placeholder="Activity Details"
-                name='details'
-                label="Details"
-                component={this.renderInput}
-              />
-              <Field
-                placeholder=""
-                name='date'
-                label="Date"
-                component={this.renderInput}
-              />
-            </div>
-            <button
-              className="searchBtn"
-              type="submit"
-              onClick={() => window.location.reload(false)}>
-              Create
+
+          <div className="formBox">
+            <form onSubmit={handleSubmit(this.onSubmit)}>
+              <div>
+                <Field
+                  placeholder="Activity Name"
+                  name='title'
+                  label="Name of the Activity"
+                  component={this.renderInput}
+                />
+                <Field
+                  placeholder="Activity Details"
+                  name='details'
+                  label="Details"
+                  component={this.renderInput}
+                />
+                <Field
+                  placeholder="Date"
+                  name='date'
+                  label="Date"
+                  component={this.renderInput}
+                />
+              </div>
+
+              <button
+                className="searchBtn"
+                type="submit"
+                onClick={() => window.location.reload(false)}>
+                Create
             </button>
-          </form>
+
+            </form>
+
+          </div>
         </div>
       </div>
-
 
     )
   }
