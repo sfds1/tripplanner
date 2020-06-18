@@ -3,54 +3,51 @@ html, body {
   background-color: #232323;
   font-family: 'Montserrat', sans-serif;
 }
-
-/* Centering of all elements on page */
 .container {
   display: flex;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Initial page logo title */
-.mainTitle {
-  font-size: 100px;
-  text-align: center;
-  margin: auto;
-  margin-top: 20px;
-  color: #ffffff;
-}
-/* Main page info positioning */
-.mainPage{
-  margin: auto;
-  margin-top: 200px;
-}
-.logo {
-  width: 400px;
-  text-align: center;
-  margin: auto;
-}
 
 /* Card that wraps all info on each page */
 .card {
   background-color: rgb(235, 235, 235);
   text-align: center;
   border-radius: 25px;
-  padding-top: 1px;
-  width: 900px;
-  height: 100%;
+  padding-top: 10px;
+  width: 800px;
   margin: auto;
-  margin-bottom: 50px;
+  padding-bottom: 40px;
+  margin-bottom: 170px;
+}
+/* Trip page tabs */
+.tripHeader {
+  margin-top: 120px;
+  margin-bottom: 30px;
+  background-color: rgb(235, 235, 235);
+  height: 60px;
+  width: 780px;
+  text-align: center;
+  color: rgb(50, 50, 50);
+  padding: 10px;
+  font-size: 60px;
+  border-radius: 25px;
+  font-weight: bolder;
 }
 
 /* Top navbar styling fixed on each page */
 .navbar {
   width: 900px;
   height: 90px;
+  margin: auto;
   position: fixed;
-  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
   background-color: #1cac93;
   border-radius: 0px 0px 20px 20px;
   text-align: center;
+  z-index: 5;
 }
 .navTitle {
   font-size: 50px;
@@ -88,11 +85,63 @@ html, body {
   display: inline-block;
 }
 
-/* Big Nav buttons */
+/* Fixed small user dash navbar */
+.userDash {
+  width: 900px;
+  height: 140px;
+  margin: auto;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #1cac93;
+  border-radius: 30px 30px 0px 0px;
+  text-align: center;
+  z-index: 5;
+}
+.userDashBtn {
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(50, 50, 50);
+  height: 110px;
+  width: 110px;
+  border-radius: 25px;
+  text-align: center;
+}
+.userDashIcons {
+  width: 80px;
+  margin-top: 13px;
+}
+.userDashBtn:hover {
+  transform: scale(1.05)
+}
+
+
+/* Initial page logo title */
+.mainTitle {
+  font-size: 100px;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  color: #ffffff;
+}
+.mainPage{
+  margin: auto;
+  margin-top: 200px;
+}
+.logo {
+  width: 400px;
+  text-align: center;
+  margin: auto;
+}
+
+
+/* Dashboard page buttons */
 .userBtn{
   margin-top: 100px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
   background: #1cac93;
   height: 200px;
   width: 200px;
@@ -113,7 +162,8 @@ html, body {
   margin-top: 15px;
 }
 
-/* Input box customization */
+
+/* All form and input customization */
 .formBox {
   width: 380px;
   font-size: 20px;
@@ -138,12 +188,17 @@ html, body {
 ::placeholder {
   color: rgb(150, 150, 150);
 }
+form {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
 
-/* Sign in/out button styling */
+/* Sign in/out and search button styling */
 .signBtn, .searchBtn {
   border-radius: 15px;
   height: 70px;
-  width: 400px;
+  width: 396px;
   text-align: center;
   margin: auto;
   margin-top: 30px;
@@ -171,78 +226,61 @@ html, body {
   transform: scale(1.05)
 }
 
+
+/* Trips page buttons*/
 .tripBtn {
-  display: block;
-  margin-top: 50px;
+  margin-top: 30px;
   border-radius: 15px;
   background-color: #ea8948;
-  height: 60px;
-  width: 800px;
+  height: 100%;
+  width: 700px;
   text-align: center;
   color: rgb(255, 255, 255);
   padding: 10px;
-  font-size: 60px;
+  font-size: 40px;
 }
 .categoryBtn {
-  display: inline-block;
-  margin-top: 50px;
+  margin-top: 20px;
   border-radius: 15px;
   background-color: rgb(114, 114, 114);
-  height: 30px;
+  height: 100%;
+  width: 500px;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  font-size: 25px;
+}
+.tripBtn:hover, .categoryBtn:hover {
+  transform: scale(1.05)
+}
+
+
+/* Current Trip title and city */
+.tripMainTab {
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 15px;
+  background-color: rgb(50, 50, 50);
+  height: 100%;
+  width: 700px;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  font-size: 40px;
+}
+.tripInfoTab {
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 15px;
+  background-color: #ea8948;
+  height: 100%;
   width: 600px;
   text-align: center;
   color: white;
   padding: 10px;
   font-size: 30px;
 }
-.tripBtn:hover, .categoryBtn:hover {
-  transform: scale(1.05)
-}
-.tripList {
-  width: 900px;
-}
 
-/* Trip page tabs */
-.tripHeader {
-  display: block;
-  margin-top: 120px;
-  margin-bottom: 30px;
-  background-color: rgb(235, 235, 235);
-  height: 60px;
-  width: 900px;
-  text-align: center;
-  color: rgb(50, 50, 50);
-  padding: 10px;
-  font-size: 60px;
-  border-radius: 25px;
-  font-weight: bolder;
-}
-.tripMainTab {
-  display: block;
-  margin: auto;
-  margin-top: 50px;
-  border-radius: 15px;
-  background-color: #1cac93;
-  height: 60px;
-  width: 800px;
-  text-align: center;
-  color: white;
-  padding: 10px;
-  font-size: 60px;
-}
-.tripInfoTab {
-  display: block;
-  margin-top: 10px;
-  margin-left: 80px;
-  border-radius: 15px;
-  background-color: #ea8948;
-  height: 35px;
-  width: 700px;
-  text-align: center;
-  color: white;
-  padding: 10px;
-  font-size: 35px;
-}
 
 /* Displaying searched friends results */
 .displayFriends {
@@ -251,6 +289,8 @@ html, body {
   margin-top: 40px;
   display: block;
 }
+
+
 
 /* Removing outline affect on buttons */
 button:focus, input:focus, textarea:focus, select:focus{

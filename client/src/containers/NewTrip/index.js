@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from 'redux-form';
 import Navbar from '../../components/Navbar';
+import UserDash from "../../components/UserDash";
 import axios from 'axios';
 
 import { connect } from 'react-redux';
@@ -35,13 +36,8 @@ class NewTrip extends Component {
   renderInput = (field) => {
     return (
       <div>
-        <label>
-          {field.label}
-        </label>
-        <br></br>
         <input
           {...field.input}
-          className="formBox"
           placeholder={field.placeholder}
           type="text"
         />
@@ -49,44 +45,27 @@ class NewTrip extends Component {
     )
   }
 
-  renderInput = (field) => {
-    return (
-      <div>
-        <label>
-          {field.label}
-        </label>
-        <br></br>
-        <input
-          {...field.input}
-          className="formBox"
-          placeholder={field.placeholder}
-          type="text"
-        />
-      </div>
-    )
-  }
+  // renderDropdown = (field) => {
+  //   return (
+  //     <div>
+  //       <label>
+  //         {field.label}
+  //       </label>
+  //       <br></br>
+  //       <select
+  //         {...field.input}
+  //         className="formBox"
+  //         placeholder={field.placeholder}
+  //         type="text"
+  //       >
+  //         <option>One</option>
+  //         <option>Two</option>
+  //         <option>Three</option>
 
-  renderDropdown = (field) => {
-    return (
-      <div>
-        <label>
-          {field.label}
-        </label>
-        <br></br>
-        <select
-          {...field.input}
-          className="formBox"
-          placeholder={field.placeholder}
-          type="text"
-        >
-          <option>One</option>
-          <option>Two</option>
-          <option>Three</option>
-
-        </select>
-      </div>
-    )
-  }
+  //       </select>
+  //     </div>
+  //   )
+  // }
 
 
   render() {
@@ -98,6 +77,7 @@ class NewTrip extends Component {
       <div>
 
         <Navbar />
+        <UserDash />
 
         <div className="tripHeader">New Trip</div>
 
@@ -129,7 +109,7 @@ class NewTrip extends Component {
               {/* Start Date */}
               <div>
                 <Field
-                  placeholder=""
+                  placeholder="Start Date"
                   name='startDate'
                   label="Start Date"
                   component={this.renderInput}
@@ -139,7 +119,7 @@ class NewTrip extends Component {
               {/* End Date */}
               <div>
                 <Field
-                  placeholder=""
+                  placeholder="End Date"
                   name='endDate'
                   label="End Date"
                   component={this.renderInput}
