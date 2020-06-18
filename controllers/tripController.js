@@ -22,7 +22,7 @@ module.exports = {
     }
   },
   addTrip: async (req, res) => {
-    const { title,city, startDate, endDate, location } = req.body;
+    const { title, city, startDate, endDate, location } = req.body;
     if (!title) {
       return res.status(400).json({ error: 'You must provide text' });
     }
@@ -34,7 +34,7 @@ module.exports = {
         endDate,
         location,
         users: [{ admin: true, user: req.user._id }],
-      }).save();
+      }).populate('users').save();
       req.user.trips.push({ admin: true, newTrip });
       await req.user.save();
       return res.status(200).json(newTrip);

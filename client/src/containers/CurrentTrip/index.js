@@ -19,12 +19,14 @@ class CurrentTrip extends Component {
   }
 
   renderTrip = () => {
-    const { title, city, startDate, endDate } = this.props.currentTrip;
+    const { title, city, users, startDate, endDate } = this.props.currentTrip;
     return (
       <div>
         <span className="tripMainTab"> {title} </span>
         <br></br>
         <span className="tripMainTab"> {city} </span>
+        <br></br>
+        <span className="tripMainTab"> {users.length} Participant(s) </span>
         <br></br>
         <span className="tripInfoTab"> Start: {startDate} </span>
         <br></br>
