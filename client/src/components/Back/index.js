@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Back extends Component {
 
   render() {
     return (
 
-      <div>
+      <div className="inlineBox">
 
-        <Link to="/dashboard">
+        <Link
+          onClick={this.props.history.goBack}
+        >
+
           <img className="backBtn" src="../../../images/back.png" alt="" />
-      </Link>
+
+        </Link>
 
       </div>
 
@@ -18,4 +23,4 @@ class Back extends Component {
   }
 };
 
-export default Back;
+export default withRouter(Back) 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Refresh from '../../components/Refresh';
-import Back from '../../components/Back';
+import Navbar from "../../components/Navbar";
+
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import axios from 'axios';
@@ -10,6 +10,7 @@ import { compose } from 'redux';
 
 import requireAuth from '../../hoc/requireAuth'
 import { getTripById } from './../../actions/trips'
+
 
 class CurrentTrip extends Component {
 
@@ -94,8 +95,7 @@ class CurrentTrip extends Component {
     return (
       <div>
 
-        <Back />
-        <Refresh />
+<Navbar />
 
         <div className="tripHeader">Current Trip</div>
 

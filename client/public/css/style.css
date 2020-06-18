@@ -1,6 +1,6 @@
 /* Background and universal font */
 html, body {
-  background-color: rgb(255, 255, 255);
+  background-color: #232323;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -11,11 +11,14 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
+/* Initial page logo title */
 .mainTitle {
   font-size: 100px;
   text-align: center;
   color: #f5ba18;
 }
+
+/* Card that wraps all info on each page */
 .card {
   background-color: rgb(235, 235, 235);
   text-align: center;
@@ -25,6 +28,52 @@ html, body {
   height: 100%;
   margin: auto;
   margin-bottom: 50px;
+}
+
+/* Top navbar styling fixed on each page */
+.navbar {
+  width: 900px;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  background-color: #1cac93;
+  border-radius: 0px 0px 20px 20px;
+  text-align: center;
+}
+.navTitle {
+  font-size: 50px;
+  position: relative;
+  top: -20px;
+  margin: auto;
+  color: white;
+}
+.backBtn {
+  font-size: 70px;
+  background-color: rgb(50, 50, 50);
+  height: 50px;
+  width: 50px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px;
+  margin-right: 220px;
+  margin-top: 10px;
+}
+.refreshBtn {
+  font-size: 70px;
+  background-color: rgb(50, 50, 50);
+  height: 50px;
+  width: 50px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px;
+  margin-left: 220px;
+  margin-top: 10px;
+}
+.backBtn:hover, .refreshBtn:hover {
+  transform: scale(1.05)
+}
+.inlineBox {
+  display: inline-block;
 }
 
 /* Big Nav buttons */
@@ -45,6 +94,7 @@ html, body {
   text-align: center;
   font-size: 30px;
   margin-top: 20px;
+  color: white;
 }
 .userIcons {
   width: 150px;
@@ -104,41 +154,6 @@ html, body {
   border: none;
 }
 .searchBtn:hover, .signBtn:hover {
-  transform: scale(1.05)
-}
-
-.backBtn {
-  font-size: 70px;
-  position: fixed;
-  left: 50px;
-  top: 0;
-  margin-top: 100px;
-  margin-left: 25px;
-  margin-right: 25px;
-  color: white;
-  background-color: rgb(68, 172, 64);
-  height: 100px;
-  width: 100px;
-  border-radius: 20px;
-  text-align: center;
-  padding: 10px;
-}
-.refreshBtn {
-  font-size: 70px;
-  position: fixed;
-  right: 50px;
-  top: 0;
-  margin-top: 100px;
-  margin-left: 25px;
-  margin-right: 25px;
-  background-color: rgb(68, 172, 64);
-  height: 100px;
-  width: 100px;
-  border-radius: 20px;
-  text-align: center;
-  padding: 10px;
-}
-.backBtn:hover, .refreshBtn:hover {
   transform: scale(1.05)
 }
 

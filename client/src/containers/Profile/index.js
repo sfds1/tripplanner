@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
-import Refresh from '../../components/Refresh';
-import Back from '../../components/Back';
+import Navbar from '../../components/Navbar';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -21,8 +19,7 @@ class Profile extends Component {
 
       <div>
 
-        <Back />
-        <Refresh />
+        <Navbar />
 
         <div className="tripHeader">Profile</div>
 

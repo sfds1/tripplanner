@@ -4,9 +4,7 @@ import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { Form, Button } from 'semantic-ui-react';
 
-
-import Refresh from '../../components/Refresh';
-import Back from '../../components/Back';
+import Navbar from "../../components/Navbar";
 
 import requireAuth from './../../hoc/requireAuth'
 import { getFriendByEmail } from './../../actions/user'
@@ -42,8 +40,8 @@ class FindFriend extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <Back />
-        <Refresh />
+
+        <Navbar />
 
         <div className="tripHeader">Find Friends</div>
 
