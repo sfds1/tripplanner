@@ -52,7 +52,7 @@ class CurrentTrip extends Component {
               className="deleteBtn"
               type="submit"
               onClick={() => this.handleDelete(_id)}>
-              Delete
+              X
             </button>
           </div>
         )

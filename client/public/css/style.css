@@ -154,7 +154,20 @@ html, body {
   color: rgb(50, 50, 50);
   border: none;
 }
-.searchBtn:hover, .signBtn:hover {
+.deleteBtn {
+  border-radius: 15px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  margin: auto;
+  margin-left: 20px;
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ea8948;
+  color: rgb(50, 50, 50);
+  border: none;
+}
+.searchBtn:hover, .signBtn:hover, .deleteBtn:hover {
   transform: scale(1.05)
 }
 
@@ -171,7 +184,7 @@ html, body {
   font-size: 60px;
 }
 .categoryBtn {
-  display: block;
+  display: inline-block;
   margin-top: 50px;
   border-radius: 15px;
   background-color: rgb(114, 114, 114);
