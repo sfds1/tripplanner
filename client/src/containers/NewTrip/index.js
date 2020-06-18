@@ -129,20 +129,13 @@ class NewTrip extends Component {
               />
             </div>
 
-
-
             <button
               className="searchBtn"
               type="submit">
               Create
-        </button>
+            </button>
+
           </form>
-
-          <br></br>
-
-          <span className="displayFriends">
-            Friends:
-        </span>
 
         </div>
       </div>

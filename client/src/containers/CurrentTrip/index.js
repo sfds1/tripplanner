@@ -37,7 +37,7 @@ class CurrentTrip extends Component {
       return this.props.currentTrip.categories.map(({ _id, title }) => {
         return (
           <Link to={{ pathname: `/currentTrip/${_id}` }} >
-            <div className="tripBtn" key={_id}>{title}</div>
+            <div className="categoryBtn" key={_id}>{this.props.currentTrip.categories}</div>
           </Link>
         )
       })
@@ -83,7 +83,7 @@ class CurrentTrip extends Component {
         <Back />
         <Refresh />
 
-        <div className="tripHeader">Main Trip Tab</div>
+        <div className="tripHeader">Current Trip</div>
 
         <div className="card">
           <div>{this.renderTrip()}</div>
@@ -99,7 +99,8 @@ class CurrentTrip extends Component {
             </div>
             <button
               className="searchBtn"
-              type="submit">
+              type="submit"
+              onClick={() => window.location.reload(false)}>
               Create
         </button>
           </form>
