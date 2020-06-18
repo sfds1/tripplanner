@@ -35,13 +35,8 @@ class NewTrip extends Component {
   renderInput = (field) => {
     return (
       <div>
-        <label>
-          {field.label}
-        </label>
-        <br></br>
         <input
           {...field.input}
-          className="formBox"
           placeholder={field.placeholder}
           type="text"
         />
@@ -49,44 +44,27 @@ class NewTrip extends Component {
     )
   }
 
-  renderInput = (field) => {
-    return (
-      <div>
-        <label>
-          {field.label}
-        </label>
-        <br></br>
-        <input
-          {...field.input}
-          className="formBox"
-          placeholder={field.placeholder}
-          type="text"
-        />
-      </div>
-    )
-  }
+  // renderDropdown = (field) => {
+  //   return (
+  //     <div>
+  //       <label>
+  //         {field.label}
+  //       </label>
+  //       <br></br>
+  //       <select
+  //         {...field.input}
+  //         className="formBox"
+  //         placeholder={field.placeholder}
+  //         type="text"
+  //       >
+  //         <option>One</option>
+  //         <option>Two</option>
+  //         <option>Three</option>
 
-  renderDropdown = (field) => {
-    return (
-      <div>
-        <label>
-          {field.label}
-        </label>
-        <br></br>
-        <select
-          {...field.input}
-          className="formBox"
-          placeholder={field.placeholder}
-          type="text"
-        >
-          <option>One</option>
-          <option>Two</option>
-          <option>Three</option>
-
-        </select>
-      </div>
-    )
-  }
+  //       </select>
+  //     </div>
+  //   )
+  // }
 
 
   render() {
@@ -129,7 +107,7 @@ class NewTrip extends Component {
               {/* Start Date */}
               <div>
                 <Field
-                  placeholder=""
+                  placeholder="Start Date"
                   name='startDate'
                   label="Start Date"
                   component={this.renderInput}
@@ -139,7 +117,7 @@ class NewTrip extends Component {
               {/* End Date */}
               <div>
                 <Field
-                  placeholder=""
+                  placeholder="End Date"
                   name='endDate'
                   label="End Date"
                   component={this.renderInput}
