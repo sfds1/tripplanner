@@ -18,17 +18,16 @@ class CurrentTrip extends Component {
   }
 
   renderTrip = () => {
-    console.log((this.props.currentTrip))
-    // const { title, city, startDate, endDate } = this.props.currentTrip;
+    const { title, city, startDate, endDate } = this.props.currentTrip;
     return (
       <div>
-        {/* <span className="tripMainTab"> {title} </span>
+        <span className="tripMainTab"> {title} </span>
         <br></br>
         <span className="tripMainTab"> {city} </span>
         <br></br>
         <span className="tripInfoTab"> Start: {startDate} </span>
         <br></br>
-        <span className="tripInfoTab"> End: {endDate} </span> */}
+        <span className="tripInfoTab"> End: {endDate} </span>
       </div>
     )
   }
@@ -36,7 +35,7 @@ class CurrentTrip extends Component {
   handleDelete = async (id) => {
     console.log(id)
     const data = await axios.delete(`/api/category/${id}`, { headers: { 'authorization': localStorage.getItem('token') } })
-    console.log(data)
+    window.location.reload(false)
   }
   
   renderCategories = () => {
@@ -46,8 +45,8 @@ class CurrentTrip extends Component {
       return this.props.currentTrip.categories.map(({_id, title}) => {
         console.log(_id)
         return (
-          <div>
-            <Link to={{ pathname: `/currentCurrentCategory/${_id}` }} key={_id}>
+          <div key={_id}>
+            <Link to={{ pathname: `/currentCurrentCategory/${_id}` }}>
               <div className="categoryBtn">{title}</div>
             </Link>
             <button
