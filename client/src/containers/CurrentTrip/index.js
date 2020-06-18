@@ -18,10 +18,12 @@ class CurrentTrip extends Component {
   }
 
   renderTrip = () => {
-    const { _id, title, startDate, endDate } = this.props.currentTrip;
+    const { _id, title, city, startDate, endDate } = this.props.currentTrip;
     return (
       <div key={_id}>
         <span className="tripMainTab"> {title} </span>
+        <br></br>
+        <span className="tripMainTab"> {city} </span>
         <br></br>
         <span className="tripInfoTab"> Start: {startDate} </span>
         <br></br>
@@ -29,7 +31,7 @@ class CurrentTrip extends Component {
       </div>
     )
   }
-
+  
   renderCategories = () => {
     if (!this.props.currentTrip || this.props.currentTrip.categories.length === 0) {
       return <div> No Categories Yet </div>
