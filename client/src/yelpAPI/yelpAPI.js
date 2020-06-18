@@ -16,6 +16,7 @@ export default class tourismList extends React.Component {
                 authorization:  `${BEARER_TOKEN}`
             },
             params: {
+                 location: 'san jose',
                  categories: 'tourism',
              } 
 

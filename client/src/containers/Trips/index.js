@@ -8,12 +8,40 @@ import { compose } from 'redux';
 
 import requireAuth from './../../hoc/requireAuth'
 import { getUserTrips } from './../../actions/trips'
+// import axios from 'axios'
+// import BEARER_TOKEN from '../../yelpAPI/config'
 
 class Trips extends Component {
+  
+  
+  
   componentDidMount = async () => {
     await this.props.getUserTrips();
   }
+  
+  // componentDidMount() { 
+  //   // console.log(BEARER_TOKEN);
+  //   // console.log(sessionStorage.getItem("trips"), "trips")
 
+  //   // const trips = JSON.parse(sessionStorage.getItem("trips"))
+      
+  //   //   axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${trips[trips.length-1].city}`, {
+  //   //     headers: {
+  //   //       Authorization: `${BEARER_TOKEN}`
+  //   //   },
+  //   //     params: {
+          
+  //   //     categories: 'tours, All',
+  //   //   }
+  //   //   })
+  //   //   .then((res) => {
+  //   //   console.log(res)
+  //   //   })
+  //   //   .catch((err) => {
+  //   //   console.log ('error')
+  //   //   })
+  // }
+  
   renderTrips = () => {
     if (this.props.trips.length === 0) {
       return <div> No Trips Yet </div>
