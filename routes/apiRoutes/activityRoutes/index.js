@@ -17,7 +17,7 @@ router.route('/:categoryId')
   .post(requireAuth, addActivity);
 
 // /api/activity/:activityID
-router.route('/:activityID')
+router.route('/byId/:activityId')
   .put(requireAuth, editActivity)
   .delete(requireAuth, deleteActivity)
   .post(requireAuth, activityVote);

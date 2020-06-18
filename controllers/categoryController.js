@@ -13,6 +13,15 @@ module.exports = {
       return res.status(403).json({ e });
     }
   },
+  getCategoryById: async (req, res) => {
+    const { categoryId } = req.params;
+    try {
+      const category = await Category.findById(categoryId).populate('activities');
+      return res.status(200).json(category);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
   addCategory: async (req, res) => {
     const { tripId } = req.params;
     const { title } = req.body;

@@ -33,8 +33,7 @@ class CurrentTrip extends Component {
   }
 
   handleDelete = async (id) => {
-    console.log(id)
-    await axios.delete(`/api/category/${id}`, { headers: { 'authorization': localStorage.getItem('token') } })
+    await axios.delete(`/api/category/byId/${id}`, { headers: { 'authorization': localStorage.getItem('token') } })
     window.location.reload(false)
   }
   
@@ -43,7 +42,6 @@ class CurrentTrip extends Component {
       return <div> No Categories Yet </div>
     } else {
       return this.props.currentTrip.categories.map(({_id, title}) => {
-        console.log(_id)
         return (
           <div key={_id}>
             <Link to={{ pathname: `/currentCategory/${_id}` }}>
@@ -64,7 +62,7 @@ class CurrentTrip extends Component {
   onSubmit = async (formValues, dispatch) => {
     const { _id } = this.props.currentTrip;
     try {
-      const { data } = await axios.post(`/api/category/${_id}`, formValues, { headers: { 'authorization': localStorage.getItem('token') } });
+      const { data } = await axios.post(`/api/category/all/${_id}`, formValues, { headers: { 'authorization': localStorage.getItem('token') } });
       console.log(data);
       // dispatch({ type: GET_USER_TRIPS, payload: data });
       // this.props.history.push('/currenttrip');

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {
   getCategories,
+  getCategoryById,
   addCategory,
   editCategory,
   deleteCategory,
@@ -10,12 +11,13 @@ const { requireAuth } = require('../../../middlewares/authMiddlewares');
 
 
 // /api/category/:tripId
-router.route('/:tripId')
+router.route('/all/:tripId')
   .get(requireAuth, getCategories)
   .post(requireAuth, addCategory);
 
 // /api/category/:categoryID
-router.route('/:categoryId')
+router.route('/byId/:categoryId')
+  .get(requireAuth, getCategoryById)
   .put(requireAuth, editCategory)
   .delete(requireAuth, deleteCategory);
 
