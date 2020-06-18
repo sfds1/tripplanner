@@ -27,9 +27,15 @@ class Profile extends Component {
         <div className="tripHeader">Profile</div>
 
         <div className="card">
-          <span>
-            Email: {this.props.user.email}
-          </span>
+          <div className="displayFriends">
+            Email: {<br></br>} {this.props.user.email}
+          </div>
+
+          <br></br>
+
+          <div className="displayFriends">
+            Friends: {<br></br>} {this.props.user.friends}
+          </div>
 
         </div>
       </div>
