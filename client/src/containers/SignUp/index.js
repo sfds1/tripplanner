@@ -53,6 +53,8 @@ class SignUp extends Component {
         <Link to="/user" className="backBtn"> ↼ </Link>
         <Refresh />
 
+        <div className="tripHeader">Sign Up</div>
+
         <div className="formBox">
           <Form onSubmit={handleSubmit(this.onSubmit)}>
             <Segment stacked>
@@ -78,6 +80,7 @@ class SignUp extends Component {
                 }
               />
               <Button
+                className="signBtn"
                 content='Sign up'
                 type='submit'
                 disabled={invalid || submitting || submitFailed}

@@ -109,6 +109,7 @@ class CurrentTrip extends Component {
         </div>
       </div>
 
+
     )
   }
 };

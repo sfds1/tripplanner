@@ -17,6 +17,7 @@ html, body {
   border-radius: 25px;
   padding-top: 1px;
   width: 900px;
+  height: 100%;
   margin: auto;
 }
 
@@ -44,7 +45,6 @@ html, body {
   margin-top: 15px;
 }
 
-
 /* Main page info positioning */
 .mainPage{
   margin-top: 230px;
@@ -56,27 +56,56 @@ html, body {
 
 /* Input box customization */
 .formBox {
-  height: 50px;
-  width: 300px;
+  width: 380px;
   font-size: 20px;
   border-radius: 10px;
   text-align: center;
+  margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 .formBox input {
+  height: 60px;
   border-radius: 10px;
   font-size: 30px;
-  margin-top: 10px;
+  margin-top: 30px;
   font-family: 'Montserrat', sans-serif;
-}
-.searchBtn {
-  border-radius: 5px;
-  height: 40px;
-  width: 150px;
+  background-color: rgb(68, 172, 64);
+  border: none;
+  color: white;
   text-align: center;
+}
+::placeholder {
+  color: rgb(26, 26, 26);
+}
+
+/* Sign in/out button styling */
+.signBtn {
+  border-radius: 10px;
+  height: 60px;
+  width: 380px;
+  text-align: center;
+  margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(255, 187, 0);
+  border: none;
+}
+
+.searchBtn {
+  border-radius: 10px;
+  height: 60px;
+  width: 380px;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(255, 187, 0);
+  border: none;
 }
 
 .backBtn {
@@ -178,6 +207,8 @@ html, body {
 /* displaying searched friends results */
 .displayFriends {
   font-size: 30px;
+  margin: auto;
+  display: block;
 }
 
 /* Removing outline affect on buttons */
@@ -197,4 +228,15 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  font-family: 'Montserrat', sans-serif;
+  -webkit-box-shadow: 0 0 0px 1000px rgb(68, 172, 64) inset !important;
 }
