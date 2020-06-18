@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from 'redux-form';
 import Navbar from '../../components/Navbar';
+import UserDash from "../../components/UserDash";
 import axios from 'axios';
 
 import { connect } from 'react-redux';
@@ -76,6 +77,7 @@ class NewTrip extends Component {
       <div>
 
         <Navbar />
+        <UserDash />
 
         <div className="tripHeader">New Trip</div>
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
+import UserDash from "../../components/UserDash";
 
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
@@ -91,6 +92,7 @@ class CurrentTrip extends Component {
       <div>
 
         <Navbar />
+        <UserDash />
 
         <div className="tripHeader">Current Trip</div>
 

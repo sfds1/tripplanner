@@ -3,32 +3,12 @@ html, body {
   background-color: #232323;
   font-family: 'Montserrat', sans-serif;
 }
-
-/* Centering of all elements on page */
 .container {
   display: flex;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Initial page logo title */
-.mainTitle {
-  font-size: 100px;
-  text-align: center;
-  margin: auto;
-  margin-top: 20px;
-  color: #ffffff;
-}
-/* Main page info positioning */
-.mainPage{
-  margin: auto;
-  margin-top: 200px;
-}
-.logo {
-  width: 400px;
-  text-align: center;
-  margin: auto;
-}
 
 /* Card that wraps all info on each page */
 .card {
@@ -64,9 +44,10 @@ html, body {
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
-    background-color: #1cac93;
+  background-color: #1cac93;
   border-radius: 0px 0px 20px 20px;
   text-align: center;
+  z-index: 5;
 }
 .navTitle {
   font-size: 50px;
@@ -104,7 +85,59 @@ html, body {
   display: inline-block;
 }
 
-/* Big Nav buttons */
+/* Fixed small user dash navbar */
+.userDash {
+  width: 900px;
+  height: 140px;
+  margin: auto;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #1cac93;
+  border-radius: 30px 30px 0px 0px;
+  text-align: center;
+  z-index: 5;
+}
+.userDashBtn {
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(50, 50, 50);
+  height: 110px;
+  width: 110px;
+  border-radius: 25px;
+  text-align: center;
+}
+.userDashIcons {
+  width: 80px;
+  margin-top: 13px;
+}
+.userDashBtn:hover {
+  transform: scale(1.05)
+}
+
+
+/* Initial page logo title */
+.mainTitle {
+  font-size: 100px;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  color: #ffffff;
+}
+.mainPage{
+  margin: auto;
+  margin-top: 200px;
+}
+.logo {
+  width: 400px;
+  text-align: center;
+  margin: auto;
+}
+
+
+/* Dashboard page buttons */
 .userBtn{
   margin-top: 100px;
   margin-left: 50px;
@@ -129,7 +162,8 @@ html, body {
   margin-top: 15px;
 }
 
-/* Input box customization */
+
+/* All form and input customization */
 .formBox {
   width: 380px;
   font-size: 20px;
@@ -155,7 +189,7 @@ html, body {
   color: rgb(150, 150, 150);
 }
 
-/* Sign in/out button styling */
+/* Sign in/out and search button styling */
 .signBtn, .searchBtn {
   border-radius: 15px;
   height: 70px;
@@ -187,7 +221,8 @@ html, body {
   transform: scale(1.05)
 }
 
-/* Main trips page buttons that take you to a trip */
+
+/* Trips page buttons*/
 .tripBtn {
   margin-top: 50px;
   border-radius: 15px;
@@ -214,7 +249,8 @@ html, body {
   transform: scale(1.05)
 }
 
-/* Current trip title and city */
+
+/* Current Trip title and city */
 .tripMainTab {
   display: block;
   margin: auto;
@@ -242,6 +278,7 @@ html, body {
   font-size: 35px;
 }
 
+
 /* Displaying searched friends results */
 .displayFriends {
   font-size: 30px;
@@ -249,6 +286,8 @@ html, body {
   margin-top: 40px;
   display: block;
 }
+
+
 
 /* Removing outline affect on buttons */
 button:focus, input:focus, textarea:focus, select:focus{

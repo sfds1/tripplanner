@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
+import UserDash from "../../components/UserDash";
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -59,11 +60,12 @@ class Trips extends Component {
       <div>
 
         <Navbar />
+        <UserDash />
 
         <div className="tripHeader">Trips</div>
 
         <div className="card">
-          <div className="tripList">
+          <div>
             {this.renderTrips()}
           </div>
         </div>
