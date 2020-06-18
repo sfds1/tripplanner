@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from 'redux-form';
-import Refresh from '../../components/Refresh';
-import Back from '../../components/Back';
+import Navbar from '../../components/Navbar';
 import axios from 'axios';
 
 import { connect } from 'react-redux';
@@ -98,58 +97,57 @@ class NewTrip extends Component {
     return (
       <div>
 
-        <Back />
-        <Refresh />
+        <Navbar />
 
         <div className="tripHeader">New Trip</div>
 
         <div className="card">
 
-<div className="formBox">
-          {/* Title */}
-          <form onSubmit={handleSubmit(this.onSubmit)}>
-            <div>
-              <Field
-                placeholder="Name Trip"
-                name='title'
-                label="Name of the trip"
-                component={this.renderInput}
-              />
-            </div>
+          <div className="formBox">
+            {/* Title */}
+            <form onSubmit={handleSubmit(this.onSubmit)}>
+              <div>
+                <Field
+                  placeholder="Name Trip"
+                  name='title'
+                  label="Name of the trip"
+                  component={this.renderInput}
+                />
+              </div>
 
-            {/* Location */}
-            <form onSubmit={handleSubmit(this.onSubmit)}/>
-            <div>
-              <Field
-                placeholder="Location"
-                name='city'
-                label="Where do you want to go?"
-                component={this.renderInput}
-              />
-            </div>
+              {/* Location */}
+              <form onSubmit={handleSubmit(this.onSubmit)} />
+              <div>
+                <Field
+                  placeholder="Location"
+                  name='city'
+                  label="Where do you want to go?"
+                  component={this.renderInput}
+                />
+              </div>
 
-            {/* Start Date */}
-            <div>
-              <Field
-                placeholder=""
-                name='startDate'
-                label="Start Date"
-                component={this.renderInput}
-              />
-            </div>
+              {/* Start Date */}
+              <div>
+                <Field
+                  placeholder=""
+                  name='startDate'
+                  label="Start Date"
+                  component={this.renderInput}
+                />
+              </div>
 
-            {/* End Date */}
-            <div>
-              <Field
-                placeholder=""
-                name='endDate'
-                label="End Date"
-                component={this.renderInput}
-              />
-            </div>
+              {/* End Date */}
+              <div>
+                <Field
+                  placeholder=""
+                  name='endDate'
+                  label="End Date"
+                  component={this.renderInput}
+                />
+              </div>
 
 
-            {/* Friends
+              {/* Friends
             <div>
               <Field
                 placeholder="Friends"
@@ -159,13 +157,13 @@ class NewTrip extends Component {
               />
             </div> */}
 
-            <button
-              className="searchBtn"
-              type="submit">
-              Create
+              <button
+                className="searchBtn"
+                type="submit">
+                Create
             </button>
 
-          </form>
+            </form>
           </div>
 
         </div>

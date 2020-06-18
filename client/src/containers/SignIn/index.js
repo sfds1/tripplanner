@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
+
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { Form, Segment, Button } from 'semantic-ui-react';
 import { email, required } from 'redux-form-validators';
 import axios from 'axios';
 import { AUTH_USER } from '../../actions/types';
 
-import Refresh from '../../components/Refresh';
 
 class SignIn extends Component {
 
@@ -29,7 +29,7 @@ class SignIn extends Component {
     return (
       <Form.Input
         {...input}
-        error={ meta.touched && meta.error }
+        error={meta.touched && meta.error}
         autoComplete='off'
         placeholder='Email Address'
       />
@@ -39,7 +39,7 @@ class SignIn extends Component {
     return (
       <Form.Input
         {...input}
-        error={  meta.touched && meta.error }
+        error={meta.touched && meta.error}
         type='password'
         placeholder='password'
         autoComplete='off'
@@ -51,42 +51,45 @@ class SignIn extends Component {
     return (
 
       <div>
-        <Link to="/user" className="backBtn"> ↼ </Link>
-        <Refresh />
+
+        <Navbar />
 
         <div className="tripHeader">Sign In</div>
 
-      <div className="formBox">
-      <Form onSubmit={handleSubmit(this.onSubmit)}>
-        <Segment stacked>
-          <Field
-            name='email'
-            component={ this.renderEmail }
-            validate={
-              [
-                required({ msg: 'Email is required' }),
-                email({ msg: 'You must provide a valid email address' })
-              ]
-            }
-          />
-          <Field
-            name='password'
-            component={this.renderPassword}
-            validate={
-              [
-                required({ msg: 'You must provide a password' })
-              ]
-            }
-          />
-          <Button
-            className="signBtn"
-            content='Sign In'
-            type='submit'
-            disabled={ invalid || submitting || submitFailed }
-          />
-        </Segment>
-      </Form>
-      </div>
+        <div className="card">
+
+          <div className="formBox">
+            <Form onSubmit={handleSubmit(this.onSubmit)}>
+              <Segment stacked>
+                <Field
+                  name='email'
+                  component={this.renderEmail}
+                  validate={
+                    [
+                      required({ msg: 'Email is required' }),
+                      email({ msg: 'You must provide a valid email address' })
+                    ]
+                  }
+                />
+                <Field
+                  name='password'
+                  component={this.renderPassword}
+                  validate={
+                    [
+                      required({ msg: 'You must provide a password' })
+                    ]
+                  }
+                />
+                <Button
+                  className="signBtn"
+                  content='Sign In'
+                  type='submit'
+                  disabled={invalid || submitting || submitFailed}
+                />
+              </Segment>
+            </Form>
+          </div>
+        </div>
       </div>
     );
   }

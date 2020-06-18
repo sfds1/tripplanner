@@ -6,10 +6,15 @@ class Refresh extends Component {
   render() {
     return (
 
-      <div>
+      <div className="inlineBox">
 
-        <Link to={window.location.pathname} onClick={() => window.location.reload(false)}>
-        <img className="refreshBtn" src="../../../images/refresh.png" alt="" />
+        <Link
+          to={window.location.pathname}
+          onClick={() => window.location.reload(false)}
+        >
+
+          <img className="refreshBtn" src="../../../images/refresh.png" alt="" />
+
         </Link>
 
       </div>

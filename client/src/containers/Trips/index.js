@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import Refresh from '../../components/Refresh';
-import Back from '../../components/Back';
+import Navbar from '../../components/Navbar';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -12,8 +11,6 @@ import { getUserTrips } from './../../actions/trips'
 // import BEARER_TOKEN from '../../yelpAPI/config'
 
 class Trips extends Component {
-  
-  
   
   componentDidMount = async () => {
     await this.props.getUserTrips();
@@ -61,8 +58,7 @@ class Trips extends Component {
 
       <div>
 
-        <Back />
-        <Refresh />
+        <Navbar />
 
         <div className="tripHeader">Trips</div>
 
