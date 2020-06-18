@@ -34,7 +34,7 @@ class CurrentTrip extends Component {
 
   handleDelete = async (id) => {
     console.log(id)
-    const data = await axios.delete(`/api/category/${id}`, { headers: { 'authorization': localStorage.getItem('token') } })
+    await axios.delete(`/api/category/${id}`, { headers: { 'authorization': localStorage.getItem('token') } })
     window.location.reload(false)
   }
   
@@ -46,7 +46,7 @@ class CurrentTrip extends Component {
         console.log(_id)
         return (
           <div key={_id}>
-            <Link to={{ pathname: `/currentCurrentCategory/${_id}` }}>
+            <Link to={{ pathname: `/currentCategory/${_id}` }}>
               <div className="categoryBtn">{title}</div>
             </Link>
             <button
