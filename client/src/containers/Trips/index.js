@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import UserDash from "../../components/UserDash";
+import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -39,6 +40,11 @@ class Trips extends Component {
   //   //   console.log ('error')
   //   //   })
   // }
+
+  handleDelete = async (id) => {
+    await axios.delete(`/api/trip/${id}`, { headers: { 'authorization': localStorage.getItem('token') } })
+    window.location.reload(false)
+  }
   
   renderTrips = () => {
     if (this.props.trips.length === 0) {
@@ -46,9 +52,17 @@ class Trips extends Component {
     } else {
       return this.props.trips.map(({ _id, title }) => {
         return (
-          <Link to={{ pathname: `/currentTrip/${_id}` }} key={_id} >
+          <div key={_id}>
+          <Link to={{ pathname: `/currentTrip/${_id}` }}>
             <div className="tripBtn">{title}</div>
           </Link>
+          <button
+            className="deleteBtn"
+            type="submit"
+            onClick={() => this.handleDelete(_id)}>
+            X
+          </button>
+          </div>
         )
       })
     }

@@ -29,10 +29,14 @@ class CurrentCategory extends Component {
     if (!this.props.currentCategory || this.props.currentCategory.activities.length === 0) {
       return <div className="displayFriends"> No Activities Yet </div>
     } else {
-      return this.props.currentCategory.activities.map(({ _id, title }) => {
+      return this.props.currentCategory.activities.map(({ _id, title, date }) => {
         return (
           <div key={_id}>
-            <div className="categoryBtn">{title}</div>
+            <div className="categoryBtn">
+              {title}
+              <br></br>
+              {date}
+              </div>
             <button
               className="deleteBtn"
               type="submit"
