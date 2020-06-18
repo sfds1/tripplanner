@@ -26,6 +26,7 @@ export const getUserTrips = () => async dispatch => {
 export const getTripById = tripId => async dispatch => {
     try {
         const { data } = await axios.get(`/api/trip/${tripId}`, { headers: { 'authorization': localStorage.getItem('token')} })
+        console.log('in action creator',data);
         dispatch({ type: GET_TRIP_BY_ID, payload: data })
     } catch (e) {
         dispatch({ type: GET_TRIP_BY_ID_ERROR, payload: e})

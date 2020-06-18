@@ -18,29 +18,45 @@ class CurrentTrip extends Component {
   }
 
   renderTrip = () => {
-    const { _id, title, city, startDate, endDate } = this.props.currentTrip;
+    console.log((this.props.currentTrip))
+    // const { title, city, startDate, endDate } = this.props.currentTrip;
     return (
-      <div key={_id}>
-        <span className="tripMainTab"> {title} </span>
+      <div>
+        {/* <span className="tripMainTab"> {title} </span>
         <br></br>
         <span className="tripMainTab"> {city} </span>
         <br></br>
         <span className="tripInfoTab"> Start: {startDate} </span>
         <br></br>
-        <span className="tripInfoTab"> End: {endDate} </span>
+        <span className="tripInfoTab"> End: {endDate} </span> */}
       </div>
     )
+  }
+
+  handleDelete = async (id) => {
+    console.log(id)
+    const data = await axios.delete(`/api/category/${id}`, { headers: { 'authorization': localStorage.getItem('token') } })
+    console.log(data)
   }
   
   renderCategories = () => {
     if (!this.props.currentTrip || this.props.currentTrip.categories.length === 0) {
       return <div> No Categories Yet </div>
     } else {
-      return this.props.currentTrip.categories.map(({ _id, title }) => {
+      return this.props.currentTrip.categories.map(({_id, title}) => {
+        console.log(_id)
         return (
-          <Link to={{ pathname: `/currentTrip/${_id}` }} >
-            <div className="categoryBtn" key={_id}>{this.props.currentTrip.categories}</div>
-          </Link>
+          <div>
+            <Link to={{ pathname: `/currentCurrentCategory/${_id}` }} key={_id}>
+              <div className="categoryBtn">{title}</div>
+            </Link>
+            <button
+              className="deleteBtn"
+              type="submit"
+              onClick={() => this.handleDelete(_id)}>
+              Delete
+            </button>
+          </div>
         )
       })
     }
@@ -78,7 +94,6 @@ class CurrentTrip extends Component {
   render() {
     console.log(this.props.currentTrip)
     const { handleSubmit } = this.props;
-
     return (
       <div>
 
@@ -119,7 +134,7 @@ function mapStateToProps(state) {
 }
 
 export default compose(
-  requireAuth,
   reduxForm({ form: 'category' }),
-  connect(mapStateToProps, { getTripById })
+  connect(mapStateToProps, { getTripById }),
+  requireAuth
 )(CurrentTrip);
