@@ -6,11 +6,13 @@ import userReducer from './userReducer';
 import authReducer from './authReducer';
 import { ADD_TODO } from '../actions/types';
 import tripsReducer from './tripsReducer';
+import categoryReducer from './categoryReducer';
 
 
 export default combineReducers({
   user: userReducer,
   trips: tripsReducer,
+  category: categoryReducer,
   auth: authReducer,
   form: formReducer.plugin({
     'addTodo': (state, action) => {

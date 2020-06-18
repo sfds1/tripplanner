@@ -12,6 +12,7 @@ import FindFriend from '../FindFriend';
 import Trips from '../Trips';
 import NewTrip from '../NewTrip';
 import CurrentTrip from '../CurrentTrip';
+import CurrentCategory from '../CurrentCategory'
 
 
 import { connect } from 'react-redux';
@@ -37,6 +38,7 @@ class App extends Component {
           <Route exact path="/trips" component={Trips} />
           <Route exact path="/newtrip" component={NewTrip} />
           <Route exact path="/currenttrip/:id" component={CurrentTrip} />
+          <Route exact path="/currentCategory/:id" component={CurrentCategory} />
 
       </div>
     );
