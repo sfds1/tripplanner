@@ -5,6 +5,7 @@ import { reduxForm, Field } from 'redux-form';
 import { Form, Button } from 'semantic-ui-react';
 
 import Navbar from "../../components/Navbar";
+import UserDash from "../../components/UserDash";
 
 import requireAuth from './../../hoc/requireAuth'
 import { getFriendByEmail } from './../../actions/user'
@@ -42,6 +43,7 @@ class FindFriend extends Component {
       <div>
 
         <Navbar />
+        <UserDash />
 
         <div className="tripHeader">Find Friends</div>
 

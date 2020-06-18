@@ -20,14 +20,14 @@ class CurrentCategory extends Component {
     const title = this.props?.currentCategory?.title;
     return (
       <div>
-        <span className="tripMainTab"> {title} </span>
+        <div className="tripMainTab"> {title} </div>
       </div>
     )
   }
 
   renderActivities = () => {
     if (!this.props.currentCategory || this.props.currentCategory.activities.length === 0) {
-      return <div> No Activities Yet </div>
+      return <div className="displayFriends"> No Activities Yet </div>
     } else {
       return this.props.currentCategory.activities.map(({ _id, title, date }) => {
         return (

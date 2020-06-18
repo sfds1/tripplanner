@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
+import UserDash from "../../components/UserDash";
 
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
@@ -22,13 +23,10 @@ class CurrentTrip extends Component {
     const { title, city, startDate, endDate } = this.props.currentTrip;
     return (
       <div>
-        <span className="tripMainTab"> {title} </span>
-        <br></br>
-        <span className="tripInfoTab"> {city} </span>
-        <br></br>
-        <span className="tripInfoTab"> Start: {startDate} </span>
-        <br></br>
-        <span className="tripInfoTab"> End: {endDate} </span>
+        <div className="tripMainTab"> {title} </div>
+        <div className="tripInfoTab"> {city} </div>
+        <div className="tripInfoTab"> Start: {startDate} </div>
+        <div className="tripInfoTab"> End: {endDate} </div>
       </div>
     )
   }
@@ -40,7 +38,7 @@ class CurrentTrip extends Component {
 
   renderCategories = () => {
     if (!this.props.currentTrip || this.props.currentTrip.categories.length === 0) {
-      return <div> No Categories Yet </div>
+      return <div className="displayFriends"> No Categories Yet </div>
     } else {
       return this.props.currentTrip.categories.map(({ _id, title }) => {
         return (
@@ -91,6 +89,7 @@ class CurrentTrip extends Component {
       <div>
 
         <Navbar />
+        <UserDash />
 
         <div className="tripHeader">Current Trip</div>
 
