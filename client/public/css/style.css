@@ -16,7 +16,7 @@ html, body {
   text-align: center;
   border-radius: 25px;
   padding-top: 10px;
-  width: 800px;
+  width: 600px;
   margin: auto;
   padding-bottom: 40px;
   margin-bottom: 170px;
@@ -26,19 +26,19 @@ html, body {
   margin-top: 120px;
   margin-bottom: 30px;
   background-color: rgb(235, 235, 235);
-  height: 60px;
-  width: 780px;
+  height: 30px;
+  width: 580px;
   text-align: center;
   color: rgb(50, 50, 50);
   padding: 10px;
-  font-size: 60px;
-  border-radius: 25px;
+  font-size: 30px;
+  border-radius: 15px;
   font-weight: bolder;
 }
 
 /* Top navbar styling fixed on each page */
 .navbar {
-  width: 900px;
+  width: 700px;
   height: 90px;
   margin: auto;
   position: fixed;
@@ -64,7 +64,7 @@ html, body {
   border-radius: 20px;
   text-align: center;
   padding: 10px;
-  margin-right: 220px;
+  margin-right: 120px;
   margin-top: 10px;
 }
 .refreshBtn {
@@ -75,7 +75,7 @@ html, body {
   border-radius: 20px;
   text-align: center;
   padding: 10px;
-  margin-left: 220px;
+  margin-left: 120px;
   margin-top: 10px;
 }
 .backBtn:hover, .refreshBtn:hover {
@@ -87,8 +87,8 @@ html, body {
 
 /* Fixed small user dash navbar */
 .userDash {
-  width: 900px;
-  height: 140px;
+  width: 700px;
+  height: 130px;
   margin: auto;
   position: fixed;
   bottom: 0;
@@ -104,13 +104,13 @@ html, body {
   margin-left: 20px;
   margin-right: 20px;
   background-color: rgb(50, 50, 50);
-  height: 110px;
-  width: 110px;
+  height: 100px;
+  width: 100px;
   border-radius: 25px;
   text-align: center;
 }
 .userDashIcons {
-  width: 80px;
+  width: 70px;
   margin-top: 13px;
 }
 .userDashBtn:hover {
@@ -165,8 +165,8 @@ html, body {
 
 /* All form and input customization */
 .formBox {
-  width: 380px;
-  font-size: 20px;
+  width: 450px;
+  font-size: 25px;
   border-radius: 10px;
   text-align: center;
   margin: auto;
@@ -174,9 +174,11 @@ html, body {
   margin-bottom: 20px;
 }
 .formBox input {
-  height: 60px;
+  height: 100%;
+  width: 400px;
   border-radius: 20px;
-  font-size: 30px;
+  font-size: 25px;
+  margin: auto;
   margin-top: 30px;
   font-family: 'Montserrat', sans-serif;
   background-color: rgb(50, 50, 50, 0);
@@ -184,6 +186,7 @@ html, body {
   text-align: center;
   border: 8px solid;
   border-color: #1cac93;
+  padding: 10px;
 }
 ::placeholder {
   color: rgb(150, 150, 150);
@@ -197,19 +200,20 @@ form {
 /* Sign in/out and search button styling */
 .signBtn, .searchBtn {
   border-radius: 15px;
-  height: 70px;
-  width: 396px;
+  padding: 15px;
+  height: 100%;
+  width: 436px;
   text-align: center;
   margin: auto;
   margin-top: 30px;
-  margin-bottom: 30px;
-  font-size: 30px;
+  font-size: 25px;
   font-family: 'Montserrat', sans-serif;
   background-color: #ea8948;
-  color: rgb(50, 50, 50);
+  color: rgb(255, 255, 255);
   border: none;
 }
 .deleteBtn {
+  display: inline-block;
   border-radius: 15px;
   height: 50px;
   width: 50px;
@@ -233,21 +237,22 @@ form {
   border-radius: 15px;
   background-color: #ea8948;
   height: 100%;
-  width: 700px;
+  width: 400px;
   text-align: center;
   color: rgb(255, 255, 255);
   padding: 10px;
   font-size: 40px;
 }
 .categoryBtn {
+  display: inline-block;
   margin-top: 20px;
   border-radius: 15px;
   background-color: rgb(114, 114, 114);
   height: 100%;
-  width: 500px;
+  width: 400px;
   text-align: center;
   color: white;
-  padding: 10px;
+  padding: 15px;
   font-size: 25px;
 }
 .tripBtn:hover, .categoryBtn:hover {
@@ -258,27 +263,27 @@ form {
 /* Current Trip title and city */
 .tripMainTab {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
   border-radius: 15px;
   background-color: rgb(50, 50, 50);
   height: 100%;
-  width: 700px;
+  width: 500px;
   text-align: center;
   color: white;
-  padding: 10px;
-  font-size: 40px;
+  padding: 15px;
+  font-size: 35px;
 }
 .tripInfoTab {
   margin: auto;
-  margin-top: 30px;
+  margin-top: 20px;
   border-radius: 15px;
   background-color: #ea8948;
   height: 100%;
-  width: 600px;
+  width: 500px;
   text-align: center;
   color: white;
   padding: 10px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 
