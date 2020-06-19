@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import Navbar from '../../components/Navbar';
-
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { Form, Segment, Button } from 'semantic-ui-react';
 import { email, required } from 'redux-form-validators';
 import axios from 'axios';
 import { AUTH_USER } from '../../actions/types';
-
 
 class SignIn extends Component {
 
@@ -41,7 +39,7 @@ class SignIn extends Component {
         {...input}
         error={meta.touched && meta.error}
         type='password'
-        placeholder='password'
+        placeholder='Password'
         autoComplete='off'
       />
     );
@@ -53,8 +51,6 @@ class SignIn extends Component {
       <div>
 
         <Navbar />
-
-        <div className="tripHeader">Sign In</div>
 
         <div className="card">
 

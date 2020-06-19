@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-
 import SignUp from '../SignUp';
 import SignOut from '../SignOut';
 import SignIn from '../SignIn';

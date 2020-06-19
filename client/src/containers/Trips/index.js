@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import UserDash from "../../components/UserDash";
+import Background from "../../components/Background";
 import axios from 'axios';
-
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-
 import requireAuth from './../../hoc/requireAuth'
 import { getUserTrips } from './../../actions/trips'
 // import axios from 'axios'
@@ -75,8 +74,7 @@ class Trips extends Component {
 
         <Navbar />
         <UserDash />
-
-        <div className="tripHeader">Trips</div>
+        <Background />
 
         <div className="card">
           <div>

@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import Navbar from '../../components/Navbar';
 import UserDash from "../../components/UserDash";
-
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-
 import requireAuth from './../../hoc/requireAuth'
 import { getUserInfo } from './../../actions/user'
+import Background from "../../components/Background";
 
 
 class Profile extends Component {
@@ -23,8 +22,7 @@ class Profile extends Component {
 
         <Navbar />
         <UserDash />
-
-        <div className="tripHeader">Profile</div>
+        <Background />
 
         <div className="card">
           <div className="displayFriends">

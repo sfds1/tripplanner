@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import { fetchFlights } from '../../flightAPI/flightAPI'
-
+import User from "../User";
 
 class Main extends Component {
 
@@ -14,13 +14,11 @@ class Main extends Component {
 
       <div className="mainPage">
 
-        <Link to="/user">
-
           <img className="logo" src="../../../images/logo.png" alt="logo" />
 
           <div className="mainTitle">We Trippin'</div>
 
-        </Link>
+<User />
 
       </div>
 
