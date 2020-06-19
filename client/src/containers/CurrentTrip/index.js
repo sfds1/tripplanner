@@ -82,7 +82,7 @@ class CurrentTrip extends Component {
     console.log(this.props.currentTrip)
     const { handleSubmit } = this.props;
     return (
-      <div>
+      <div className="flex">
 
         <Navbar />
         <UserDash />
@@ -91,6 +91,9 @@ class CurrentTrip extends Component {
         <div className="card">
           <div>{this.renderTrip()}</div>
           {this.renderCategories()}
+          </div>
+
+          <div className="card">
 
           <div className="formBox">
 
@@ -104,6 +107,7 @@ class CurrentTrip extends Component {
                   component={this.renderInput}
                 />
               </div>
+
 
               <button
                 className="searchBtn"
