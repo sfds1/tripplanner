@@ -28,20 +28,22 @@ class CurrentCategory extends Component {
     if (!this.props.currentCategory || this.props.currentCategory.activities.length === 0) {
       return <div className="displayFriends"> No Activities Yet </div>
     } else {
-      return this.props.currentCategory.activities.map(({ _id, title, date }) => {
+      return this.props.currentCategory.activities.map(({ _id, title, details, date }) => {
         return (
           <div key={_id}>
             <div className="categoryBtn">
               {title}
-              <br></br>
-              {date}
+              {/* <br></br>
+              {date} */}
+              <br></br><br></br>
+              {details}
             </div>
             <button
               className="deleteBtn"
               type="submit"
               onClick={() => this.handleDelete(_id)}>
-              X
-              </button>
+              <img className="deleteIcon" src="../../../images/trash.png" alt="" />
+            </button>
           </div>
         )
       })

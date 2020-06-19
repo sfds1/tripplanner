@@ -237,16 +237,20 @@ form {
 .deleteBtn {
   display: inline-block;
   border-radius: 15px;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   text-align: center;
   margin: auto;
   margin-left: 20px;
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
-  background-color: #ea8948;
-  color: rgb(50, 50, 50);
+  background-color: rgb(50, 50, 50);
   border: none;
+}
+.deleteIcon {
+  width: 25px;
+  padding-top: 5px;
+  margin: auto;
 }
 .searchBtn:hover, .signBtn:hover, .deleteBtn:hover {
   transform: scale(1.05)
@@ -269,7 +273,7 @@ form {
   display: inline-block;
   margin-top: 20px;
   border-radius: 15px;
-  background-color: rgb(114, 114, 114);
+  background-color: rgb(110, 110, 110);
   height: 100%;
   width: 400px;
   text-align: center;
@@ -287,7 +291,7 @@ form {
   margin: auto;
   margin-top: 30px;
   border-radius: 15px;
-  background-color: rgb(50, 50, 50);
+  background-color: #ea8948;
   height: 100%;
   width: 500px;
   text-align: center;
@@ -299,11 +303,11 @@ form {
   margin: auto;
   margin-top: 20px;
   border-radius: 15px;
-  background-color: #ea8948;
+  background-color: #ffd791;
   height: 100%;
   width: 500px;
   text-align: center;
-  color: white;
+  color: rgb(50, 50, 50);
   padding: 10px;
   font-size: 25px;
 }

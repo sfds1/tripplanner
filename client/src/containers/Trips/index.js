@@ -12,23 +12,23 @@ import { getUserTrips } from './../../actions/trips'
 // import BEARER_TOKEN from '../../yelpAPI/config'
 
 class Trips extends Component {
-  
+
   componentDidMount = async () => {
     await this.props.getUserTrips();
   }
-  
+
   // componentDidMount() { 
   //   // console.log(BEARER_TOKEN);
   //   // console.log(sessionStorage.getItem("trips"), "trips")
 
   //   // const trips = JSON.parse(sessionStorage.getItem("trips"))
-      
+
   //   //   axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${trips[trips.length-1].city}`, {
   //   //     headers: {
   //   //       Authorization: `${BEARER_TOKEN}`
   //   //   },
   //   //     params: {
-          
+
   //   //     categories: 'tours, All',
   //   //   }
   //   //   })
@@ -44,7 +44,7 @@ class Trips extends Component {
     await axios.delete(`/api/trip/${id}`, { headers: { 'authorization': localStorage.getItem('token') } })
     window.location.reload(false)
   }
-  
+
   renderTrips = () => {
     if (this.props.trips.length === 0) {
       return <div> No Trips Yet </div>
@@ -52,15 +52,15 @@ class Trips extends Component {
       return this.props.trips.map(({ _id, title }) => {
         return (
           <div key={_id}>
-          <Link to={{ pathname: `/currentTrip/${_id}` }}>
-            <div className="tripBtn">{title}</div>
-          </Link>
-          <button
-            className="deleteBtn"
-            type="submit"
-            onClick={() => this.handleDelete(_id)}>
-            X
-          </button>
+            <Link to={{ pathname: `/currentTrip/${_id}` }}>
+              <div className="tripBtn">{title}</div>
+            </Link>
+            <button
+              className="deleteBtn"
+              type="submit"
+              onClick={() => this.handleDelete(_id)}>
+              <img className="deleteIcon" src="../../../images/trash.png" alt="" />
+            </button>
           </div>
         )
       })
