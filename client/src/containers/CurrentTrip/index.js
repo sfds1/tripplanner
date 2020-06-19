@@ -46,7 +46,7 @@ class CurrentTrip extends Component {
               className="deleteBtn"
               type="submit"
               onClick={() => this.handleDelete(_id)}>
-              X
+              <img className="deleteIcon" src="../../../images/trash.png" alt="" />
             </button>
           </div>
         )
