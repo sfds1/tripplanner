@@ -3,14 +3,12 @@ import { Field, reduxForm } from 'redux-form';
 import Navbar from '../../components/Navbar';
 import UserDash from "../../components/UserDash";
 import axios from 'axios';
-
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-
 import requireAuth from '../../hoc/requireAuth'
 import { getUserTrips } from './../../actions/trips'
-
 import fetchFlights from '../../flightAPI/flightAPI'
+import Background from "../../components/Background";
 
 class NewTrip extends Component {
 
@@ -78,8 +76,7 @@ class NewTrip extends Component {
 
         <Navbar />
         <UserDash />
-
-        <div className="tripHeader">New Trip</div>
+        <Background />
 
         <div className="card">
 

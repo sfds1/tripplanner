@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
 import UserDash from "../../components/UserDash";
-
+import Background from "../../components/Background";
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import axios from 'axios';
-
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-
 import requireAuth from '../../hoc/requireAuth'
 import { getTripById } from './../../actions/trips'
 
@@ -88,8 +86,7 @@ class CurrentTrip extends Component {
 
         <Navbar />
         <UserDash />
-
-        <div className="tripHeader">Current Trip</div>
+        <Background />
 
         <div className="card">
           <div>{this.renderTrip()}</div>

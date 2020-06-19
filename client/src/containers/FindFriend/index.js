@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { Form, Button } from 'semantic-ui-react';
-
 import Navbar from "../../components/Navbar";
 import UserDash from "../../components/UserDash";
-
 import requireAuth from './../../hoc/requireAuth'
 import { getFriendByEmail } from './../../actions/user'
 import axios from "axios";
+import Background from "../../components/Background";
 
 
 class FindFriend extends Component {
@@ -44,8 +43,7 @@ class FindFriend extends Component {
 
         <Navbar />
         <UserDash />
-
-        <div className="tripHeader">Find Friends</div>
+        <Background />
 
         <div className="card">
 
