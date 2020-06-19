@@ -39,14 +39,13 @@ class FindFriend extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div>
+      <div className="flex">
 
         <Navbar />
         <UserDash />
         <Background />
 
         <div className="card">
-
           <div className="formBox">
             <form autocomplete="off" onSubmit={handleSubmit(this.onSubmit)}>
               <div>
@@ -61,18 +60,18 @@ class FindFriend extends Component {
                 type='submit'
                 onClick={this.findFriend}>
                 Search
-          </Button>
+              </Button>
             </form>
           </div>
+        </div>
 
-
+        <div className="card">
           <div onClick={this.handleAdd} className="displayFriends">
             Friends: {this.props.friend.email}
-          (click to add)
+            (click to add)
+          </div>
         </div>
 
-
-        </div>
       </div>
 
     )

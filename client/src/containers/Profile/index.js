@@ -18,24 +18,24 @@ class Profile extends Component {
     console.log('userdata:', this.props.user)
     return (
 
-      <div>
+      <div className="flex">
 
         <Navbar />
         <UserDash />
         <Background />
 
-        <div className="card">
+        <div className="card" style={{ display: 'inline-block' }}>
           <div className="displayFriends">
             Email: {<br></br>} {this.props.user.email}
           </div>
+        </div>
 
-          <br></br>
-
+        <div className="card" style={{ display: 'inline-block' }}>
           <div className="displayFriends">
             Friends: {<br></br>} {this.props.user.friends}
           </div>
-
         </div>
+
       </div>
 
     )

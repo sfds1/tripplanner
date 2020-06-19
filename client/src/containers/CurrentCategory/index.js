@@ -35,7 +35,7 @@ class CurrentCategory extends Component {
               {title}
               <br></br>
               {date}
-              </div>
+            </div>
             <button
               className="deleteBtn"
               type="submit"
@@ -75,7 +75,7 @@ class CurrentCategory extends Component {
     console.log(this.props.currentCategory)
     const { handleSubmit } = this.props;
     return (
-      <div>
+      <div className="flex">
 
         <Navbar />
         <UserDash />
@@ -84,7 +84,9 @@ class CurrentCategory extends Component {
         <div className="card">
           <div>{this.renderCategory()}</div>
           {this.renderActivities()}
+        </div>
 
+        <div className="card">
           <div className="formBox">
             <form onSubmit={handleSubmit(this.onSubmit)}>
               <div>
