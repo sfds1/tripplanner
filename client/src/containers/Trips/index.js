@@ -8,8 +8,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import requireAuth from './../../hoc/requireAuth'
 import { getUserTrips } from './../../actions/trips'
-// import axios from 'axios'
-// import BEARER_TOKEN from '../../yelpAPI/config'
+
 
 class Trips extends Component {
 
@@ -17,29 +16,7 @@ class Trips extends Component {
     await this.props.getUserTrips();
   }
 
-  // componentDidMount() { 
-  //   // console.log(BEARER_TOKEN);
-  //   // console.log(sessionStorage.getItem("trips"), "trips")
-
-  //   // const trips = JSON.parse(sessionStorage.getItem("trips"))
-
-  //   //   axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${trips[trips.length-1].city}`, {
-  //   //     headers: {
-  //   //       Authorization: `${BEARER_TOKEN}`
-  //   //   },
-  //   //     params: {
-
-  //   //     categories: 'tours, All',
-  //   //   }
-  //   //   })
-  //   //   .then((res) => {
-  //   //   console.log(res)
-  //   //   })
-  //   //   .catch((err) => {
-  //   //   console.log ('error')
-  //   //   })
-  // }
-
+ 
   handleDelete = async (id) => {
     await axios.delete(`/api/trip/${id}`, { headers: { 'authorization': localStorage.getItem('token') } })
     window.location.reload(false)
