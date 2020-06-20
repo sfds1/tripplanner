@@ -101,7 +101,6 @@ class CurrentTrip extends Component {
   addFriend = async (formValues, dispatch) => {
     this.props.user.friends.forEach(async (friend) => {
       if (friend.email === formValues.text) {
-        console.log(friend)
         const { _id } = this.props.currentTrip
         const { data } = await axios.put(`/api/trip/${_id}`, { friendId: friend._id }, { headers: { 'authorization': localStorage.getItem('token') } })
         dispatch({ type: GET_TRIP_BY_ID, payload: data })

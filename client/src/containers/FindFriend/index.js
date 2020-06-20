@@ -30,6 +30,7 @@ class FindFriend extends Component {
   }
 
   handleAdd = async () => {
+    console.log(this.props.friend)
     // const { _id } = this.props.friend
     await axios.post('/api/user', this.props.friend, { headers: { 'authorization': localStorage.getItem('token') } })
     alert('Friend Added')
@@ -52,7 +53,7 @@ class FindFriend extends Component {
           </div>
 
           <div className="formBox">
-            <form autocomplete="off" onSubmit={handleSubmit(this.onSubmit)}>
+            <form autoComplete="off" onSubmit={handleSubmit(this.onSubmit)}>
               <div>
                 <Field
                   name='text'
