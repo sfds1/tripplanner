@@ -22,7 +22,7 @@ module.exports = {
     }
   },
   addTrip: async (req, res) => {
-    const { title,city, startDate, endDate, location } = req.body;
+    const { title, city, startDate, endDate, location } = req.body;
     if (!title) {
       return res.status(400).json({ error: 'You must provide text' });
     }

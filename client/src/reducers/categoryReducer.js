@@ -7,6 +7,7 @@ const INITIAL_STATE = {
     currentCategory: {
       title: "",
       activities: [],
+      details: '',
       _id: '',
     },
     getCategoryByIdError: '',

@@ -13,6 +13,17 @@ class Profile extends Component {
     this.props.getUserInfo();
   }
 
+  renderFriends = () => {
+    return this.props.user.friends?.map(({email, _id}) => {
+      return (
+        <div key={_id}>
+          <br></br>
+          <div>{email}</div>
+        </div>
+      )
+    })
+  }
+
 
   render() {
     console.log('userdata:', this.props.user)
@@ -32,7 +43,7 @@ class Profile extends Component {
 
         <div className="card" style={{ display: 'inline-block' }}>
           <div className="displayFriends">
-            Friends: {<br></br>} {this.props.user.friends}
+            Friends: {<br></br>} {this.renderFriends()}
           </div>
         </div>
 

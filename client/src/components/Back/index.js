@@ -10,6 +10,7 @@ class Back extends Component {
       <div className="inlineBox">
 
         <Link
+          to=''
           onClick={this.props.history.goBack}
         >
 
