@@ -40,29 +40,6 @@ class NewTrip extends Component {
     )
   }
 
-  // renderDropdown = (field) => {
-  //   return (
-  //     <div>
-  //       <label>
-  //         {field.label}
-  //       </label>
-  //       <br></br>
-  //       <select
-  //         {...field.input}
-  //         className="formBox"
-  //         placeholder={field.placeholder}
-  //         type="text"
-  //       >
-  //         <option>One</option>
-  //         <option>Two</option>
-  //         <option>Three</option>
-
-  //       </select>
-  //     </div>
-  //   )
-  // }
-
-
   render() {
 
     console.log(this.props)
@@ -76,6 +53,10 @@ class NewTrip extends Component {
         <Background />
 
         <div className="card">
+
+        <div className="cardTitle">
+            Create Trip
+          </div>
 
           <div className="formBox">
             {/* Title */}

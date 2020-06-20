@@ -46,6 +46,11 @@ class FindFriend extends Component {
         <Background />
 
         <div className="card">
+
+          <div className="cardTitle">
+            Find Friends
+          </div>
+
           <div className="formBox">
             <form autocomplete="off" onSubmit={handleSubmit(this.onSubmit)}>
               <div>
@@ -66,7 +71,12 @@ class FindFriend extends Component {
         </div>
 
         <div className="card">
-          <div onClick={this.handleAdd} className="displayFriends">
+
+          <div className="cardTitle">
+            Searched Friends
+          </div>
+
+          <div onClick={this.handleAdd} className="displayInfo">
             Friends: {this.props.friend.email}
             (click to add)
           </div>

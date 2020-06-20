@@ -54,6 +54,10 @@ class SignIn extends Component {
 
         <div className="card">
 
+        <div className="cardTitle">
+            Sign In
+          </div>
+
           <div className="formBox">
             <Form onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>

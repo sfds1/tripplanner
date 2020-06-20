@@ -19,7 +19,7 @@ class CurrentCategory extends Component {
     const title = this.props?.currentCategory?.title;
     return (
       <div>
-        <div className="tripMainTab"> {title} </div>
+        <div className="activitiesMainTab"> {title} </div>
       </div>
     )
   }
@@ -31,12 +31,11 @@ class CurrentCategory extends Component {
       return this.props.currentCategory.activities.map(({ _id, title, details, date }) => {
         return (
           <div key={_id}>
-            <div className="categoryBtn">
-              {title}
-              {/* <br></br>
-              {date} */}
-              <br></br><br></br>
-              {details}
+            <div className="activitiesInfoTab">
+              <div className="activityInfo"> {title}: {date} </div>
+              <div className="activityDetails">
+                {details}
+              </div>
             </div>
             <button
               className="deleteBtn"
@@ -84,11 +83,21 @@ class CurrentCategory extends Component {
         <Background />
 
         <div className="card">
+
+          <div className="cardTitle">
+            Activities
+          </div>
+
           <div>{this.renderCategory()}</div>
           {this.renderActivities()}
         </div>
 
         <div className="card">
+
+          <div className="cardTitle">
+            Create Activity
+          </div>
+
           <div className="formBox">
             <form onSubmit={handleSubmit(this.onSubmit)}>
               <div>
