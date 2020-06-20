@@ -1,20 +1,27 @@
 import React, { Component } from "react";
-import Navbar from "../../components/Navbar";
-import UserDash from "../../components/UserDash";
-import Background from "../../components/Background";
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import axios from 'axios';
+import { Dropdown, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import requireAuth from '../../hoc/requireAuth'
-import { getTripById } from './../../actions/trips'
+
+import Navbar from "../../components/Navbar";
+import UserDash from "../../components/UserDash";
+import Background from "../../components/Background";
+import requireAuth from '../../hoc/requireAuth';
+import { getTripById } from './../../actions/trips';
+import { getUserInfo, getFriendByEmail } from './../../actions/user';
+import { GET_TRIP_BY_ID } from '../../actions/types'
 
 
 class CurrentTrip extends Component {
 
+  state = { searchQuery: '' }
+
   componentDidMount = async () => {
     await this.props.getTripById(this.props.match.params.id);
+    await this.props.getUserInfo();
   }
 
   renderTrip = () => {
@@ -77,10 +84,38 @@ class CurrentTrip extends Component {
       </div>
     )
   }
+  renderFriends = () => {
+    return (
+      <div>
+        <br></br>
+        {this.props.currentTrip.users?.map((user, i) => <div key={i}>{user}</div>)}
+      </div>
+    )
+  }
+
+  // handleChange = (e, { searchQuery, value }) =>
+  //   this.setState({ searchQuery, value })
+
+  // handleSearchChange = (e, { searchQuery }) => this.setState({ searchQuery })
+
+  addFriend = async (formValues, dispatch) => {
+    this.props.user.friends.forEach(async (friend) => {
+      if (friend.email === formValues.text) {
+        console.log(friend)
+        const { _id } = this.props.currentTrip
+        const { data } = await axios.put(`/api/trip/${_id}`, { friendId: friend._id }, { headers: { 'authorization': localStorage.getItem('token') } })
+        dispatch({ type: GET_TRIP_BY_ID, payload: data })
+        alert('Friend Added to Trip!')
+      } 
+    })
+  }
+
 
   render() {
-    console.log(this.props.currentTrip)
+    console.log('Trip Info' , this.props.currentTrip)
+    console.log('User Info', this.props.user)
     const { handleSubmit } = this.props;
+    const { searchQuery, value } = this.state
     return (
       <div className="flex">
 
@@ -91,7 +126,79 @@ class CurrentTrip extends Component {
         <div className="card">
           <div>{this.renderTrip()}</div>
           {this.renderCategories()}
+        </div>
+
+        <div className='card'>
+          Participants: <br></br>
+          {this.renderFriends()}
+          {/* <form autoComplete="off" onSubmit={handleSubmit(this.addFriend)}>
+            <Dropdown
+              fluid
+              multiple
+              onChange={this.handleChange}
+              onSearchChange={this.handleSearchChange}
+              placeholder='State'
+              search
+              searchQuery={searchQuery}
+              selection
+              value={value}
+              options={this.props.user.friends?.map(({_id, email}) => {
+                return {
+                  key: _id,
+                  text: email,
+                  value: email,
+                }
+              }) || [{key: 1, text: 'No Friends Yet', value: 'no friends yet'}]}
+            />
+            <Button
+                className="searchBtn"
+                type='submit'
+                onClick={this.findFriend}>
+                Search
+              </Button>
+          </form> */}
+          {/* <Dropdown
+            placeholder='Select Friend'
+            fluid 
+            multiple
+            search
+            selection
+            options={this.props.user.friends?.map(({_id, email}) => {
+              return {
+                key: _id,
+                text: email,
+                value: email,
+              }
+            }) || [{key: 1, text: 'No Friends Yet', value: 'no friends yet'}]}
+          /> */}
+
+          <div className="formBox">
+            <form autoComplete="off" onSubmit={handleSubmit(this.addFriend)}>
+              <div>
+                <Field
+                  placeholder='Friend Email'
+                  name='text'
+                  autoComplete='off'
+                  component={this.renderInput}
+                />
+              </div>
+              <Button
+                className="searchBtn"
+                type='submit'
+                onClick={this.findFriend}>
+                Search
+              </Button>
+            </form>
           </div>
+
+          <div className="card">
+          {/* <div onClick={this.handleAdd} className="displayFriends">
+            Friends: {this.props.friend.email}
+            (click to add)
+          </div> */}
+        </div>
+
+        </div>
 
           <div className="card">
 
@@ -128,11 +235,11 @@ class CurrentTrip extends Component {
 };
 
 function mapStateToProps(state) {
-  return { currentTrip: state.trips.currentTrip }
+  return { currentTrip: state.trips.currentTrip, user: state.user.userData, friend: state.user.friendData }
 }
 
 export default compose(
   reduxForm({ form: 'category' }),
-  connect(mapStateToProps, { getTripById }),
+  connect(mapStateToProps, { getTripById, getUserInfo, getFriendByEmail }),
   requireAuth
 )(CurrentTrip);

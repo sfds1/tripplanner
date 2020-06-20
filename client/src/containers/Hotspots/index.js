@@ -6,7 +6,11 @@ import { compose } from 'redux';
 import requireAuth from './../../hoc/requireAuth'
 import { getUserInfo } from './../../actions/user'
 import Background from "../../components/Background";
+<<<<<<< HEAD
 import { getApi } from '../../yelpApi/getAPI';
+=======
+// import getApi from '../../yelpApi/getAPI';
+>>>>>>> 5d52be35e7bf692b4f9e684e244fbc28cbfc6d7a
 
 class Hotspots extends Component {
 

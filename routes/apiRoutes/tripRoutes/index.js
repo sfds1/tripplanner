@@ -22,8 +22,8 @@ router.route('/')
 router.route('/:tripId')
   .get(requireAuth, getTripById)
   .put(requireAuth, addToTrip)
-  .put(requireAuth, deleteFromTrip)
-  .put(requireAuth, editTrip)
+  // .put(requireAuth, deleteFromTrip)
+  // .put(requireAuth, editTrip)
   .delete(requireAuth, deleteTrip);
 
 

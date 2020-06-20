@@ -15,7 +15,7 @@ module.exports = {
   getTripById: async (req, res) => {
     const { tripId } = req.params;
     try {
-      const trip = await Trip.findById(tripId).populate('categories');
+      const trip = await Trip.findById(tripId).populate('categories', 'users');
       return res.status(200).json(trip);
     } catch (e) {
       return res.status(403).json({ e });
@@ -27,18 +27,21 @@ module.exports = {
       return res.status(400).json({ error: 'You must provide text' });
     }
     try {
-      const newTrip = await new Trip({
+      const newTrip = await Trip.create({
         title,
         city,
         startDate,
         endDate,
         location,
-        users: [{ admin: true, user: req.user._id }],
-      }).save();
+        users: [],
+      });
+      newTrip.users.push(req.user._id);
+      await newTrip.save();
       req.user.trips.push({ admin: true, newTrip });
       await req.user.save();
       return res.status(200).json(newTrip);
     } catch (e) {
+      console.log(e)
       return res.status(403).json({ e });
     }
   },
@@ -46,12 +49,13 @@ module.exports = {
     const { tripId } = req.params;
     const { friendId } = req.body;
     try {
-      const tripToAddTo = await Trip.findByIdAndUpdate(tripId,
-        { $push: { users: { friendId } } },
-        { new: true }).save();
+      const tripToAddTo = await Trip.findById(tripId);
+      tripToAddTo.users.push(friendId);
+      await tripToAddTo.save();
       await User.findByIdAndUpdate(friendId, { $push: { trips: tripId } });
       return res.json(tripToAddTo);
     } catch (e) {
+      console.log(e)
       return res.status(403).json({ e });
     }
   },
