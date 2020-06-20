@@ -106,13 +106,13 @@ class CurrentTrip extends Component {
         const { data } = await axios.put(`/api/trip/${_id}`, { friendId: friend._id }, { headers: { 'authorization': localStorage.getItem('token') } })
         dispatch({ type: GET_TRIP_BY_ID, payload: data })
         alert('Friend Added to Trip!')
-      } 
+      }
     })
   }
 
 
   render() {
-    console.log('Trip Info' , this.props.currentTrip)
+    console.log('Trip Info', this.props.currentTrip)
     console.log('User Info', this.props.user)
     const { handleSubmit } = this.props;
     const { searchQuery, value } = this.state
@@ -124,14 +124,19 @@ class CurrentTrip extends Component {
         <Background />
 
         <div className="card">
+
+          <div className="cardTitle">
+            Current Trip
+            </div>
+
           <div>{this.renderTrip()}</div>
           {this.renderCategories()}
         </div>
 
-        <div className='card'>
-          Participants: <br></br>
-          {this.renderFriends()}
-          {/* <form autoComplete="off" onSubmit={handleSubmit(this.addFriend)}>
+    <div className='card'>
+      Participants: <br></br>
+      {this.renderFriends()}
+      {/* <form autoComplete="off" onSubmit={handleSubmit(this.addFriend)}>
             <Dropdown
               fluid
               multiple
@@ -157,7 +162,7 @@ class CurrentTrip extends Component {
                 Search
               </Button>
           </form> */}
-          {/* <Dropdown
+      {/* <Dropdown
             placeholder='Select Friend'
             fluid 
             multiple
@@ -172,62 +177,65 @@ class CurrentTrip extends Component {
             }) || [{key: 1, text: 'No Friends Yet', value: 'no friends yet'}]}
           /> */}
 
-          <div className="formBox">
-            <form autoComplete="off" onSubmit={handleSubmit(this.addFriend)}>
-              <div>
-                <Field
-                  placeholder='Friend Email'
-                  name='text'
-                  autoComplete='off'
-                  component={this.renderInput}
-                />
-              </div>
-              <Button
-                className="searchBtn"
-                type='submit'
-                onClick={this.findFriend}>
-                Search
-              </Button>
-            </form>
+      <div className="formBox">
+        <form autoComplete="off" onSubmit={handleSubmit(this.addFriend)}>
+          <div>
+            <Field
+              placeholder='Friend Email'
+              name='text'
+              autoComplete='off'
+              component={this.renderInput}
+            />
           </div>
+          <Button
+            className="searchBtn"
+            type='submit'
+            onClick={this.findFriend}>
+            Search
+              </Button>
+        </form>
+      </div>
 
-          <div className="card">
-          {/* <div onClick={this.handleAdd} className="displayFriends">
+      <div className="card">
+        {/* <div onClick={this.handleAdd} className="displayFriends">
             Friends: {this.props.friend.email}
             (click to add)
           </div> */}
-        </div>
+      </div>
 
-        </div>
+    </div>
 
-          <div className="card">
+      <div className="card">
+        <div className="cardTitle">
+          Create Category
+            </div>
 
-          <div className="formBox">
+        <div className="formBox">
 
-            <form onSubmit={handleSubmit(this.onSubmit)}>
+          <form onSubmit={handleSubmit(this.onSubmit)}>
 
-              <div>
-                <Field
-                  placeholder="Category Name"
-                  name='title'
-                  label="Name of the Category"
-                  component={this.renderInput}
-                />
-              </div>
+            <div>
+              <Field
+                placeholder="Category Name"
+                name='title'
+                label="Name of the Category"
+                component={this.renderInput}
+              />
+            </div>
 
 
-              <button
-                className="searchBtn"
-                type="submit"
-                onClick={() => window.location.reload(false)}>
-                Create
+            <button
+              className="searchBtn"
+              type="submit"
+              onClick={() => window.location.reload(false)}>
+              Create
               </button>
 
-            </form>
+          </form>
 
-          </div>
         </div>
       </div>
+      </div >
 
 
     )

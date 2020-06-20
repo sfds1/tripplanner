@@ -54,6 +54,11 @@ class Trips extends Component {
         <Background />
 
         <div className="card">
+
+        <div className="cardTitle">
+            Your Trips
+          </div>
+
           <div>
             {this.renderTrips()}
           </div>
