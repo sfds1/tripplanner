@@ -44,7 +44,6 @@ class CurrentTrip extends Component {
       return <div className="displayFriends"> No Categories Yet </div>
     } else {
       return this.props.currentTrip.categories.map(({ _id, title }) => {
-        console.log(this.props.currentTrip.categories)
         return (
           <div key={_id}>
             <Link to={{ pathname: `/currentCategory/${_id}` }}>
@@ -90,7 +89,7 @@ class CurrentTrip extends Component {
     return (
       <div>
         <br></br>
-        {this.props.currentTrip.users?.map((user, i) => <div key={i}>{user}</div>)}
+        {this.props.currentTrip.users?.map(({_id, email}) => <div key={_id}>{email}</div>)}
       </div>
     )
   }
