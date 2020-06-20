@@ -128,6 +128,11 @@ class CurrentTrip extends Component {
         <div className="card">
 
           <div className="cardTitle">
+            Friends on Trip
+          {this.renderFriends()}
+          </div>
+
+          <div className="cardTitle">
             Current Trip
             </div>
 
@@ -135,79 +140,32 @@ class CurrentTrip extends Component {
           {this.renderCategories()}
         </div>
 
-    <div className='card'>
-      Participants: <br></br>
-      {this.renderFriends()}
-      {/* <form autoComplete="off" onSubmit={handleSubmit(this.addFriend)}>
-            <Dropdown
-              fluid
-              multiple
-              onChange={this.handleChange}
-              onSearchChange={this.handleSearchChange}
-              placeholder='State'
-              search
-              searchQuery={searchQuery}
-              selection
-              value={value}
-              options={this.props.user.friends?.map(({_id, email}) => {
-                return {
-                  key: _id,
-                  text: email,
-                  value: email,
-                }
-              }) || [{key: 1, text: 'No Friends Yet', value: 'no friends yet'}]}
-            />
-            <Button
-                className="searchBtn"
-                type='submit'
-                onClick={this.findFriend}>
-                Search
-              </Button>
-          </form> */}
-      {/* <Dropdown
-            placeholder='Select Friend'
-            fluid 
-            multiple
-            search
-            selection
-            options={this.props.user.friends?.map(({_id, email}) => {
-              return {
-                key: _id,
-                text: email,
-                value: email,
-              }
-            }) || [{key: 1, text: 'No Friends Yet', value: 'no friends yet'}]}
-          /> */}
-
-      <div className="formBox">
-        <form autoComplete="off" onSubmit={handleSubmit(this.addFriend)}>
-          <div>
-            <Field
-              placeholder='Friend Email'
-              name='text'
-              autoComplete='off'
-              component={this.renderInput}
-            />
-          </div>
-          <Button
-            className="searchBtn"
-            type='submit'
-            onClick={this.findFriend}>
-            Search
-              </Button>
-        </form>
-      </div>
-
-      {/* <div className="card">
-        <div onClick={this.handleAdd} className="displayFriends">
-            Friends: {this.props.friend.email}
-            (click to add)
-          </div>
-      </div> */}
-
-    </div>
 
       <div className="card">
+
+        <div className="cardTitle">
+          Add Friend to Trip
+            </div>
+
+        <div className="formBox">
+          <form autoComplete="off" onSubmit={handleSubmit(this.addFriend)}>
+            <div>
+              <Field
+                placeholder='Friend Email'
+                name='text'
+                autoComplete='off'
+                component={this.renderInput}
+              />
+            </div>
+            <Button
+              className="searchBtn"
+              type='submit'
+              onClick={this.findFriend}>
+              Add Friend
+              </Button>
+          </form>
+        </div>
+
         <div className="cardTitle">
           Create Category
             </div>
@@ -237,8 +195,8 @@ class CurrentTrip extends Component {
 
         </div>
       </div>
-      </div >
 
+</div>
 
     )
   }

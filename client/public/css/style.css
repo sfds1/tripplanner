@@ -36,7 +36,7 @@ html, body {
   border-radius: 25px;
   padding-top: 10px;
   width: 600px;
-  height: 600px;
+  height: 650px;
   padding-bottom: 40px;
   margin-bottom: 170px;
   margin-top: 120px;
@@ -228,6 +228,7 @@ form {
   text-align: center;
   margin: auto;
   margin-top: 30px;
+  margin-bottom: 30px;
   font-size: 25px;
   font-family: 'Montserrat', sans-serif;
   background-color: #ea8948;
@@ -344,6 +345,18 @@ form {
   font-size: 30px;
   margin: auto;
   margin-top: 40px;
+}
+.displaySearched {
+  display: inline-block;
+  margin-top: 50px;
+  border-radius: 15px;
+  background-color: rgb(110, 110, 110);
+  height: 30px;
+  width: 400px;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  font-size: 25px;
 }
 .displayInfo {
   font-size: 25px;
