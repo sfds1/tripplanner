@@ -17,7 +17,7 @@ import { GET_TRIP_BY_ID } from '../../actions/types'
 
 class CurrentTrip extends Component {
 
-  state = { searchQuery: '' }
+  // state = { searchQuery: '' }
 
   componentDidMount = async () => {
     await this.props.getTripById(this.props.match.params.id);
@@ -25,7 +25,7 @@ class CurrentTrip extends Component {
   }
 
   renderTrip = () => {
-    const { title, city, startDate, endDate } = this.props.currentTrip;
+    const { title, city, users, startDate, endDate } = this.props.currentTrip;
     return (
       <div>
         <div className="tripMainTab"> {title} </div>
@@ -44,6 +44,7 @@ class CurrentTrip extends Component {
       return <div className="displayFriends"> No Categories Yet </div>
     } else {
       return this.props.currentTrip.categories.map(({ _id, title }) => {
+        console.log(this.props.currentTrip.categories)
         return (
           <div key={_id}>
             <Link to={{ pathname: `/currentCategory/${_id}` }}>
@@ -64,6 +65,7 @@ class CurrentTrip extends Component {
   onSubmit = async (formValues, dispatch) => {
     const { _id } = this.props.currentTrip;
     try {
+      console.log('hit')
       const { data } = await axios.post(`/api/category/all/${_id}`, formValues, { headers: { 'authorization': localStorage.getItem('token') } });
       console.log(data);
       // dispatch({ type: GET_USER_TRIPS, payload: data });
@@ -115,7 +117,7 @@ class CurrentTrip extends Component {
     console.log('Trip Info', this.props.currentTrip)
     console.log('User Info', this.props.user)
     const { handleSubmit } = this.props;
-    const { searchQuery, value } = this.state
+    // const { searchQuery, value } = this.state
     return (
       <div className="flex">
 
@@ -196,12 +198,12 @@ class CurrentTrip extends Component {
         </form>
       </div>
 
-      <div className="card">
-        {/* <div onClick={this.handleAdd} className="displayFriends">
+      {/* <div className="card">
+        <div onClick={this.handleAdd} className="displayFriends">
             Friends: {this.props.friend.email}
             (click to add)
-          </div> */}
-      </div>
+          </div>
+      </div> */}
 
     </div>
 

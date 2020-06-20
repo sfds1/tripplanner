@@ -71,7 +71,7 @@ class NewTrip extends Component {
               </div>
 
               {/* Location */}
-              <form onSubmit={handleSubmit(this.onSubmit)} />
+              {/* <form onSubmit={handleSubmit(this.onSubmit)} /> */}
               <div>
                 <Field
                   placeholder="Location"
