@@ -76,9 +76,8 @@ class FindFriend extends Component {
             Searched Friends
           </div>
 
-          <div onClick={this.handleAdd} className="displayInfo">
-            Friends: {this.props.friend.email}
-            (click to add)
+          <div onClick={this.handleAdd} className="displaySearched">
+            {this.props.friend.email}
           </div>
         </div>
 
