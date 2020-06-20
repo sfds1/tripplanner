@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar';
 import UserDash from "../../components/UserDash";
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { Form, Button } from 'semantic-ui-react';
 import requireAuth from './../../hoc/requireAuth'
 import { getUserInfo } from './../../actions/user'
 import Background from "../../components/Background";
@@ -10,15 +11,15 @@ import Background from "../../components/Background";
 
 class Hotspots extends Component {
 
-  state = { 
+  state = {
     businesses: []
   }
-  
+
   componentDidMount() {
     this.props.getUserInfo();
-    
-    }
-  
+
+  }
+
 
 
   render() {
@@ -32,23 +33,26 @@ class Hotspots extends Component {
         <Background />
 
         <div className="card">
-          <div className="displayFriends">
+          <div className="cardTitle">
+            Search Hotspots
+          </div>
 
 
-          
-            <div className ="citySearch">
+          <div className="formBox">
             <label htmlFor="search"></label>
-            <input type="text" placeholder="Put City in here!"></input>
+            <input type="text" placeholder="City Name"></input>
 
-            </div>
-              Yelp Info
-            <div>
-             
-              </div>
+            <Button
+              className="searchBtn"
+              type='submit'
+              onClick={this.findFriend}>
+              Search
+              </Button>
 
           </div>
 
         </div>
+
       </div>
 
     )

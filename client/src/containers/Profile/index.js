@@ -14,7 +14,7 @@ class Profile extends Component {
   }
 
   renderFriends = () => {
-    return this.props.user.friends?.map(({email, _id}) => {
+    return this.props.user.friends?.map(({ email, _id }) => {
       return (
         <div key={_id}>
           <br></br>
@@ -36,14 +36,20 @@ class Profile extends Component {
         <Background />
 
         <div className="card" style={{ display: 'inline-block' }}>
-          <div className="displayFriends">
-            Email: {<br></br>} {this.props.user.email}
+          <div className="cardTitle">
+            Profile
+            </div>
+          <div className="displayInfo">
+            {this.props.user.email}
           </div>
         </div>
 
         <div className="card" style={{ display: 'inline-block' }}>
-          <div className="displayFriends">
-            Friends: {<br></br>} {this.renderFriends()}
+          <div className="cardTitle">
+            Friends List
+          </div>
+          <div className="displayInfo">
+            {this.renderFriends()}
           </div>
         </div>
 

@@ -53,6 +53,10 @@ class SignUp extends Component {
 
         <div className="card">
 
+        <div className="cardTitle">
+            Sign Up
+          </div>
+
           <div className="formBox">
             <Form onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>

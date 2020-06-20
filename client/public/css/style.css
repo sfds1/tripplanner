@@ -259,15 +259,16 @@ form {
 
 /* Trips page buttons*/
 .tripBtn {
+  margin: auto;
   margin-top: 30px;
   border-radius: 15px;
   background-color: #ea8948;
   height: 100%;
   width: 400px;
   text-align: center;
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  font-size: 40px;
+  color: white;
+  padding: 15px;
+  font-size: 30px;
 }
 .categoryBtn {
   display: inline-block;
@@ -279,7 +280,7 @@ form {
   text-align: center;
   color: white;
   padding: 15px;
-  font-size: 25px;
+  font-size: 22px;
 }
 .tripBtn:hover, .categoryBtn:hover {
   transform: scale(1.05)
@@ -297,19 +298,44 @@ form {
   text-align: center;
   color: white;
   padding: 15px;
-  font-size: 35px;
+  font-size: 30px;
 }
 .tripInfoTab {
   margin: auto;
   margin-top: 20px;
   border-radius: 15px;
-  background-color: #ffd791;
+  background-color: #ffffff;
   height: 100%;
   width: 500px;
   text-align: center;
   color: rgb(50, 50, 50);
   padding: 10px;
-  font-size: 25px;
+  font-size: 22px;
+}
+
+.activitiesMainTab {
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 15px;
+  background-color: rgb(110, 110, 110);
+  height: 100%;
+  width: 500px;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  font-size: 30px;
+}
+.activitiesInfoTab {
+  display: inline-block;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 400px;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  font-size: 22px;
 }
 
 
@@ -319,7 +345,30 @@ form {
   margin: auto;
   margin-top: 40px;
 }
-
+.displayInfo {
+  font-size: 25px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #ea8948;
+}
+.cardTitle {
+  font-size: 40px;
+  margin: auto;
+  margin-top: 40px;
+}
+.activityInfo {
+  font-size: 25px;
+  margin: auto;
+  margin-top: 15px;
+  color: #ea8948;
+}
+.activityDetails {
+  font-size: 20px;
+  margin: auto;
+  margin-top: 15px;
+  color: rgb(50, 50, 50);
+}
 
 
 /* Removing outline affect on buttons */
@@ -355,7 +404,7 @@ select:-webkit-autofill:focus {
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 13px;
-  height: 20px;
+  height: 13px;
   left: 0;
 }
 ::-webkit-scrollbar-track {
