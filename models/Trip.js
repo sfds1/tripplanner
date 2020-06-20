@@ -7,9 +7,8 @@ const TripSchema = new Schema({
     type: String,
     required: true,
   },
-  city : { 
+  city: {
     type: String,
-    required: true,
   },
   startDate: {
     type: Date,
@@ -25,11 +24,8 @@ const TripSchema = new Schema({
     ref: 'Category',
   }],
   users: [{
-    admin: false,
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-    },
+    type: Schema.Types.ObjectId,
+    ref: 'User',
   }],
 });
 
