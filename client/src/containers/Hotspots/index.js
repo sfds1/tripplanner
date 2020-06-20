@@ -6,22 +6,25 @@ import { compose } from 'redux';
 import requireAuth from './../../hoc/requireAuth'
 import { getUserInfo } from './../../actions/user'
 import Background from "../../components/Background";
-import getApi from '../../yelpApi/getAPI';
+import { getApi } from '../../yelpApi/getAPI';
 
 class Hotspots extends Component {
 
   state = { 
-    businesses: []
-  }
+    tours: [],
+    city : "",
+  };
   
   componentDidMount() {
     this.props.getUserInfo();
-    
-    }
+  }
+
+  handleCity = (e) => { 
+    const { value } = e.target;
+    this.setState({ city: value });
+  };
   
-
-
-  render() {
+    render() {
     console.log('userdata:', this.props.user)
     return (
 
@@ -38,7 +41,14 @@ class Hotspots extends Component {
           
             <div className ="citySearch">
             <label htmlFor="search"></label>
-            <input type="text" placeholder="Put City in here!"></input>
+
+              <input type="text" 
+              placeholder="Put City in here!"
+              id = "city"
+              className ="formBox"
+              onChange = {this.handleCity}
+              value = {this.state.city}>
+              </input>
 
             </div>
               Yelp Info
@@ -54,7 +64,6 @@ class Hotspots extends Component {
     )
   }
 }
-
 
 function mapStateToProps(state) {
   return { user: state.user.userData }
