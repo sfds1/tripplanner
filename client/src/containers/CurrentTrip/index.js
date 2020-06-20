@@ -17,7 +17,7 @@ import { GET_TRIP_BY_ID } from '../../actions/types'
 
 class CurrentTrip extends Component {
 
-  state = { searchQuery: '' }
+  // state = { searchQuery: '' }
 
   componentDidMount = async () => {
     await this.props.getTripById(this.props.match.params.id);
@@ -115,7 +115,7 @@ class CurrentTrip extends Component {
     console.log('Trip Info' , this.props.currentTrip)
     console.log('User Info', this.props.user)
     const { handleSubmit } = this.props;
-    const { searchQuery, value } = this.state
+    // const { searchQuery, value } = this.state
     return (
       <div className="flex">
 
