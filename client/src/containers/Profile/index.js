@@ -17,7 +17,6 @@ class Profile extends Component {
     return this.props.user.friends?.map(({ email, _id }) => {
       return (
         <div key={_id}>
-          <br></br>
           <div>{email}</div>
         </div>
       )
