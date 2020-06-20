@@ -15,7 +15,7 @@ module.exports = {
   getTripById: async (req, res) => {
     const { tripId } = req.params;
     try {
-      const trip = await Trip.findById(tripId).populate('categories');
+      const trip = await Trip.findById(tripId).populate('categories').populate('users');
       return res.status(200).json(trip);
     } catch (e) {
       return res.status(403).json({ e });
