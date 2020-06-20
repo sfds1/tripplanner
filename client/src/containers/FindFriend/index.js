@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { Form, Button } from 'semantic-ui-react';
-
 import Navbar from "../../components/Navbar";
 import UserDash from "../../components/UserDash";
-
 import requireAuth from './../../hoc/requireAuth'
 import { getFriendByEmail } from './../../actions/user'
 import axios from "axios";
+import Background from "../../components/Background";
 
 
 class FindFriend extends Component {
@@ -40,15 +39,13 @@ class FindFriend extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div>
+      <div className="flex">
 
         <Navbar />
         <UserDash />
-
-        <div className="tripHeader">Find Friends</div>
+        <Background />
 
         <div className="card">
-
           <div className="formBox">
             <form autocomplete="off" onSubmit={handleSubmit(this.onSubmit)}>
               <div>
@@ -63,18 +60,18 @@ class FindFriend extends Component {
                 type='submit'
                 onClick={this.findFriend}>
                 Search
-          </Button>
+              </Button>
             </form>
           </div>
+        </div>
 
-
+        <div className="card">
           <div onClick={this.handleAdd} className="displayFriends">
             Friends: {this.props.friend.email}
-          (click to add)
+            (click to add)
+          </div>
         </div>
 
-
-        </div>
       </div>
 
     )

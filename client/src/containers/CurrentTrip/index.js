@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
 import UserDash from "../../components/UserDash";
-
+import Background from "../../components/Background";
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import axios from 'axios';
-
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-
 import requireAuth from '../../hoc/requireAuth'
 import { getTripById } from './../../actions/trips'
 
@@ -24,10 +22,7 @@ class CurrentTrip extends Component {
     return (
       <div>
         <div className="tripMainTab"> {title} </div>
-        <div className="tripInfoTab"> {city} </div>
-        <div className="tripInfoTab"> {users.length} Participants </div>
-        <div className="tripInfoTab"> Start: {startDate} </div>
-        <div className="tripInfoTab"> End: {endDate} </div>
+        <div className="tripInfoTab"> {city}: {startDate} - {endDate}</div>
       </div>
     )
   }
@@ -51,7 +46,7 @@ class CurrentTrip extends Component {
               className="deleteBtn"
               type="submit"
               onClick={() => this.handleDelete(_id)}>
-              X
+              <img className="deleteIcon" src="../../../images/trash.png" alt="" />
             </button>
           </div>
         )
@@ -87,16 +82,18 @@ class CurrentTrip extends Component {
     console.log(this.props.currentTrip)
     const { handleSubmit } = this.props;
     return (
-      <div>
+      <div className="flex">
 
         <Navbar />
         <UserDash />
-
-        <div className="tripHeader">Current Trip</div>
+        <Background />
 
         <div className="card">
           <div>{this.renderTrip()}</div>
           {this.renderCategories()}
+          </div>
+
+          <div className="card">
 
           <div className="formBox">
 
@@ -110,6 +107,7 @@ class CurrentTrip extends Component {
                   component={this.renderInput}
                 />
               </div>
+
 
               <button
                 className="searchBtn"

@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
-
+import UserDash from "../../components/UserDash";
 import { Field, reduxForm } from 'redux-form';
 import axios from 'axios';
-
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-
 import requireAuth from '../../hoc/requireAuth'
 import { getCategoryById } from '../../actions/categories'
+import Background from "../../components/Background";
 
 
 class CurrentCategory extends Component {
@@ -29,20 +28,22 @@ class CurrentCategory extends Component {
     if (!this.props.currentCategory || this.props.currentCategory.activities.length === 0) {
       return <div className="displayFriends"> No Activities Yet </div>
     } else {
-      return this.props.currentCategory.activities.map(({ _id, title, date }) => {
+      return this.props.currentCategory.activities.map(({ _id, title, details, date }) => {
         return (
           <div key={_id}>
             <div className="categoryBtn">
               {title}
-              <br></br>
-              {date}
-              </div>
+              {/* <br></br>
+              {date} */}
+              <br></br><br></br>
+              {details}
+            </div>
             <button
               className="deleteBtn"
               type="submit"
               onClick={() => this.handleDelete(_id)}>
-              X
-              </button>
+              <img className="deleteIcon" src="../../../images/trash.png" alt="" />
+            </button>
           </div>
         )
       })
@@ -76,16 +77,18 @@ class CurrentCategory extends Component {
     console.log(this.props.currentCategory)
     const { handleSubmit } = this.props;
     return (
-      <div>
+      <div className="flex">
 
         <Navbar />
-
-        <div className="tripHeader">Current Category</div>
+        <UserDash />
+        <Background />
 
         <div className="card">
           <div>{this.renderCategory()}</div>
           {this.renderActivities()}
+        </div>
 
+        <div className="card">
           <div className="formBox">
             <form onSubmit={handleSubmit(this.onSubmit)}>
               <div>

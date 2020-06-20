@@ -9,7 +9,15 @@ module.exports = {
       return res.status(403).json({ e });
     }
   },
-  getUserData: (req, res) => res.json(req.user),
+  // getUserData: (req, res) => res.json(req.user),
+  getUserData: async (req, res) => {
+    try {
+      const user = await User.findById(req.user._id).populate('friends');
+      return res.status(200).json(user);
+    } catch (e) {
+      return res.status(403).json({ e });
+    }
+  },
 
   addFriend: (req, res) => {
     const friend = req.body;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navbar from '../../components/Navbar';
-
 import { Field, reduxForm } from 'redux-form';
 import { Form, Segment, Button } from 'semantic-ui-react';
 import { email, length, required } from 'redux-form-validators';
@@ -13,7 +12,7 @@ class SignUp extends Component {
       const { data } = await axios.post('/api/auth/signup', formValues);
       localStorage.setItem('token', data.token);
       dispatch({ type: AUTH_USER, payload: data.token });
-      this.props.history.push('/dashboard');
+      this.props.history.push('/profile');
     } catch (e) {
       dispatch({ type: AUTH_USER_ERROR, payload: e });
     }
@@ -37,7 +36,7 @@ class SignUp extends Component {
         {...input}
         error={meta.touched && meta.error}
         type='password'
-        placeholder='password'
+        placeholder='Password'
         autoComplete='off'
       />
     );
@@ -51,8 +50,6 @@ class SignUp extends Component {
       <div>
 
         <Navbar />
-
-        <div className="tripHeader">Sign Up</div>
 
         <div className="card">
 

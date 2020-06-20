@@ -2,11 +2,30 @@
 html, body {
   background-color: #232323;
   font-family: 'Montserrat', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -2;
 }
 .container {
   display: flex;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
+}
+.background {
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  height: 90vh;
+  width: 95vw;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
 }
 
 
@@ -16,29 +35,25 @@ html, body {
   text-align: center;
   border-radius: 25px;
   padding-top: 10px;
-  width: 800px;
-  margin: auto;
+  width: 600px;
+  height: 600px;
   padding-bottom: 40px;
   margin-bottom: 170px;
-}
-/* Trip page tabs */
-.tripHeader {
   margin-top: 120px;
-  margin-bottom: 30px;
-  background-color: rgb(235, 235, 235);
-  height: 60px;
-  width: 780px;
-  text-align: center;
-  color: rgb(50, 50, 50);
-  padding: 10px;
-  font-size: 60px;
-  border-radius: 25px;
-  font-weight: bolder;
+  margin-left: 80px;
+  margin-right: 80px;
+  overflow: scroll;
+  overflow-x: hidden;
 }
+.flex {
+  display:flex;
+  flex-direction:row;
+}
+
 
 /* Top navbar styling fixed on each page */
 .navbar {
-  width: 900px;
+  width: 700px;
   height: 90px;
   margin: auto;
   position: fixed;
@@ -64,7 +79,7 @@ html, body {
   border-radius: 20px;
   text-align: center;
   padding: 10px;
-  margin-right: 220px;
+  margin-right: 120px;
   margin-top: 10px;
 }
 .refreshBtn {
@@ -75,7 +90,7 @@ html, body {
   border-radius: 20px;
   text-align: center;
   padding: 10px;
-  margin-left: 220px;
+  margin-left: 120px;
   margin-top: 10px;
 }
 .backBtn:hover, .refreshBtn:hover {
@@ -87,8 +102,8 @@ html, body {
 
 /* Fixed small user dash navbar */
 .userDash {
-  width: 900px;
-  height: 140px;
+  width: 700px;
+  height: 130px;
   margin: auto;
   position: fixed;
   bottom: 0;
@@ -104,13 +119,13 @@ html, body {
   margin-left: 20px;
   margin-right: 20px;
   background-color: rgb(50, 50, 50);
-  height: 110px;
-  width: 110px;
+  height: 100px;
+  width: 100px;
   border-radius: 25px;
   text-align: center;
 }
 .userDashIcons {
-  width: 80px;
+  width: 70px;
   margin-top: 13px;
 }
 .userDashBtn:hover {
@@ -123,23 +138,30 @@ html, body {
   font-size: 100px;
   text-align: center;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 120px;
+  margin-bottom: 120px;
   color: #ffffff;
 }
 .mainPage{
   margin: auto;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 .logo {
   width: 400px;
   text-align: center;
   margin: auto;
+  position: fixed;
+  z-index: -1;
+  top: 60px;
+  left: 0;
+  right: 0;
+  opacity: 10%;
 }
 
 
 /* Dashboard page buttons */
 .userBtn{
-  margin-top: 100px;
+  margin-top: 120px;
   margin-left: 50px;
   margin-right: 50px;
   background: #1cac93;
@@ -158,15 +180,15 @@ html, body {
   color: white;
 }
 .userIcons {
-  width: 150px;
-  margin-top: 15px;
+  width: 160px;
+  margin-top: 20px;
 }
 
 
 /* All form and input customization */
 .formBox {
-  width: 380px;
-  font-size: 20px;
+  width: 450px;
+  font-size: 25px;
   border-radius: 10px;
   text-align: center;
   margin: auto;
@@ -174,16 +196,19 @@ html, body {
   margin-bottom: 20px;
 }
 .formBox input {
-  height: 60px;
+  height: 100%;
+  width: 400px;
   border-radius: 20px;
-  font-size: 30px;
+  font-size: 25px;
+  margin: auto;
   margin-top: 30px;
   font-family: 'Montserrat', sans-serif;
-  background-color: rgb(50, 50, 50, 0);
+  background-color: rgb(255, 255, 255);
   color: rgb(50, 50, 50);
   text-align: center;
-  border: 8px solid;
+  border: 6px solid;
   border-color: #1cac93;
+  padding: 10px;
 }
 ::placeholder {
   color: rgb(150, 150, 150);
@@ -197,30 +222,35 @@ form {
 /* Sign in/out and search button styling */
 .signBtn, .searchBtn {
   border-radius: 15px;
-  height: 70px;
-  width: 396px;
+  padding: 15px;
+  height: 100%;
+  width: 432px;
   text-align: center;
   margin: auto;
   margin-top: 30px;
-  margin-bottom: 30px;
-  font-size: 30px;
+  font-size: 25px;
   font-family: 'Montserrat', sans-serif;
   background-color: #ea8948;
-  color: rgb(50, 50, 50);
+  color: rgb(255, 255, 255);
   border: none;
 }
 .deleteBtn {
+  display: inline-block;
   border-radius: 15px;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   text-align: center;
   margin: auto;
   margin-left: 20px;
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
-  background-color: #ea8948;
-  color: rgb(50, 50, 50);
+  background-color: rgb(50, 50, 50);
   border: none;
+}
+.deleteIcon {
+  width: 25px;
+  padding-top: 5px;
+  margin: auto;
 }
 .searchBtn:hover, .signBtn:hover, .deleteBtn:hover {
   transform: scale(1.05)
@@ -233,21 +263,22 @@ form {
   border-radius: 15px;
   background-color: #ea8948;
   height: 100%;
-  width: 700px;
+  width: 400px;
   text-align: center;
   color: rgb(255, 255, 255);
   padding: 10px;
   font-size: 40px;
 }
 .categoryBtn {
+  display: inline-block;
   margin-top: 20px;
   border-radius: 15px;
-  background-color: rgb(114, 114, 114);
+  background-color: rgb(110, 110, 110);
   height: 100%;
-  width: 500px;
+  width: 400px;
   text-align: center;
   color: white;
-  padding: 10px;
+  padding: 15px;
   font-size: 25px;
 }
 .tripBtn:hover, .categoryBtn:hover {
@@ -258,27 +289,27 @@ form {
 /* Current Trip title and city */
 .tripMainTab {
   margin: auto;
-  margin-top: 50px;
-  border-radius: 15px;
-  background-color: rgb(50, 50, 50);
-  height: 100%;
-  width: 700px;
-  text-align: center;
-  color: white;
-  padding: 10px;
-  font-size: 40px;
-}
-.tripInfoTab {
-  margin: auto;
   margin-top: 30px;
   border-radius: 15px;
   background-color: #ea8948;
   height: 100%;
-  width: 600px;
+  width: 500px;
   text-align: center;
   color: white;
+  padding: 15px;
+  font-size: 35px;
+}
+.tripInfoTab {
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: #ffd791;
+  height: 100%;
+  width: 500px;
+  text-align: center;
+  color: rgb(50, 50, 50);
   padding: 10px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 
@@ -287,7 +318,6 @@ form {
   font-size: 30px;
   margin: auto;
   margin-top: 40px;
-  display: block;
 }
 
 
@@ -311,6 +341,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
+/* Input background box and blue autofill hide */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus textarea:-webkit-autofill,
@@ -319,5 +350,19 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   font-family: 'Montserrat', sans-serif;
-  -webkit-box-shadow: 0 0 0px 1000px rgb(235, 235, 235) inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset !important;
+}
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 13px;
+  height: 20px;
+  left: 0;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  height: 30px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(50, 50, 50);
+  border-radius: 10px;
 }

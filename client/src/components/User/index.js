@@ -10,14 +10,14 @@ class User extends Component {
 
         <div style={{ display: 'inline-block' }}>
           <Link to="/signin" className="userBtn">
-            SI
+          <img className="userIcons" src="../../../images/signin.png" alt="" />
         </Link>
           <div className="userBtnTitle"> Sign In </div>
         </div>
 
         <div style={{ display: 'inline-block' }}>
           <Link to="/signup" className="userBtn">
-            SU
+          <img className="userIcons" src="../../../images/signup.png" alt="" />
         </Link>
           <div className="userBtnTitle"> Sign Up </div>
         </div>
