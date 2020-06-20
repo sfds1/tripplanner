@@ -158,7 +158,7 @@ class CurrentTrip extends Component {
             <Button
               className="searchBtn"
               type='submit'
-              onClick={this.findFriend}>
+              onClick={this.findFriend, () => window.location.reload(false)}>
               Add Friend
               </Button>
           </form>
