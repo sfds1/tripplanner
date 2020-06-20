@@ -88,7 +88,6 @@ class CurrentTrip extends Component {
   renderFriends = () => {
     return (
       <div>
-        <br></br>
         {this.props.currentTrip.users?.map(({_id, email}) => <div key={_id}>{email}</div>)}
       </div>
     )
@@ -128,8 +127,8 @@ class CurrentTrip extends Component {
 
           <div className="cardTitle">
             Friends on Trip
-          {this.renderFriends()}
           </div>
+          <div className="displayInfo">{this.renderFriends()}</div>
 
           <div className="cardTitle">
             Current Trip
