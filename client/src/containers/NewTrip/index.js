@@ -7,17 +7,14 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import requireAuth from '../../hoc/requireAuth'
 import { getUserTrips } from './../../actions/trips'
-import fetchFlights from '../../flightAPI/flightAPI'
+
 import Background from "../../components/Background";
 
 class NewTrip extends Component {
 
   componentDidMount() {
     this.props.getUserTrips();
-
-    fetchFlights("SanJose", "Chicago", "2020-06-15", "2020-06-16")
-
-  }
+   }
 
   onSubmit = async (formValues, dispatch) => {
     try {
